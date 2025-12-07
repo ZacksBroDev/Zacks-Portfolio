@@ -1,0 +1,29 @@
+.side-line {
+    height: 8px;
+    width: 8px;
+    margin: 0 10px;
+    background-color: #FF651C;
+    transform: rotate(45deg);
+}
+
+.middle-line {
+    width: 180px;
+    height: 4px;
+    background-color: #FF651C;
+    border-radius: 4px;
+    position: relative;
+}
+
+.inner-circle {
+    height: 10px;
+    width: 10px;
+    background-color: #212121;
+    transform: rotate(45deg);
+    border: 1px solid #FF651C;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin: auto;
+    margin-left: -5px;
+}

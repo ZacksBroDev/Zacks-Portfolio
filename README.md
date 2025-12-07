@@ -8,14 +8,12 @@
 
 <br/>
 
-  * [Configuration and Setup](#configuration-and-setup)
-  * [Key Features](#key-features)
-  * [Technologies used](#technologies-used)
-  * [📸 Screenshots](#screenshots)
-  * [Author](#author)
-  * [License](#license)
-
-
+- [Configuration and Setup](#configuration-and-setup)
+- [Key Features](#key-features)
+- [Technologies used](#technologies-used)
+- [📸 Screenshots](#screenshots)
+- [Author](#author)
+- [License](#license)
 
 ## Configuration and Setup
 
@@ -27,22 +25,21 @@ In the first terminal
 
 ```
 $ cd berthutapea-portfolio
-$ npm install 
+$ npm install
 $ npm run start
 ```
 
-##  Key Features
+## Key Features
 
 - Home
 - About
-- Project 
+- Project
 - Contact
 - Blog
 
-
 <br/>
 
-##  Technologies used
+## Technologies used
 
 This project was created using the following technologies.
 
@@ -50,24 +47,33 @@ This project was created using the following technologies.
 - [react-router-dom](https://www.npmjs.com/package/react-router-dom) - To handle routing
 - [Css](https://developer.mozilla.org/en-US/docs/Web/CSS) - For User Interface
 - [React icons](https://react-icons.github.io/react-icons/) -
- Small library that helps you add icons  to your react apps.
- - [Tailwind CSS](https://tailwindcss.com/) - For User Interface
-- [React Hooks  ](https://reactjs.org/docs/hooks-intro.html) - For managing and centralizing application state
-- [daisyUI  ](https://daisyui.com/docs/changelog/) - For User Interface
+  Small library that helps you add icons to your react apps.
+- [Tailwind CSS](https://tailwindcss.com/) - For User Interface
+- [React Hooks ](https://reactjs.org/docs/hooks-intro.html) - For managing and centralizing application state
+- [daisyUI ](https://daisyui.com/docs/changelog/) - For User Interface
 
- ##  Screenshots 
- 
+## Screenshots
+
 ![img-1](https://github.com/berthutapea/berthutapea-portfolio/assets/111676859/825edab2-ff3b-4c24-8a99-7bc2527bb758)
----- -
+
+---
+
 ![img-2](https://github.com/berthutapea/berthutapea-portfolio/assets/111676859/b5ed935c-cc42-4d23-a2c7-765e90f198f1)
---- - 
+
+---
+
 ![img-3](https://user-images.githubusercontent.com/111676859/235824165-95c1e6b6-f3df-426e-816a-8c80a91d352d.png)
---- - 
+
+---
+
 ![img-4](https://user-images.githubusercontent.com/111676859/235824167-224063d0-624a-4aaf-b27f-f4aa8b668511.png)
---- - 
+
+---
+
 ![img-5](https://user-images.githubusercontent.com/111676859/235824168-a1028607-de4c-466a-8527-c05eedb1d6b0.png)
 
 ## Author
+
 - Portfolio: [berthutapea](https://berthutapea.vercel.app/)
 - Github: [berthutapea](https://github.com/berthutapea)
 - Sponsor: [berthutapea](https://saweria.co/berthutapea)

@@ -63,7 +63,9 @@ export default function Navbar() {
       <div className="w-full flex items-center justify-between px-3 md:px-24 py-3">
         <div>
           <Link to="/">
-            <h1 className="text-2xl text-primary font-lobster">Zackary Brown</h1>
+            <h1 className="text-2xl text-primary font-lobster">
+              Zackary Brown
+            </h1>
           </Link>
         </div>
         <div>
@@ -144,7 +146,8 @@ export default function Navbar() {
               </ul>
               <div className="text-center">
                 <p className="text-neutral">
-                  &copy; Copyright 2025, Zackary Brown. Template by Gilbert Hutapea.
+                  &copy; Copyright 2025, Zackary Brown. Template by Gilbert
+                  Hutapea.
                 </p>
               </div>
             </Drawer>

@@ -25,10 +25,11 @@ const About = () => {
               className="p-12 w-70 h-70 transform translate-y-[-12%]"
               title="Gilbert Hutapea"
             />
-
           </div>
           <div>
-            <h1 className="text-4xl font-semibold mb-4 text-center translate-y-[-380%] sm:translate-y-[-0%] sm:text-3xl sm:mb-2 md:text-left">Gilbert Hutapea</h1>
+            <h1 className="text-4xl font-semibold mb-4 text-center translate-y-[-380%] sm:translate-y-[-0%] sm:text-3xl sm:mb-2 md:text-left">
+              Gilbert Hutapea
+            </h1>
             <div className="my-8">
               <TypeAnimation
                 className="text-2xl text-primary font-bold text-center translate-y-[-500%] sm:translate-y-[-0%]  sm:text-2xl sm:mb-2 md:text-left"
@@ -39,7 +40,7 @@ const About = () => {
                   "A Full-stack Developer",
                   2000,
                   "A Front-end Developer",
-                  2000
+                  2000,
                 ]}
                 wrapper="div"
                 repeat={Infinity}
@@ -66,17 +67,20 @@ const About = () => {
             </p>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-4 mt-4 text-center translate-y-[-50%] sm:translate-y-[-0%] sm:mb-2 md:text-left ">
               <h2 className="font-medium">
-                <span className="mr-2 text-primary">Name : </span>Gilbert Hutapea
+                <span className="mr-2 text-primary">Name : </span>Gilbert
+                Hutapea
               </h2>
               <h2 className="font-medium">
-                <span className="mr-2 text-primary">Phone : </span>+62 823 6148 4992
+                <span className="mr-2 text-primary">Phone : </span>+62 823 6148
+                4992
               </h2>
               <h2 className="font-medium">
                 <span className="mr-2 text-primary">Email : </span>
                 berthutapea@gmail.com
               </h2>
               <h2 className="font-medium">
-                <span className="mr-2 text-primary">Address : </span>Karawang, Jawa Barat, Indonesia
+                <span className="mr-2 text-primary">Address : </span>Karawang,
+                Jawa Barat, Indonesia
               </h2>
               <a
                 href="https://drive.google.com/file/d/19rnbukAhf9oPhadMhsvI3xnWF6FIYeMT/view?usp=share_link"
@@ -90,7 +94,6 @@ const About = () => {
                     </span>
                   </button>
                 </div>
-
               </a>
             </div>
           </div>

@@ -20,8 +20,12 @@ const Banner = () => {
   return (
     <div className="parent min-h-[100vh] flex flex-col-reverse lg:flex-row items-center justify-between">
       <div>
-        <h2 className="text-neutral text-xl font-medium translate-y-[-90%] sm:translate-y-[-0%]">Hello, I'm</h2>
-        <h1 className="text-4xl font-semibold mb-0 translate-y-[-50%] sm:translate-y-[-0%]">Zackary Brown</h1>
+        <h2 className="text-neutral text-xl font-medium translate-y-[-90%] sm:translate-y-[-0%]">
+          Hello, I'm
+        </h2>
+        <h1 className="text-4xl font-semibold mb-0 translate-y-[-50%] sm:translate-y-[-0%]">
+          Zackary Brown
+        </h1>
         <div className="my-4">
           <TypeAnimation
             className="text-2xl text-primary font-bold translate-y-[-80%] sm:translate-y-[-0%]"

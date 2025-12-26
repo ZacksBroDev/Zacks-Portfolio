@@ -1,10 +1,8 @@
 <h1 align ="center" >Zackary Brown | Portfolio</h1>
 
 <h5  align ="center"> 
-[Your description here]
+Full-stack MERN Developer Portfolio showcasing web applications built with React, Node.js, Express, and MongoDB.
 </h5>
-
-> **Note:** This portfolio is forked from [berthutapea-portfolio](https://github.com/berthutapea/berthutapea-portfolio) by [Gilbert Hutapea](https://github.com/berthutapea). Original design and template credit goes to Gilbert Hutapea.
 
 <br/>
 
@@ -23,10 +21,9 @@ In order to run this project locally, simply fork and clone the repository or do
 
 In the first terminal
 
-```
-$ cd berthutapea-portfolio
+```bash
 $ npm install
-$ npm run start
+$ npm start
 ```
 
 ## Key Features
@@ -52,39 +49,17 @@ This project was created using the following technologies.
 - [React Hooks ](https://reactjs.org/docs/hooks-intro.html) - For managing and centralizing application state
 - [daisyUI ](https://daisyui.com/docs/changelog/) - For User Interface
 
-## Screenshots
-
-![img-1](https://github.com/berthutapea/berthutapea-portfolio/assets/111676859/825edab2-ff3b-4c24-8a99-7bc2527bb758)
-
----
-
-![img-2](https://github.com/berthutapea/berthutapea-portfolio/assets/111676859/b5ed935c-cc42-4d23-a2c7-765e90f198f1)
-
----
-
-![img-3](https://user-images.githubusercontent.com/111676859/235824165-95c1e6b6-f3df-426e-816a-8c80a91d352d.png)
-
----
-
-![img-4](https://user-images.githubusercontent.com/111676859/235824167-224063d0-624a-4aaf-b27f-f4aa8b668511.png)
-
----
-
-![img-5](https://user-images.githubusercontent.com/111676859/235824168-a1028607-de4c-466a-8527-c05eedb1d6b0.png)
-
 ## Author
 
-- Portfolio: [berthutapea](https://berthutapea.vercel.app/)
-- Github: [berthutapea](https://github.com/berthutapea)
-- Sponsor: [berthutapea](https://saweria.co/berthutapea)
-- Linkedin: [gilberthutapea](https://www.linkedin.com/in/gilberthutapea/)
-- Email: [berthutapea@gmail.com](mailto:berthutapea@gmail.com)
+- Github: [ZacksBroDev](https://github.com/ZacksBroDev)
+- Linkedin: [zackaryzbrown](https://www.linkedin.com/in/zackaryzbrown)
+- Email: [zackaryzbrown@gmail.com](mailto:zackaryzbrown@gmail.com)
 
 ## License
 
 MIT License
 
-Copyright (c) 2022 Gilbert Hutapea
+Copyright (c) 2025 Zackary Brown
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

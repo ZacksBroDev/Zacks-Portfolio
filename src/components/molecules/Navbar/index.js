@@ -146,8 +146,7 @@ export default function Navbar() {
               </ul>
               <div className="text-center">
                 <p className="text-neutral">
-                  &copy; Copyright 2025, Zackary Brown. Template by Gilbert
-                  Hutapea.
+                  &copy; Copyright 2025, Zackary Brown.
                 </p>
               </div>
             </Drawer>

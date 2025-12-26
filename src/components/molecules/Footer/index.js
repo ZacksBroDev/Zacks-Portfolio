@@ -21,7 +21,7 @@ const Footer = () => {
           </a>
           <a
             className="inline-block mx-2"
-            href="www.linkedin.com/in/zackaryzbrown"
+            href="https://www.linkedin.com/in/zackaryzbrown"
             target="_blank"
             rel="Linkedin Zackary Brown"
           >
@@ -44,18 +44,18 @@ const Footer = () => {
             <FaInstagram className="text-2xl text-pink-500" />
           </a>
         </div>
-        
+
         <div className="w-full h-[2px] bg-gray-600"></div>
         <div className="flex flex-col md:flex-row items-center justify-between mt-4">
           <p>&copy; Copyright All Rights Reserved {year.getFullYear()}</p>
           <p>
-            Template by{" Gilbert Hutapea "}
+            Built by{" "}
             <a
-              href="www.linkedin.com/in/zackaryzbrown"
+              href="https://www.linkedin.com/in/zackaryzbrown"
               className="text-primary hover:underline"
               target="blank"
             >
-               Zackary Brown
+              Zackary Brown
             </a>
           </p>
         </div>

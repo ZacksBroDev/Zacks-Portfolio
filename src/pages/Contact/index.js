@@ -25,14 +25,15 @@ const Contact = () => {
     e.preventDefault();
     emailjs
       .sendForm(
-        "service_6xnj05v",
-        "template_exk29f8",
+        "service_6c0815l",
+        "template_h2hlo5p",
         form.current,
-        "kLfLk-o6LKj-L9c77"
+        "EMwkxIv3aeYn-64Um"
       )
       .then(
         (result) => {
-          console.log(result.text);
+          console.log("SUCCESS!", result.text);
+          e.target.reset();
           Swal.fire({
             position: "top-end",
             icon: "success",
@@ -43,10 +44,15 @@ const Contact = () => {
           navigate("/");
         },
         (error) => {
-          console.log(error.text);
+          console.error("FAILED...", error);
+          Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "Failed to send message: " + error.text,
+            showConfirmButton: true,
+          });
         }
       );
-    e.target.reset();
   };
   return (
     <div className="parent py-24 mt-4">
@@ -120,7 +126,9 @@ const Contact = () => {
           </div>
           <div className="flex items-center my-6">
             <MdEmail className="text-3xl mr-8 hover:text-primary cursor-pointer duration-300"></MdEmail>
-            <h3 className="font-medium text-primary">zackaryzbrown@gmail.com</h3>
+            <h3 className="font-medium text-primary">
+              zackaryzbrown@gmail.com
+            </h3>
           </div>
           <div className="flex items-center my-6">
             <FaLocationArrow className="text-2xl mr-8 hover:text-primary cursor-pointer duration-300"></FaLocationArrow>

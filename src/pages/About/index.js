@@ -19,10 +19,11 @@ const About = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
           <div>
             <img
-              src=" "
+              src="https://res.cloudinary.com/djnazqqgr/image/upload/v1766927361/IMG_7605_hkqdbu.jpg"
               alt="Zackary Brown"
               className="p-12 w-70 h-70 transform translate-y-[-12%]"
               title="Zackary Brown"
+              style={{ borderRadius: "25%" }}
             />
           </div>
           <div>
@@ -44,18 +45,12 @@ const About = () => {
               experience in full-stack web development, I specialize in using
               React.js, Next js, Typescript, MongoDB, Express.js, and Node.js to
               create scalable and robust web applications.
-              {/* Dedicated Front-end developer. Capable to solve working problems.
-              Passionate about learning & development to reach the target. Eager
-              to tackle more complex problems and continue to find ways to
-              maximize user efficiency. */}
             </p>
             <br />
             <p className="text-neutral font-medium text-center translate-y-[-150%] sm:translate-y-[-0%] sm:mb-2 md:text-left">
               My passion for solving complex problems and creating innovative
               solutions drives me to stay up-to-date with the latest
               technologies and trends in the industry.
-              {/* My next mission is how to become a Mern stack Developer. I would
-              love to build some Giant Website which will shine myself. */}
             </p>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-4 mt-4 text-center translate-y-[-50%] sm:translate-y-[-0%] sm:mb-2 md:text-left ">
               <h2 className="font-medium">
@@ -74,7 +69,7 @@ const About = () => {
                 Denver, Colorado
               </h2>
               <a
-                href="https://drive.google.com/file/d/19rnbukAhf9oPhadMhsvI3xnWF6FIYeMT/view?usp=share_link"
+                href="https://drive.google.com/file/d/1ssoIt-timIk2ekfRjIv6vP_0NUa6iBXB/view?usp=sharing"
                 target="blank"
               >
                 <div className="flex justify-center md:justify-start translate-y-[60%] sm:translate-y-[-0%]">

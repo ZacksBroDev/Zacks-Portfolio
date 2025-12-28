@@ -15,7 +15,7 @@ const Footer = () => {
             className="inline-block mx-2"
             href="https://x.com/bmxbro01"
             target="_blank"
-            rel="X Zackary Brown"
+            rel="noreferrer"
           >
             <FaTwitter className="text-2xl text-blue-600" />
           </a>
@@ -23,7 +23,7 @@ const Footer = () => {
             className="inline-block mx-2"
             href="https://www.linkedin.com/in/zackaryzbrown"
             target="_blank"
-            rel="Linkedin Zackary Brown"
+            rel="noreferrer"
           >
             <FaLinkedin className="text-2xl text-blue-400" />
           </a>
@@ -31,7 +31,7 @@ const Footer = () => {
             className="inline-block mx-2"
             href="https://github.com/ZacksBroDev"
             target="_blank"
-            rel="Github Link"
+            rel="noreferrer"
           >
             <FaGithub className="text-2xl text-black" />
           </a>
@@ -39,7 +39,7 @@ const Footer = () => {
             className="inline-block mx-2"
             href="https://www.instagram.com/zackarybroski/"
             target="_blank"
-            rel="Instagram Link"
+            rel="noreferrer"
           >
             <FaInstagram className="text-2xl text-pink-500" />
           </a>

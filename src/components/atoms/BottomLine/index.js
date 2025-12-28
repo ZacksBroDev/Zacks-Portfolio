@@ -1,4 +1,3 @@
-import React from "react";
 import "./BottomLine.css";
 
 const BottomLine = () => {
@@ -6,3 +5,4 @@ const BottomLine = () => {
 };
 
 export default BottomLine;
+

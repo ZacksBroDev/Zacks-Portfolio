@@ -3,7 +3,7 @@ import TypeAnimation from "react-type-animation";
 import "./About.css";
 import "../../components/atoms/PrimaryBtn/PrimaryBtn.css";
 import "../shared/Shared.css";
-import { BottomLine, MySkill, Education } from "../../components";
+import { MySkill, Education } from "../../components";
 import { FaDownload } from "react-icons/fa";
 
 const About = () => {

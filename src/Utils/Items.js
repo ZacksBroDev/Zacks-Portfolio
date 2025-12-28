@@ -15,15 +15,14 @@ const Items = [
   {
     id: 1,
     mainImage:
-      "https://res.cloudinary.com/du541igfh/image/upload/v1682699543/Blog%20Portfolio%20Gilbert/Project/msnproduction/img-1_rmh7lp.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766930285/MALIKBEATSLOGO_l8vmxs.jpg",
     img: [
-      "https://res.cloudinary.com/du541igfh/image/upload/v1682699543/Blog%20Portfolio%20Gilbert/Project/msnproduction/img-1_rmh7lp.png",
-      "https://res.cloudinary.com/du541igfh/image/upload/v1682699548/Blog%20Portfolio%20Gilbert/Project/msnproduction/img-2_p3chy5.png",
-      "https://res.cloudinary.com/du541igfh/image/upload/v1682699706/Blog%20Portfolio%20Gilbert/Project/msnproduction/img-3_uhtwa6.png",
-      "https://res.cloudinary.com/du541igfh/image/upload/v1682699802/Blog%20Portfolio%20Gilbert/Project/msnproduction/img-4_p404nm.png",
-      "https://res.cloudinary.com/du541igfh/image/upload/v1682700118/Blog%20Portfolio%20Gilbert/Project/msnproduction/img-5_mksj57.png",
-      "https://res.cloudinary.com/du541igfh/image/upload/v1682700238/Blog%20Portfolio%20Gilbert/Project/msnproduction/img-6_jfndeo.png",
-      "https://res.cloudinary.com/du541igfh/image/upload/v1682700374/Blog%20Portfolio%20Gilbert/Project/msnproduction/img-7_uhh453.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766929014/Screenshot_2025-12-28_at_6.26.53_AM_efyfis.jpg",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766929017/Screenshot_2025-12-28_at_6.27.12_AM_uwgui8.jpg",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766929017/Screenshot_2025-12-28_at_6.27.25_AM_xz1nvc.jpg",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766929013/Screenshot_2025-12-28_at_6.27.00_AM_zcj0re.jpg",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766929017/Screenshot_2025-12-28_at_6.27.25_AM_xz1nvc.jpg",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766929019/Screenshot_2025-12-28_at_6.27.58_AM_oxc2gf.jpg",
     ],
     features: [
       "User registration and login",
@@ -64,19 +63,13 @@ const Items = [
   {
     id: 2,
     mainImage:
-      "https://res.cloudinary.com/du541igfh/image/upload/v1682701479/Blog%20Portfolio%20Gilbert/Project/mern-blog/img-4_kmaye9.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766928347/Screenshot_2025-12-28_at_6.17.39_AM_m0gojh.jpg",
     img: [
-      "https://res.cloudinary.com/du541igfh/image/upload/v1682701456/Blog%20Portfolio%20Gilbert/Project/mern-blog/img-1_jppjdj.png",
-      "https://res.cloudinary.com/du541igfh/image/upload/v1682701463/Blog%20Portfolio%20Gilbert/Project/mern-blog/img-2_ptr4lg.png",
-      "https://res.cloudinary.com/du541igfh/image/upload/v1682701467/Blog%20Portfolio%20Gilbert/Project/mern-blog/img-3_gjle1m.png",
-      "https://res.cloudinary.com/du541igfh/image/upload/v1682701479/Blog%20Portfolio%20Gilbert/Project/mern-blog/img-4_kmaye9.png",
-      "https://res.cloudinary.com/du541igfh/image/upload/v1682701489/Blog%20Portfolio%20Gilbert/Project/mern-blog/img-5_nuhniv.png",
-      "https://res.cloudinary.com/du541igfh/image/upload/v1682701492/Blog%20Portfolio%20Gilbert/Project/mern-blog/img-6_rkvmhd.png",
-      "https://res.cloudinary.com/du541igfh/image/upload/v1682701496/Blog%20Portfolio%20Gilbert/Project/mern-blog/img-7_xjm4pm.png",
-      "https://res.cloudinary.com/du541igfh/image/upload/v1682701499/Blog%20Portfolio%20Gilbert/Project/mern-blog/img-8_dj0qoq.png",
-      "https://res.cloudinary.com/du541igfh/image/upload/v1682701502/Blog%20Portfolio%20Gilbert/Project/mern-blog/img-9_d1h5a0.png",
-      "https://res.cloudinary.com/du541igfh/image/upload/v1682701505/Blog%20Portfolio%20Gilbert/Project/mern-blog/img-10_kbbkd4.png",
-      "https://res.cloudinary.com/du541igfh/image/upload/v1682701506/Blog%20Portfolio%20Gilbert/Project/mern-blog/img-11_mmspfs.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766928346/Screenshot_2025-12-28_at_6.17.49_AM_eqizvj.jpg",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766928348/Screenshot_2025-12-28_at_6.18.02_AM_npaqpn.jpg",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766928350/Screenshot_2025-12-28_at_6.18.16_AM_jyauzi.jpg",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766928350/Screenshot_2025-12-28_at_6.18.55_AM_jxoh5i.jpg",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766928345/Screenshot_2025-12-28_at_6.18.27_AM_elxxmf.jpg",
     ],
     features: [
       "User registration and login",
@@ -113,18 +106,15 @@ const Items = [
   {
     id: 3,
     mainImage:
-      "https://res.cloudinary.com/du541igfh/image/upload/v1684312778/Blog%20Portfolio%20Gilbert/Project/mern-movie/img-1_lcun2a.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766929724/Screenshot_2025-12-28_at_6.41.54_AM_ipzkrs.jpg",
     img: [
-      "https://res.cloudinary.com/du541igfh/image/upload/v1684312778/Blog%20Portfolio%20Gilbert/Project/mern-movie/img-1_lcun2a.png",
-      "https://res.cloudinary.com/du541igfh/image/upload/v1684312777/Blog%20Portfolio%20Gilbert/Project/mern-movie/img-2_ar1fex.png",
-      "https://res.cloudinary.com/du541igfh/image/upload/v1684312780/Blog%20Portfolio%20Gilbert/Project/mern-movie/img-3_qpebgb.png",
-      "https://res.cloudinary.com/du541igfh/image/upload/v1684312777/Blog%20Portfolio%20Gilbert/Project/mern-movie/img-4_yadwtg.png",
-      "https://res.cloudinary.com/du541igfh/image/upload/v1684312780/Blog%20Portfolio%20Gilbert/Project/mern-movie/img-5_xvx0vj.png",
-      "https://res.cloudinary.com/du541igfh/image/upload/v1684312773/Blog%20Portfolio%20Gilbert/Project/mern-movie/img-6_aaq4yf.png",
-      "https://res.cloudinary.com/du541igfh/image/upload/v1684312772/Blog%20Portfolio%20Gilbert/Project/mern-movie/img-7_twij3j.png",
-      "https://res.cloudinary.com/du541igfh/image/upload/v1684312773/Blog%20Portfolio%20Gilbert/Project/mern-movie/img-8_njclct.png",
-      "https://res.cloudinary.com/du541igfh/image/upload/v1684312774/Blog%20Portfolio%20Gilbert/Project/mern-movie/img-9_zg1jfe.png",
-      "https://res.cloudinary.com/du541igfh/image/upload/v1684312772/Blog%20Portfolio%20Gilbert/Project/mern-movie/img-10_yag7bj.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766929724/Screenshot_2025-12-28_at_6.41.54_AM_ipzkrs.jpg",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766962061/Screenshot_2025-12-28_at_3.45.34_PM_htnmee.jpg",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766929725/Screenshot_2025-12-28_at_6.42.16_AM_ez1yba.jpg",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766929727/Screenshot_2025-12-28_at_6.42.23_AM_xcfafx.jpg",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766929729/Screenshot_2025-12-28_at_6.42.31_AM_ldn3e2.jpg",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766929730/Screenshot_2025-12-28_at_6.42.38_AM_o3vznk.jpg",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766929732/Screenshot_2025-12-28_at_6.42.46_AM_qzprcu.jpg",
     ],
     features: [
       "User registration and login",

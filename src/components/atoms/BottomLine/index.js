@@ -5,4 +5,3 @@ const BottomLine = () => {
 };
 
 export default BottomLine;
-

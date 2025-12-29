@@ -11,7 +11,6 @@ const About = () => {
     <div className="parent pt-16 my-16">
       <div className="">
         <div className="mb-10">
-          <h3 className="text-neutral text-center">Something About Myself</h3>
           <h1 className="text-4xl font-semibold drop-shadow-md text-center">
             About <span className="text-primary">Me</span>
           </h1>
@@ -57,8 +56,7 @@ const About = () => {
                 <span className="mr-2 text-primary">Name : </span>Zackary Brown
               </h2>
               <h2 className="font-medium">
-                <span className="mr-2 text-primary">Phone : </span>+1 505 358
-                8607
+                <span className="mr-2 text-primary">Phone : </span>+1 505 358 8607
               </h2>
               <h2 className="font-medium">
                 <span className="mr-2 text-primary">Email : </span>

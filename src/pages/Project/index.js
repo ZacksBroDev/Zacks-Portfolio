@@ -3,7 +3,6 @@ import Items from "../../Utils/Items";
 import { Link, useLocation } from "react-router-dom";
 import { FiArrowRight } from "react-icons/fi";
 import "./Project.css";
-import { BottomLine } from "../../components";
 
 const Project = () => {
   const [items, setItems] = useState(Items);
@@ -35,7 +34,6 @@ const Project = () => {
             <h1 className="text-4xl font-semibold text-center">
               Featured <span className="text-primary">Projects</span>
             </h1>
-            <BottomLine />
           </div>
         </div>
 

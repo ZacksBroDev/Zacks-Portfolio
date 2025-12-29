@@ -1,53 +1,58 @@
 import React from "react";
-import { BiPalette } from "react-icons/bi";
-import { DiAtom } from "react-icons/di";
-import { FiServer } from "react-icons/fi";
+import {
+  FiCode,
+  FiCloud,
+  FiTool,
+  FiZap,
+  FiDatabase,
+  FiFileText,
+} from "react-icons/fi";
 import { BottomLine } from "../../../components";
 
 const Service = () => {
   const services = [
     {
       id: 1,
-      title: "Front End Development",
-      icon: <DiAtom />,
+      title: "Full Stack Engineer",
+      icon: <FiCode />,
       description:
-        "As a Front-end developer, I would love to develope any front-end application using React and its libraries.",
-    },
-    {
-      id: 2,
-      title: "MERN Development",
-      icon: <FiServer />,
-      description:
-        "I am very familiar with NodeJS, Express JS, and MongoDB/Mongoose. So I can build full-stack application with MERN.",
+        "Design and build end-to-end web applications from system architecture and backend APIs to responsive, high-performance frontends. Deliver production-ready software built to scale.",
     },
     {
       id: 3,
-      title: "Web Design",
-      icon: <BiPalette />,
+      title: "Cloud Deployment & Maintenance",
+      icon: <FiCloud />,
       description:
-        "I also provide Fully Responsive Static Website Design with HTML, CSS, Bootstrap, Tailwind.",
+        "Deploy and maintain applications in production environments, handling hosting setup, CI/CD pipelines, monitoring, updates, and security to keep systems fast, reliable, and online.",
     },
-    // {
-    //   id: 4,
-    //   title: "Web Management",
-    //   icon: <FiServer />,
-    //   description:
-    //     "I will manage any kinds of website. Data Management, Component management, Service management and so on.",
-    // },
-    // {
-    //   id: 5,
-    //   title: "Backend Development",
-    //   icon: <FiServer />,
-    //   description:
-    //   "MVC Architectural Backend Development with Mongoose (Schema, Model etc) to manage the server easily.",
-    // },
-    // {
-    //   id: 6,
-    //   title: "Database Management",
-    //   icon: <FiServer />,
-    //   description:
-    //     "Connecting Web Database to the server. Fixing All kinds of issue with related to database with database advanced operators.",
-    // },
+    {
+      id: 4,
+      title: "Web Management & Ongoing Support",
+      icon: <FiTool />,
+      description:
+        "Provide ongoing support for existing websites and applications, including updates, content changes, feature improvements, and technical upkeep—so products stay stable and current.",
+    },
+    {
+      id: 5,
+      title: "Performance & Optimization",
+      icon: <FiZap />,
+      description:
+        "Audit and optimize applications to improve load times, reliability, and user experience through performance tuning, image optimization, Core Web Vitals, and targeted refactoring.",
+    },
+    {
+      id: 6,
+      title: "Backend & API Engineering",
+      icon: <FiDatabase />,
+      description:
+        "Build secure, scalable backends and APIs that power real business logic, including authentication, databases, integrations, and clean data flows with security and maintainability prioritized.",
+    },
+    {
+      id: 7,
+      title: "Technical Consulting & Audits",
+      icon: <FiFileText />,
+      description:
+        "Advise teams and founders through architecture reviews, code audits, and MVP planning—helping reduce risk, avoid technical debt, and make informed technical decisions.",
+    },
   ];
   return (
     <div
@@ -55,11 +60,15 @@ const Service = () => {
       // style={{ backgroundColor: "#313131" }}
     >
       <div className="mb-12">
-        <h3 className="text-center text-neutral">What I Provide</h3>
         <h1 className="text-4xl font-semibold text-center">
           My <span className="text-primary">Services</span>
         </h1>
         <BottomLine />
+        <p className="text-center text-neutral mt-4 max-w-2xl mx-auto">
+          I build, optimize, and maintain production-ready web applications for
+          real businesses. From architecture and APIs to deployment and
+          long-term support.
+        </p>
       </div>
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -83,6 +92,20 @@ const Service = () => {
             <p className="text-neutral">{service.description}</p>
           </div>
         ))}
+      </div>
+
+      <div className="mt-16 text-center">
+        <div className="max-w-3xl mx-auto p-8 bg-[#313131] rounded-lg shadow-lg">
+          <p className="text-xl text-neutral mb-6">
+            Have a project, problem, or idea you want to ship?
+          </p>
+          <a
+            href="/contact"
+            className="primary-button inline-flex items-center justify-center text-sm px-6 py-2 w-[200px] mx-auto"
+          >
+            <span>Let's talk.</span>
+          </a>
+        </div>
       </div>
     </div>
   );

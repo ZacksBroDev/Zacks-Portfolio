@@ -28,9 +28,6 @@ const Project = () => {
       <div className="parent py-12">
         <div>
           <div className="mb-12">
-            <h3 className="text-neutral text-center">
-              Some of my recent Projects
-            </h3>
             <h1 className="text-4xl font-semibold text-center">
               Featured <span className="text-primary">Projects</span>
             </h1>

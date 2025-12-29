@@ -5,7 +5,6 @@ import "./Testimonial.css";
 import Reviews from "../../../Utils/Reviews";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { BottomLine } from "../../../components";
 
 const Testimonial = () => {
   const settings = {
@@ -37,11 +36,9 @@ const Testimonial = () => {
   return (
     <div className="py-12 parent">
       <div className="mb-8">
-        <h3 className="text-center text-neutral">What My Clients Say</h3>
         <h1 className="text-4xl font-semibold text-center text-primary">
           Testimonials
         </h1>
-        <BottomLine />
       </div>
 
       <div>
@@ -61,11 +58,6 @@ const Testimonial = () => {
                     <h2 className="font-medium leading-none">{review.name}</h2>
                     <p className="text-xs leading-none">{review.bio}</p>
                   </div>
-                  <img
-                    src={review.img}
-                    alt="client"
-                    className="inline-block w-16 h-16 -mt-10 bg-white rounded-full"
-                  />
                 </div>
               </div>
             </div>

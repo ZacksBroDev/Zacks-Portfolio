@@ -19,35 +19,35 @@ const Service = () => {
         "Design and build end-to-end web applications from system architecture and backend APIs to responsive, high-performance frontends. Deliver production-ready software built to scale.",
     },
     {
-      id: 3,
+      id: 2,
       title: "Cloud Deployment & Maintenance",
       icon: <FiCloud />,
       description:
         "Deploy and maintain applications in production environments, handling hosting setup, CI/CD pipelines, monitoring, updates, and security to keep systems fast, reliable, and online.",
     },
     {
-      id: 4,
+      id: 3,
       title: "Web Management & Ongoing Support",
       icon: <FiTool />,
       description:
-        "Provide ongoing support for existing websites and applications, including updates, content changes, feature improvements, and technical upkeep—so products stay stable and current.",
+        "Provide ongoing support for existing websites and applications, including updates, content changes, feature improvements, and technical upkeup—so products stay stable and current.",
     },
     {
-      id: 5,
+      id: 4,
       title: "Performance & Optimization",
       icon: <FiZap />,
       description:
         "Audit and optimize applications to improve load times, reliability, and user experience through performance tuning, image optimization, Core Web Vitals, and targeted refactoring.",
     },
     {
-      id: 6,
+      id: 5,
       title: "Backend & API Engineering",
       icon: <FiDatabase />,
       description:
         "Build secure, scalable backends and APIs that power real business logic, including authentication, databases, integrations, and clean data flows with security and maintainability prioritized.",
     },
     {
-      id: 7,
+      id: 6,
       title: "Technical Consulting & Audits",
       icon: <FiFileText />,
       description:

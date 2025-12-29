@@ -15,7 +15,7 @@ const Education = () => {
     <div className="pt-24">
       <div className="mb-12">
         <h1 className="text-4xl font-semibold drop-shadow-md text-center">
-          My <span className="text-primary">Qualification</span>
+          My <span className="text-primary">Qualifications</span>
         </h1>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-8">
@@ -32,12 +32,13 @@ const Education = () => {
           <div className="p-6 bg-[#313131] bg-opacity-90 backdrop-blur-lg rounded-lg shadow-lg inline-block w-[300px] hover:shadow-primary duration-300 cursor-pointer">
             <div className="text-right mb-4">
               <h3 className="text-2xl font-semibold text-primary">
-                Diploma in CSE
+                Western State Colorado University
               </h3>
-              <p className="text-sm text-neutral font-semibold">2021 - 2025</p>
+              <p className="text-sm text-neutral font-semibold">2022 - 2024</p>
             </div>
-            <p className="text-sm text-neutral text-justify">
-              I am currently studying in Informatics Engineering (4th Semester) at Sekolah Tinggi Teknologi Informatika Sony Sugema, Karawang, Jawa Barat, Indonesia
+            <p className="text-sm text-neutral">
+              I built foundation in software development,
+              problem-solving, and computer systems.
             </p>
           </div>
 
@@ -45,25 +46,23 @@ const Education = () => {
           <div className="my-6 md:my-4 md:ml-[200px] p-6 bg-[#313131] bg-opacity-90 backdrop-blur-lg rounded-lg shadow-lg w-[300px] hover:shadow-primary duration-300 cursor-pointer">
             <div className="text-right mb-4">
               <h3 className="text-2xl font-semibold text-primary">
-                React Developer
+                Sandra Day O'Conner High School
               </h3>
-              <p className="text-sm text-neutral font-semibold">2023</p>
+              <p className="text-sm text-neutral font-semibold">2018 - 2022</p>
             </div>
-            <p className="text-sm text-neutral text-justify">
-              I have successfully completed the <b>React Web Developer Expert</b>{" "}
-              from Dicoding.
+            <p className="text-sm text-neutral">
+              Completed AP Computer Science coursework in High School.
             </p>
           </div>
 
           {/* SSC */}
           <div className="p-6 bg-[#313131] bg-opacity-90 backdrop-blur-lg rounded-lg shadow-lg w-[300px] hover:shadow-primary duration-300 cursor-pointer">
             <div className="text-right mb-4">
-              <h3 className="text-2xl font-semibold text-primary">SSC</h3>
-              <p className="text-sm text-neutral font-semibold">2018 - 2021</p>
+              <h3 className="text-2xl font-semibold text-primary">RoboRAVE</h3>
+              <p className="text-sm text-neutral font-semibold">2017</p>
             </div>
-            <p className="text-sm text-neutral text-justify">
-              I have passed the Senior Secondary Certificate (SSC) with the
-              highest result <b>GPA - 88</b>
+            <p className="text-sm text-neutral">
+              Second Place, Regional RoboRAVE Robotics Competition
             </p>
           </div>
         </div>

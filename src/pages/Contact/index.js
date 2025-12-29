@@ -15,7 +15,6 @@ import { MdEmail, MdSend } from "react-icons/md";
 import emailjs from "@emailjs/browser";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-import { BottomLine } from "../../components";
 
 const Contact = () => {
   const navigate = useNavigate();
@@ -57,11 +56,9 @@ const Contact = () => {
   return (
     <div className="parent py-24 mt-4">
       <div>
-        <h3 className="text-neutral text-center">Feel Free To Contact Me</h3>
         <h1 className="text-4xl font-semibold drop-shadow-md text-center">
           Get In <span className="text-primary">Touch</span>
         </h1>
-        <BottomLine />
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
         <div>
@@ -114,7 +111,7 @@ const Contact = () => {
             </button>
           </form>
         </div>
-        <div>
+        <div className="mx-auto md:ml-64">
           <h2 className="text-2xl font-medium">Contact Info</h2>
           <div className="flex items-center my-6">
             <FaUserAlt className="text-2xl mr-8 hover:text-primary cursor-pointer duration-300"></FaUserAlt>
@@ -136,7 +133,7 @@ const Contact = () => {
             <h3 className="font-medium text-primary">Denver, Colorado</h3>
           </div>
           <div className="mt-8 flex items-center">
-            <h3 className="text-xl text-neutral">Social</h3>
+            <h3 className="text-xl text-neutral">Socials</h3>
             <div className="bg-gray-400 w-10 h-[2px] mx-4"></div>
             <a
               href="https://linkedin.com/in/zackaryzbrown"

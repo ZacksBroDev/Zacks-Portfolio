@@ -17,7 +17,7 @@ const Footer = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <FaTwitter className="text-2xl text-blue-600" />
+            <FaTwitter className="text-3xl text-blue-600" />
           </a>
           <a
             className="inline-block mx-2"
@@ -25,7 +25,7 @@ const Footer = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <FaLinkedin className="text-2xl text-blue-400" />
+            <FaLinkedin className="text-3xl text-blue-400" />
           </a>
           <a
             className="inline-block mx-2"
@@ -33,7 +33,7 @@ const Footer = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <FaGithub className="text-2xl text-black" />
+            <FaGithub className="text-3xl text-black" />
           </a>
           <a
             className="inline-block mx-2"
@@ -41,7 +41,7 @@ const Footer = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <FaInstagram className="text-2xl text-pink-500" />
+            <FaInstagram className="text-3xl text-pink-500" />
           </a>
         </div>
 

@@ -8,41 +8,73 @@ import {
   FaGithub,
   FaAws,
 } from "react-icons/fa";
-import {
-  SiJavascript,
-  SiExpress,
-  SiMongodb,
-} from "react-icons/si";
+import { SiJavascript, SiExpress, SiMongodb } from "react-icons/si";
 import man from "../../../assets/man.json";
 
 const MySkill = () => {
   const frontendSkills = [
-    { title: "HTML5", icon: <FaHtml5 className="text-orange-600" />, hasIcon: true },
-    { title: "CSS3", icon: <FaCss3Alt className="text-blue-400" />, hasIcon: true },
-    { title: "JavaScript (ES6+)", icon: <SiJavascript className="text-yellow-500 rounded" />, hasIcon: true },
-    { title: "React", icon: <FaReact className="text-cyan-400" />, hasIcon: true },
+    {
+      title: "HTML5",
+      icon: <FaHtml5 className="text-orange-600" />,
+      hasIcon: true,
+    },
+    {
+      title: "CSS3",
+      icon: <FaCss3Alt className="text-blue-400" />,
+      hasIcon: true,
+    },
+    {
+      title: "JavaScript (ES6+)",
+      icon: <SiJavascript className="text-yellow-500 rounded" />,
+      hasIcon: true,
+    },
+    {
+      title: "React",
+      icon: <FaReact className="text-cyan-400" />,
+      hasIcon: true,
+    },
     { title: "Responsive Design", hasIcon: false },
     { title: "Component-Based Architecture", hasIcon: false },
   ];
 
   const backendSkills = [
-    { title: "Node.js", icon: <FaNodeJs className="text-green-600" />, hasIcon: true },
-    { title: "Express.js", icon: <SiExpress className="text-neutral" />, hasIcon: true },
+    {
+      title: "Node.js",
+      icon: <FaNodeJs className="text-green-600" />,
+      hasIcon: true,
+    },
+    {
+      title: "Express.js",
+      icon: <SiExpress className="text-neutral" />,
+      hasIcon: true,
+    },
     { title: "REST APIs", hasIcon: false },
     { title: "Authentication (JWT)", hasIcon: false },
     { title: "API Integration", hasIcon: false },
   ];
 
   const databaseSkills = [
-    { title: "MongoDB", icon: <SiMongodb className="text-green-500" />, hasIcon: true },
+    {
+      title: "MongoDB",
+      icon: <SiMongodb className="text-green-500" />,
+      hasIcon: true,
+    },
     { title: "Mongoose", hasIcon: false },
     { title: "Schema Design", hasIcon: false },
     { title: "Data Modeling", hasIcon: false },
   ];
 
   const toolsSkills = [
-    { title: "Git & GitHub", icon: <FaGithub className="text-black" />, hasIcon: true },
-    { title: "AWS", icon: <FaAws className="text-orange-400" />, hasIcon: true },
+    {
+      title: "Git & GitHub",
+      icon: <FaGithub className="text-black" />,
+      hasIcon: true,
+    },
+    {
+      title: "AWS",
+      icon: <FaAws className="text-orange-400" />,
+      hasIcon: true,
+    },
     { title: "Vercel / Netlify", hasIcon: false },
     { title: "CI/CD basics", hasIcon: false },
     { title: "Performance Optimization", hasIcon: false },
@@ -90,18 +122,9 @@ const MySkill = () => {
       </h1>
       <div className="flex flex-col lg:flex-row items-start justify-between gap-8 my-8">
         <div className="flex-1">
-          <SkillCategory
-            title="Frontend Engineering"
-            skills={frontendSkills}
-          />
-          <SkillCategory
-            title="Backend & APIs"
-            skills={backendSkills}
-          />
-          <SkillCategory
-            title="Databases & Data"
-            skills={databaseSkills}
-          />
+          <SkillCategory title="Frontend Engineering" skills={frontendSkills} />
+          <SkillCategory title="Backend & APIs" skills={backendSkills} />
+          <SkillCategory title="Databases & Data" skills={databaseSkills} />
           <SkillCategory
             title="Tools, Deployment & Workflow"
             skills={toolsSkills}

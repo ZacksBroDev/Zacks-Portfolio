@@ -6,6 +6,7 @@ import { PrimaryBtn, SecondaryBtn } from "../../../components";
 import { FaLink, FaCode } from "react-icons/fa";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import placeholderImage from "../../../assets/placeholder.jpg";
+import "./ProjectDetails.css";
 
 const ProjectDetails = () => {
   const { id } = useParams();
@@ -38,27 +39,29 @@ const ProjectDetails = () => {
     <div className="parent py-16">
       <h1 className="text-center text-4xl font-medium mt-8">{item?.title}</h1>
 
-      <Slider {...settings}>
-        {item?.img?.map((image, index) => (
-          <div key={index} className="mt-6">
-            <div
-              className="mx-1 md:mx-4 rounded-lg shadow-xl single-blog cursor-pointer border-2 border-primary flex flex-col justify-between"
-              style={{ backgroundColor: "#313131" }}
-            >
-              {/* <img
+      <div className="project-details-slider">
+        <Slider {...settings}>
+          {item?.img?.map((image, index) => (
+            <div key={index} className="mt-6">
+              <div
+                className="mx-1 md:mx-4 rounded-lg shadow-xl single-blog cursor-pointer border-2 border-primary flex flex-col justify-between"
+                style={{ backgroundColor: "#313131" }}
+              >
+                {/* <img
                 src={image}
                 alt={item?.title}
                 className="inline-block w-full h-64 md:h-72 rounded-lg"
               /> */}
-              <LazyLoadImage
-                placeholderSrc={placeholderImage}
-                src={image}
-                className="project_image object-cover"
-              />
+                <LazyLoadImage
+                  placeholderSrc={placeholderImage}
+                  src={image}
+                  className="project_image object-cover"
+                />
+              </div>
             </div>
-          </div>
-        ))}
-      </Slider>
+          ))}
+        </Slider>
+      </div>
       <p className="text-neutral font-medium mt-10 mb-6">
         <span className="font-semibold text-white text-xl">Description: </span>{" "}
         {item?.description}

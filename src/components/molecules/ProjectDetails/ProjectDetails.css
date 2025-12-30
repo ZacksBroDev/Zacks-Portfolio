@@ -1,0 +1,46 @@
+/* Horizontal scrolling container for project detail images */
+.project-details-slider {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #FF651C #313131;
+    scroll-snap-type: x mandatory;
+}
+
+/* Webkit scrollbar styling */
+.project-details-slider::-webkit-scrollbar {
+    height: 8px;
+}
+
+.project-details-slider::-webkit-scrollbar-track {
+    background: #313131;
+    border-radius: 4px;
+}
+
+.project-details-slider::-webkit-scrollbar-thumb {
+    background: #FF651C;
+    border-radius: 4px;
+}
+
+.project-details-slider::-webkit-scrollbar-thumb:hover {
+    background: #ff7a3d;
+}
+
+/* Image container styling */
+.project-details-slider .slick-list {
+    overflow: visible !important;
+}
+
+.project-details-slider .slick-track {
+    display: flex !important;
+}
+
+.project-details-slider .slick-slide {
+    float: none !important;
+    display: inline-block !important;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}

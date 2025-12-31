@@ -46,14 +46,14 @@ const Testimonial = () => {
           {Reviews.map((review) => (
             <div key={review.id} className="mt-6">
               <div
-                className="mx-4 rounded-lg shadow-xl single-blog cursor-pointer border-2 border-primary pt-6 flex flex-col justify-between h-[300px]"
+                className="mx-4 rounded-lg shadow-xl single-blog cursor-pointer border-2 border-primary pt-6 flex flex-col justify-between min-h-[300px]"
                 style={{ backgroundColor: "#313131" }}
               >
-                <div className="px-6">
+                <div className="px-6 pb-6">
                   <FaQuoteLeft className="mb-4 text-6xl text-primary"></FaQuoteLeft>
                   <h2 className="text-center">{review.description}</h2>
                 </div>
-                <div className="flex justify-end px-6 py-2 mt-12 rounded-b bg-primary">
+                <div className="flex justify-end px-6 py-2 rounded-b bg-primary">
                   <div className="mr-4 text-right text-gray-200">
                     <h2 className="font-medium leading-none">{review.name}</h2>
                     <p className="text-xs leading-none">{review.bio}</p>

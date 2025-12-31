@@ -138,24 +138,44 @@ const Items = [
   {
     id: 4,
     mainImage:
-      "https://res.cloudinary.com/du541igfh/image/upload/v1682772430/Blog%20Portfolio%20Gilbert/Project/mern-penggajian-karyawan/img-2_vsab0u.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1767162303/Screenshot_2025-12-30_at_11.21.50_PM_rfrtgc.png",
     img: [
-      "",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1767162303/Screenshot_2025-12-30_at_11.21.50_PM_rfrtgc.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1767162306/Screenshot_2025-12-30_at_11.22.11_PM_jpfl80.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1767162295/Screenshot_2025-12-30_at_11.22.20_PM_xoa5mz.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1767162297/Screenshot_2025-12-30_at_11.22.49_PM_jnwwml.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1767162302/Screenshot_2025-12-30_at_11.23.11_PM_qiiavu.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1767162300/Screenshot_2025-12-30_at_11.23.25_PM_h1qrhd.png",
     ],
     features: [
-      "Login",
-      "Display data, input salary data",
-      "404 Page and many more",
+      "Upload Documents",
+      "Display Documented Expenses data",
+      "Tracks Expenses and Income Over a Period of Time",
       "Responsive Design",
     ],
-    technologies: ["HTML", "JavaScript", "CSS"],
+    technologies: ["Python"],
     title: "My Personal Accountant",
     description:
       "A web-based personal finance tracker designed to log, categorize, and analyze income and expenses over time. Built with a clean, modern interface, it provides long-term financial visibility, trend tracking, and centralized money management in one easy-to-use system.",
     category: "personal",
-    liveLink: "Coming soon",
     codeLink: "https://github.com/ZacksBroDev/PersonalFinance",
-  }
+  },
+  {
+    id: 5,
+    mainImage:
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1767161121/Screenshot_2025-12-30_at_11.04.37_PM_vmmz3u.png",
+    features: [
+      "Multiplayer",
+      "Score Board",
+      "CRUD for keeping track of progress long term",
+    ],
+    technologies: ["python"],
+    title: "Pong",
+    description:
+      "Play retro style pong game with smooth animations and a live scoreboard",
+    category: "game",
+    codeLink: "https://github.com/ZacksBroDev/PersonalFinance",
+  },
 ];
 
 export default Items;

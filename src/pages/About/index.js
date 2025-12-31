@@ -39,24 +39,37 @@ const About = () => {
               />
             </div>
             <p className="text-neutral font-medium text-center translate-y-[-100%] sm:translate-y-[-0%] sm:mb-2 md:text-left">
-              As a MERN stack developer, I am committed to building high-quality
-              web applications that meet the needs of my clients. With years of
-              experience in full-stack web development, I specialize in using
-              React.js, Next js, Typescript, MongoDB, Express.js, and Node.js to
-              create scalable and robust web applications.
+              I'm a full-stack developer with a strong focus on building
+              practical, production-ready web applications. I work across the
+              stack from frontend interfaces to backend APIs and cloud
+              deployment and take responsibility for the entire build process,
+              not just isolated features. My approach prioritizes clarity,
+              maintainability, and performance, so projects remain stable and
+              easy to evolve over time.
             </p>
             <br />
             <p className="text-neutral font-medium text-center translate-y-[-150%] sm:translate-y-[-0%] sm:mb-2 md:text-left">
-              My passion for solving complex problems and creating innovative
-              solutions drives me to stay up-to-date with the latest
-              technologies and trends in the industry.
+              I studied Computer Science at Western Colorado University, where I
+              built a solid foundation in software development and
+              problem-solving. Since then, I've applied those fundamentals to
+              real projects, collaborating with clients and teams to deliver
+              solutions that meet actual business needs. I value clear
+              communication, thoughtful architecture, and shipping software that
+              works reliably in production not over-engineered demos.
+            </p>
+
+            <br />
+            <p className="text-neutral font-medium text-center translate-y-[-150%] sm:translate-y-[-0%] sm:mb-2 md:text-left">
+              I'm always refining my skills and tools, but I'm equally focused
+              on writing code that others can understand, maintain, and trust.
             </p>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-4 mt-4 text-center translate-y-[-50%] sm:translate-y-[-0%] sm:mb-2 md:text-left ">
               <h2 className="font-medium">
                 <span className="mr-2 text-primary">Name : </span>Zackary Brown
               </h2>
               <h2 className="font-medium">
-                <span className="mr-2 text-primary">Phone : </span>+1 505 358 8607
+                <span className="mr-2 text-primary">Phone : </span>+1 505 358
+                8607
               </h2>
               <h2 className="font-medium">
                 <span className="mr-2 text-primary">Email : </span>

@@ -30,22 +30,19 @@ const Banner = () => {
           <TypeAnimation
             className="text-2xl text-primary font-bold translate-y-[-80%] sm:translate-y-[-0%]"
             cursor={true}
-            sequence={[
-              "A Full-Stack Developer",
-              2000,
-            ]}
+            sequence={["A Full-Stack Developer", 2000]}
             wrapper="div"
             repeat={Infinity}
           />
         </div>
         <p className="text-neutral max-w-xl mb-6 font-medium translate-y-[-20%] sm:translate-y-[-0%]">
-          As a MERN stack developer, I am committed to building high-quality web
-          applications that meet the needs of my clients. With years of
-          experience in full-stack web development, I specialize in using
-          React.js, Next js, Typescript, MongoDB, Express.js, and Node.js to
-          create scalable and robust web applications.
-          {/* I am a Front-end Developer. I am very passionate to my work and
-          dedicated to explore New Tools And Technologies. */}
+          I'm a full-stack developer who builds, deploys, and maintains
+          production-ready web applications from end to end. I focus on writing
+          clean, maintainable code, shipping reliable features, and owning the
+          full lifecycle from architecture and APIs to cloud deployment and
+          long-term support. I care about building software that solves real
+          problems, performs well in production, and is easy for teams and
+          clients to work with.
         </p>
 
         <div className="flex items-center translate-y-[-60%] sm:translate-y-[-0%]">

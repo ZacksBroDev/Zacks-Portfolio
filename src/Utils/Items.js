@@ -131,7 +131,7 @@ const Items = [
     description:
       "A clean, high-impact promotional website built to elevate a small band's online presence showcasing their music, brand, and identity in one centralized hub. Designed for discoverability, fast performance, and fan engagement, the site helps the band look legitimate, memorable, and easy to find.",
     category: "business",
-    liveLink: "https://thefutons.net/",
+    liveLink: "https://main.d2p9s6mppbmc85.amplifyapp.com",
     codeLink: "https://github.com/ZacksBroDev/TheFutons",
   },
 

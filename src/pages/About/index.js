@@ -80,7 +80,7 @@ const About = () => {
                 Denver, Colorado
               </h2>
               <a
-                href="https://drive.google.com/file/d/1d7ZrNKfz9dViJ7IJ8ExJAR7fuOTYcT80/view?usp=drive_link"
+                href="https://drive.google.com/file/d/1BulV1W3IalA_ZuuXDkKFl04Hcd_g6wQq/view?usp=drive_link"
                 target="blank"
               >
                 <div className="flex justify-center md:justify-start translate-y-[60%] sm:translate-y-[-0%]">

@@ -15,30 +15,30 @@ const About = () => {
             About <span className="text-primary">Me</span>
           </h1>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <img
               src="https://res.cloudinary.com/djnazqqgr/image/upload/v1766927361/IMG_7605_hkqdbu.jpg"
               alt="Zackary Brown"
-              className="p-12 w-70 h-70 transform translate-y-[-12%]"
+              className="p-4 w-70 h-70"
               title="Zackary Brown"
               style={{ borderRadius: "25%" }}
             />
           </div>
           <div>
-            <h1 className="text-4xl font-semibold mb-4 text-center translate-y-[-380%] sm:translate-y-[-0%] sm:text-3xl sm:mb-2 md:text-left">
+            <h1 className="text-4xl font-semibold mb-4 text-left sm:text-3xl sm:mb-2">
               Zackary Brown
             </h1>
             <div className="my-8">
               <TypeAnimation
-                className="text-2xl text-primary font-bold text-center translate-y-[-500%] sm:translate-y-[-0%]  sm:text-2xl sm:mb-2 md:text-left"
+                className="text-2xl text-primary font-bold text-left sm:text-2xl sm:mb-2"
                 cursor={true}
                 sequence={["A Full-stack Developer", 2000]}
                 wrapper="div"
                 repeat={Infinity}
               />
             </div>
-            <p className="text-neutral font-medium text-center translate-y-[-100%] sm:translate-y-[-0%] sm:mb-2 md:text-left">
+            <p className="text-neutral font-medium text-left sm:mb-2">
               I'm a full-stack developer with a strong focus on building
               practical, production-ready web applications. I work across the
               stack from frontend interfaces to backend APIs and cloud
@@ -48,7 +48,7 @@ const About = () => {
               easy to evolve over time.
             </p>
             <br />
-            <p className="text-neutral font-medium text-center translate-y-[-150%] sm:translate-y-[-0%] sm:mb-2 md:text-left">
+            <p className="text-neutral font-medium text-left sm:mb-2">
               I studied Computer Science at Western Colorado University, where I
               built a solid foundation in software development and
               problem-solving. Since then, I've applied those fundamentals to
@@ -59,11 +59,11 @@ const About = () => {
             </p>
 
             <br />
-            <p className="text-neutral font-medium text-center translate-y-[-150%] sm:translate-y-[-0%] sm:mb-2 md:text-left">
+            <p className="text-neutral font-medium text-left sm:mb-2">
               I'm always refining my skills and tools, but I'm equally focused
               on writing code that others can understand, maintain, and trust.
             </p>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-4 mt-4 text-center translate-y-[-50%] sm:translate-y-[-0%] sm:mb-2 md:text-left ">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-4 mt-4 text-left sm:mb-2">
               <h2 className="font-medium">
                 <span className="mr-2 text-primary">Name : </span>Zackary Brown
               </h2>
@@ -83,7 +83,7 @@ const About = () => {
                 href="https://drive.google.com/file/d/1BulV1W3IalA_ZuuXDkKFl04Hcd_g6wQq/view?usp=drive_link"
                 target="blank"
               >
-                <div className="flex justify-center md:justify-start translate-y-[60%] sm:translate-y-[-0%]">
+                <div className="flex justify-start mt-4">
                   <button className="primary-button">
                     <span>My Resume</span>
                     <span>

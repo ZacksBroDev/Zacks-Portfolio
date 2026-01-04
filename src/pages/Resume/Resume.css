@@ -1,0 +1,221 @@
+.resume-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.resume-header {
+  background: #313131;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Profile image styling */
+.profile-image-container {
+  width: 180px;
+  height: 180px;
+  border-radius: 15px;
+  overflow: hidden;
+  background: #212121;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-image-container:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 25px rgba(255, 101, 28, 0.3);
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* Placeholder box with blue border for images */
+.image-placeholder {
+  width: 150px;
+  height: 150px;
+  border: 3px solid #3B82F6;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #212121;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  color: #9ca3af;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+  color: #FF651C;
+}
+
+.resume-section {
+  background: #313131;
+  border-radius: 15px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+.resume-section:hover {
+  box-shadow: 0 4px 20px rgba(255, 101, 28, 0.3);
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #FF651C;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #FF651C;
+  display: inline-block;
+}
+
+.section-content {
+  padding-top: 0.5rem;
+}
+
+.experience-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid #444;
+}
+
+.experience-item:last-child {
+  border-bottom: none;
+}
+
+.date-badge {
+  background: linear-gradient(135deg, #FF651C, #e48a23);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  white-space: nowrap;
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .date-badge {
+    margin-top: 0;
+  }
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.skill-tag {
+  background: linear-gradient(135deg, #FF651C, #e48a23);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 101, 28, 0.4);
+}
+
+/* Certification cards */
+.certification-card {
+  background: #212121;
+  padding: 1.25rem;
+  border-radius: 12px;
+  border-left: 4px solid #FF651C;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.certification-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 101, 28, 0.25);
+}
+
+/* Project image placeholder */
+.project-image-placeholder {
+  width: 100%;
+  height: 120px;
+  border: 3px solid #3B82F6;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #212121;
+  margin-bottom: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .resume-header {
+    padding: 1.5rem;
+  }
+
+  .resume-section {
+    padding: 1rem 1.25rem;
+  }
+
+  .section-title {
+    font-size: 1.25rem;
+  }
+
+  .image-placeholder {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+  }
+}
+
+/* Animation for sections */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.resume-section {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.resume-section:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.resume-section:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.resume-section:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.resume-section:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+.resume-section:nth-child(6) {
+  animation-delay: 0.5s;
+}
+
+.resume-section:nth-child(7) {
+  animation-delay: 0.6s;
+}

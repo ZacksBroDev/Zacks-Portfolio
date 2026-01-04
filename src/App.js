@@ -12,6 +12,7 @@ import {
 } from "./components";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
+import Resume from "./pages/Resume";
 const Home = React.lazy(() => import("./pages/Home"));
 const Project = React.lazy(() => import("./pages/Project"));
 
@@ -27,6 +28,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="/resume" element={<Resume />} />
             <Route path="/project" element={<Project />} />
             <Route path="/project/:id" element={<ProjectDetails />} />
             <Route path="/contact" element={<Contact />} />

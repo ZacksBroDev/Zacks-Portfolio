@@ -22,6 +22,7 @@ export default function Navbar() {
   const navLinks = [
     { title: "Home", link: "/", icon: <FaHome /> },
     { title: "About", link: "/about", icon: <RiFolderInfoFill /> },
+    { title: "Resume", link: "/resume", icon: <RiFolderInfoFill /> },
     { title: "Projects", link: "/project", icon: <MdWork /> },
     { title: "Contact", link: "/contact", icon: <RiContactsBook2Fill /> },
   ];

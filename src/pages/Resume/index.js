@@ -133,102 +133,116 @@ const Resume = () => {
         <div className="resume-section">
           <h3 className="section-title">Experience & Projects</h3>
           <div className="section-content">
-            <div className="mb-4">
+            {/* Full Stack Engineer */}
+            <div className="mb-6">
               <h4 className="text-xl font-semibold text-white">
                 Full Stack Engineer
               </h4>
               <p className="text-neutral text-sm mb-4">
                 Self-employed, Erie, CO
               </p>
+
+              {/* Just Malik Beats */}
+              <div className="experience-item">
+                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
+                  <div className="flex items-center gap-2">
+                    <h5 className="text-lg font-semibold text-primary">
+                      Just Malik Beats
+                    </h5>
+                    <a
+                      href="https://main.d2l99u51v53uvg.amplifyapp.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:text-white transition-colors"
+                    >
+                      <FaExternalLinkAlt className="text-sm" />
+                    </a>
+                  </div>
+                  <span className="date-badge">
+                    October 2025 - January 2026
+                  </span>
+                </div>
+                <ul className="list-disc list-inside text-neutral ml-4 space-y-2">
+                  <li>
+                    Developed a responsive e-commerce SaaS platform for an
+                    independent music producer with 50+ digital assets, enabling
+                    direct-to-consumer sales using JWT authentication and
+                    MongoDB.
+                  </li>
+                  <li>
+                    Implemented layered application security, including rate
+                    limiting, CSRF protection, input validation, and role-based
+                    access control for admin/user management.
+                  </li>
+                </ul>
+              </div>
             </div>
 
-            {/* Just Malik Beats */}
-            <div className="experience-item">
-              <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
-                <div className="flex items-center gap-2">
-                  <h5 className="text-lg font-semibold text-primary">
-                    Just Malik Beats
-                  </h5>
-                  <a
-                    href="https://main.d2l99u51v53uvg.amplifyapp.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary hover:text-white transition-colors"
-                  >
-                    <FaExternalLinkAlt className="text-sm" />
-                  </a>
-                </div>
-                <span className="date-badge">October 2025 - January 2026</span>
-              </div>
-              <ul className="list-disc list-inside text-neutral ml-4 space-y-2">
-                <li>
-                  Developed a responsive e-commerce SaaS platform for an
-                  independent music producer with 50+ digital assets, enabling
-                  direct-to-consumer sales using JWT authentication and MongoDB.
-                </li>
-                <li>
-                  Implemented layered application security, including rate
-                  limiting, CSRF protection, input validation, and role-based
-                  access control for admin/user management.
-                </li>
-              </ul>
-            </div>
+            {/* Front End Engineer */}
+            <div className="mb-4">
+              <h4 className="text-xl font-semibold text-white">
+                Front End Engineer
+              </h4>
+              <p className="text-neutral text-sm mb-4">
+                Self-employed, Erie, CO
+              </p>
 
-            {/* Mile High Karate */}
-            <div className="experience-item">
-              <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
-                <div className="flex items-center gap-2">
-                  <h5 className="text-lg font-semibold text-primary">
-                    Mile High Karate
-                  </h5>
-                  <a
-                    href="https://mhktraining.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary hover:text-white transition-colors"
-                  >
-                    <FaExternalLinkAlt className="text-sm" />
-                  </a>
+              {/* Mile High Karate */}
+              <div className="experience-item">
+                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
+                  <div className="flex items-center gap-2">
+                    <h5 className="text-lg font-semibold text-primary">
+                      Mile High Karate
+                    </h5>
+                    <a
+                      href="https://mhktraining.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:text-white transition-colors"
+                    >
+                      <FaExternalLinkAlt className="text-sm" />
+                    </a>
+                  </div>
+                  <span className="date-badge">August 2025 - October 2025</span>
                 </div>
-                <span className="date-badge">August 2025 - October 2025</span>
+                <ul className="list-disc list-inside text-neutral ml-4 space-y-2">
+                  <li>
+                    Built a centralized training platform for a martial arts
+                    school serving 100+ students, consolidating schedules,
+                    instructional videos, and resources into one system and
+                    reducing manual coordination by ~50%; built with React 19,
+                    Vite, and AWS Amplify.
+                  </li>
+                </ul>
               </div>
-              <ul className="list-disc list-inside text-neutral ml-4 space-y-2">
-                <li>
-                  Built a centralized training platform for a martial arts
-                  school serving 100+ students, consolidating schedules,
-                  instructional videos, and resources into one system and
-                  reducing manual coordination by ~50%; built with React 19,
-                  Vite, and AWS Amplify.
-                </li>
-              </ul>
-            </div>
 
-            {/* The Futons */}
-            <div className="experience-item">
-              <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
-                <div className="flex items-center gap-2">
-                  <h5 className="text-lg font-semibold text-primary">
-                    The Futons
-                  </h5>
-                  <a
-                    href="https://thefutons.net"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary hover:text-white transition-colors"
-                  >
-                    <FaExternalLinkAlt className="text-sm" />
-                  </a>
+              {/* The Futons */}
+              <div className="experience-item">
+                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
+                  <div className="flex items-center gap-2">
+                    <h5 className="text-lg font-semibold text-primary">
+                      The Futons
+                    </h5>
+                    <a
+                      href="https://thefutons.net"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:text-white transition-colors"
+                    >
+                      <FaExternalLinkAlt className="text-sm" />
+                    </a>
+                  </div>
+                  <span className="date-badge">June 2025 - August 2025</span>
                 </div>
-                <span className="date-badge">June 2025 - August 2025</span>
+                <ul className="list-disc list-inside text-neutral ml-4 space-y-2">
+                  <li>
+                    Developed a performance-optimized static website for a local
+                    band featuring a responsive photo gallery with 60+ concert
+                    images, using lazy loading and progressive image rendering
+                    (Cloudinary, JavaScript, HTML5, CSS3).
+                  </li>
+                </ul>
               </div>
-              <ul className="list-disc list-inside text-neutral ml-4 space-y-2">
-                <li>
-                  Developed a performance-optimized static website for a local
-                  band featuring a responsive photo gallery with 60+ concert
-                  images, using lazy loading and progressive image rendering
-                  (Cloudinary, JavaScript, HTML5, CSS3).
-                </li>
-              </ul>
             </div>
           </div>
         </div>

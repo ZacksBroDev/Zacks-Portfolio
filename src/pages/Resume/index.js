@@ -2,6 +2,7 @@ import React from "react";
 import "./Resume.css";
 import "../../components/atoms/PrimaryBtn/PrimaryBtn.css";
 import "../shared/Shared.css";
+import { RESUME_LINK } from "../../Utils/Constants";
 import {
   FaDownload,
   FaEnvelope,
@@ -107,7 +108,7 @@ const Resume = () => {
                   <p className="text-primary font-medium">Computer Science</p>
                   <p className="text-neutral text-sm">Gunnison, CO</p>
                 </div>
-                <span className="date-badge">August 2022 – March 2024</span>
+                <span className="date-badge">August 2022 - March 2024</span>
               </div>
             </div>
 
@@ -119,7 +120,7 @@ const Resume = () => {
                   </h4>
                   <p className="text-neutral text-sm">Phoenix, AZ</p>
                 </div>
-                <span className="date-badge">August 2018 – May 2022</span>
+                <span className="date-badge">August 2018 - May 2022</span>
               </div>
               <ul className="list-disc list-inside text-neutral ml-4">
                 <li>AP Computer Science & Robotic Courses</li>
@@ -525,11 +526,7 @@ const Resume = () => {
 
         {/* Download Resume Button */}
         <div className="flex justify-center mt-12">
-          <a
-            href="https://drive.google.com/file/d/1BulV1W3IalA_ZuuXDkKFl04Hcd_g6wQq/view?usp=drive_link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href={RESUME_LINK} target="_blank" rel="noopener noreferrer">
             <button className="primary-button">
               <span>Download PDF Resume</span>
               <span>

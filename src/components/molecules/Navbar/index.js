@@ -12,6 +12,7 @@ import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
 import "../../../pages/shared/Shared.css";
 import { PrimaryBtn } from "../../../components";
+import { RESUME_LINK } from "../../../Utils/Constants";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -82,11 +83,7 @@ export default function Navbar() {
               </li>
             ))}
 
-            <a
-              className="inline-block ml-4"
-              href="https://drive.google.com/file/d/1BulV1W3IalA_ZuuXDkKFl04Hcd_g6wQq/view?usp=drive_link"
-              target="blank"
-            >
+            <a className="inline-block ml-4" href={RESUME_LINK} target="blank">
               <PrimaryBtn>
                 <span>Resume</span>
                 <span>
@@ -132,7 +129,7 @@ export default function Navbar() {
                 <li className="text-center m-4">
                   <a
                     className="inline-block w-full"
-                    href="https://drive.google.com/file/d/1BulV1W3IalA_ZuuXDkKFl04Hcd_g6wQq/view?usp=drive_link"
+                    href={RESUME_LINK}
                     target="blank"
                   >
                     <button className="primary-button w-full text-white">

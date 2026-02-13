@@ -5,6 +5,7 @@ import "../../components/atoms/PrimaryBtn/PrimaryBtn.css";
 import "../shared/Shared.css";
 import { MySkill, Education } from "../../components";
 import { FaDownload } from "react-icons/fa";
+import { RESUME_LINK } from "../../Utils/Constants";
 
 const About = () => {
   return (
@@ -79,10 +80,7 @@ const About = () => {
                 <span className="mr-2 text-primary">Address : </span>
                 Denver, Colorado
               </h2>
-              <a
-                href="https://drive.google.com/file/d/1BulV1W3IalA_ZuuXDkKFl04Hcd_g6wQq/view?usp=drive_link"
-                target="blank"
-              >
+              <a href={RESUME_LINK} target="blank">
                 <div className="flex justify-start mt-4">
                   <button className="primary-button">
                     <span>My Resume</span>

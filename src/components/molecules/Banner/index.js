@@ -7,6 +7,7 @@ import Lottie from "react-lottie";
 import coding from "../../../assets/coding.json";
 import "../../../pages/shared/Shared.css";
 import { SecondaryBtn } from "../../../components";
+import { RESUME_LINK } from "../../../Utils/Constants";
 
 const Banner = () => {
   const defaultOptions = {
@@ -46,10 +47,7 @@ const Banner = () => {
         </p>
 
         <div className="flex items-center translate-y-[-60%] sm:translate-y-[-0%]">
-          <a
-            href="https://drive.google.com/file/d/1BulV1W3IalA_ZuuXDkKFl04Hcd_g6wQq/view?usp=drive_link"
-            target="blank"
-          >
+          <a href={RESUME_LINK} target="blank">
             <button className="primary-button">
               <span>My Resume</span>
               <span>

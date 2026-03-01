@@ -1,15 +1,4 @@
-// TODO: Replace these placeholder projects from the template with your actual projects
-// Update the following for each project:
-// - mainImage and img array with your project screenshots
-// - features list with your project's features
-// - technologies array with the technologies you used
-// - title and description with your project details
-// - category ("personal" or "business")
-// - liveLink with your deployed project URL
-// - codeLink with your GitHub repository URL
-//
-// Note: The current projects are examples from the original template (Gilbert Hutapea)
-// and should be replaced with your own work.
+// Portfolio project metadata used by the project list and project details pages.
 
 const Items = [
   {

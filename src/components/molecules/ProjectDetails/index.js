@@ -10,31 +10,17 @@ import placeholderImage from "../../../assets/placeholder.jpg";
 const ProjectDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [item, setItem] = useState();
-  const [isLoading, setIsLoading] = useState(true);
+  const [item, setItem] = useState(null);
 
   useEffect(() => {
-    setIsLoading(true);
-    const filtered = Items.find((item) => item.id === parseInt(id));
+    const filtered = Items.find((item) => item.id === parseInt(id, 10));
+
     if (filtered) {
       setItem(filtered);
     } else {
-      navigate("/project");
+      navigate("/project", { replace: true });
     }
-    setIsLoading(false);
   }, [id, navigate]);
-
-  if (isLoading) {
-    return (
-      <div className="parent py-16">
-        <div className="flex justify-center items-center h-64">
-          <div className="text-2xl text-neutral">
-            Loading project details...
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   if (!item) {
     return null;
@@ -113,29 +99,33 @@ const ProjectDetails = () => {
       )}
       <div className="flex items-center mt-8">
         {item.liveLink && (
-          <a
+          <PrimaryBtn
+            as="a"
             href={item.liveLink}
             className="mr-4"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={`Visit ${item.title}`}
           >
-            <PrimaryBtn>
-              <span>Visit Now</span>
-              <span>
-                <FaLink />
-              </span>
-            </PrimaryBtn>
-          </a>
+            <span>Visit Now</span>
+            <span>
+              <FaLink />
+            </span>
+          </PrimaryBtn>
         )}
         {item.codeLink && (
-          <a href={item.codeLink} target="_blank" rel="noopener noreferrer">
-            <SecondaryBtn>
-              <span>Source Code</span>
-              <span>
-                <FaCode />
-              </span>
-            </SecondaryBtn>
-          </a>
+          <SecondaryBtn
+            as="a"
+            href={item.codeLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`View source code for ${item.title}`}
+          >
+            <span>Source Code</span>
+            <span>
+              <FaCode />
+            </span>
+          </SecondaryBtn>
         )}
       </div>
     </div>

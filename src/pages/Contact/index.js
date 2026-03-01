@@ -1,6 +1,5 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "./Contact.css";
-import "../../components/atoms/PrimaryBtn/PrimaryBtn.css";
 import "../shared/Shared.css";
 import {
   FaUserAlt,
@@ -13,46 +12,98 @@ import {
 } from "react-icons/fa";
 import { MdEmail, MdSend } from "react-icons/md";
 import emailjs from "@emailjs/browser";
-import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import { PrimaryBtn } from "../../components";
+import { SITE_PROFILE, SOCIAL_LINKS } from "../../Utils/SiteContent";
+
+const EMAILJS_CONFIG = {
+  serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,
+  templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+  publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+};
+
+const SUBMIT_COOLDOWN_MS = 10000;
+
+const socialIcons = {
+  linkedin: FaLinkedin,
+  github: FaGithubSquare,
+  x: FaTwitterSquare,
+  instagram: FaInstagramSquare,
+};
 
 const Contact = () => {
-  const navigate = useNavigate();
   const form = useRef();
+  const lastSubmittedAtRef = useRef(0);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formStatus, setFormStatus] = useState({
+    type: "idle",
+    message: "",
+  });
+  const isEmailConfigured = Object.values(EMAILJS_CONFIG).every(Boolean);
 
-  const handleSend = (e) => {
+  const handleSend = async (e) => {
     e.preventDefault();
-    emailjs
-      .sendForm(
-        "service_6c0815l",
-        "template_h2hlo5p",
+
+    if (!form.current) {
+      return;
+    }
+
+    const formData = new FormData(form.current);
+    const honeypotValue = formData.get("company");
+
+    if (honeypotValue) {
+      form.current.reset();
+      setFormStatus({
+        type: "success",
+        message: "Thanks for reaching out. Your message has been received.",
+      });
+      return;
+    }
+
+    if (!isEmailConfigured) {
+      setFormStatus({
+        type: "error",
+        message:
+          "The contact form is not configured yet. Please reach out by email or LinkedIn for now.",
+      });
+      return;
+    }
+
+    if (Date.now() - lastSubmittedAtRef.current < SUBMIT_COOLDOWN_MS) {
+      setFormStatus({
+        type: "error",
+        message: "Please wait a few seconds before sending another message.",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    setFormStatus({ type: "idle", message: "" });
+
+    try {
+      await emailjs.sendForm(
+        EMAILJS_CONFIG.serviceId,
+        EMAILJS_CONFIG.templateId,
         form.current,
-        "EMwkxIv3aeYn-64Um"
-      )
-      .then(
-        (result) => {
-          console.log("SUCCESS!", result.text);
-          e.target.reset();
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Your Message has been sent",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-          navigate("/");
-        },
-        (error) => {
-          console.error("FAILED...", error);
-          Swal.fire({
-            position: "top-end",
-            icon: "error",
-            title: "Failed to send message: " + error.text,
-            showConfirmButton: true,
-          });
-        }
+        EMAILJS_CONFIG.publicKey
       );
+
+      lastSubmittedAtRef.current = Date.now();
+      form.current.reset();
+      setFormStatus({
+        type: "success",
+        message: "Thanks for reaching out. Your message has been sent.",
+      });
+    } catch {
+      setFormStatus({
+        type: "error",
+        message:
+          `Something went wrong while sending your message. Please email me directly at ${SITE_PROFILE.email}.`,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
+
   return (
     <div className="parent py-24 mt-4">
       <div>
@@ -64,32 +115,61 @@ const Contact = () => {
         <div>
           <h2 className="text-2xl font-medium">Contact Me</h2>
           <form ref={form} onSubmit={handleSend}>
-            <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-6">
+            <div className="honeypot-field" aria-hidden="true">
+              <label htmlFor="company">Company</label>
               <input
-                className="input-field"
                 type="text"
-                name="name"
-                id="name"
-                placeholder="Name"
-                required
-              />
-              <input
-                className="input-field"
-                type="email"
-                name="email"
-                id="email"
-                placeholder="Email"
-                required
+                id="company"
+                name="company"
+                tabIndex="-1"
+                autoComplete="off"
               />
             </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-6">
+              <div>
+                <label className="input-label" htmlFor="name">
+                  Name
+                </label>
+                <input
+                  className="input-field"
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Name"
+                  autoComplete="name"
+                  required
+                />
+              </div>
+              <div>
+                <label className="input-label" htmlFor="email">
+                  Email
+                </label>
+                <input
+                  className="input-field"
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Email"
+                  autoComplete="email"
+                  required
+                />
+              </div>
+            </div>
+            <label className="input-label" htmlFor="subject">
+              Subject
+            </label>
             <input
               className="input-field"
               type="text"
               name="subject"
               id="subject"
               placeholder="Subject"
+              autoComplete="off"
               required
             />
+            <label className="input-label" htmlFor="message">
+              Message
+            </label>
             <textarea
               className="input-field"
               name="message"
@@ -99,68 +179,86 @@ const Contact = () => {
               placeholder="Message"
               required
             ></textarea>
-            <button
+            <PrimaryBtn
               type="submit"
-              value="Send Message"
-              className="primary-button"
+              disabled={isSubmitting || !isEmailConfigured}
+              aria-disabled={isSubmitting || !isEmailConfigured}
             >
-              <span>Send</span>
+              <span>{isSubmitting ? "Sending..." : "Send Message"}</span>
               <span>
                 <MdSend />
               </span>
-            </button>
+            </PrimaryBtn>
+            {formStatus.message && (
+              <p
+                className={`form-status ${
+                  formStatus.type === "error"
+                    ? "form-status--error"
+                    : "form-status--success"
+                }`}
+                role="status"
+                aria-live="polite"
+              >
+                {formStatus.message}
+              </p>
+            )}
+            {!isEmailConfigured && (
+              <p className="text-sm text-neutral mt-4">
+                The form is awaiting EmailJS environment variables. In the
+                meantime, email{" "}
+                <a
+                  href={SITE_PROFILE.emailHref}
+                  className="text-primary hover:underline"
+                >
+                  {SITE_PROFILE.email}
+                </a>
+                .
+              </p>
+            )}
           </form>
         </div>
         <div className="mx-auto md:ml-64">
           <h2 className="text-2xl font-medium">Contact Info</h2>
           <div className="flex items-center my-6">
             <FaUserAlt className="text-2xl mr-8 hover:text-primary cursor-pointer duration-300"></FaUserAlt>
-            <h3 className="font-medium text-primary">Zackary Brown</h3>
+            <h3 className="font-medium text-primary">{SITE_PROFILE.name}</h3>
           </div>
           <div className="flex items-center my-6">
             <FaPhoneAlt className="text-2xl mr-8 hover:text-primary cursor-pointer duration-300"></FaPhoneAlt>
-            <h3 className="font-medium text-primary">505 358-8607</h3>
+            <a href={SITE_PROFILE.phoneHref} className="font-medium text-primary hover:underline">
+              {SITE_PROFILE.phoneDisplay}
+            </a>
           </div>
           <div className="flex items-center my-6">
             <MdEmail className="text-3xl mr-8 hover:text-primary cursor-pointer duration-300"></MdEmail>
-            <h3 className="font-medium text-primary">zackaryzbrown@gmail.com</h3>
+            <a href={SITE_PROFILE.emailHref} className="font-medium text-primary hover:underline">
+              {SITE_PROFILE.email}
+            </a>
           </div>
           <div className="flex items-center my-6">
             <FaLocationArrow className="text-2xl mr-8 hover:text-primary cursor-pointer duration-300"></FaLocationArrow>
 
-            <h3 className="font-medium text-primary">Denver, Colorado</h3>
+            <h3 className="font-medium text-primary">{SITE_PROFILE.location}</h3>
           </div>
           <div className="mt-8 flex items-center">
             <h3 className="text-xl text-neutral">Socials</h3>
             <div className="bg-gray-400 w-10 h-[2px] mx-4"></div>
-            <a
-              href="https://linkedin.com/in/zackaryzbrown"
-              target="blank"
-              className="text-3xl text-neutral hover:text-primary hover:-translate-y-1.5 shadow-lg mx-1 duration-300"
-            >
-              <FaLinkedin></FaLinkedin>
-            </a>
-            <a
-              href="https://github.com/ZacksBroDev"
-              target="blank"
-              className="text-3xl text-neutral hover:text-primary hover:-translate-y-1.5 shadow-lg mx-1 duration-300"
-            >
-              <FaGithubSquare></FaGithubSquare>
-            </a>
-            <a
-              href="https://x.com/bmxbro01"
-              target="blank"
-              className="text-3xl text-neutral hover:text-primary hover:-translate-y-1.5 shadow-lg mx-1 duration-300"
-            >
-              <FaTwitterSquare></FaTwitterSquare>
-            </a>
-            <a
-              href="https://www.instagram.com/zackfullstack/"
-              target="blank"
-              className="text-3xl text-neutral hover:text-primary hover:-translate-y-1.5 shadow-lg mx-1 duration-300"
-            >
-              <FaInstagramSquare></FaInstagramSquare>
-            </a>
+            {SOCIAL_LINKS.map((link) => {
+              const Icon = socialIcons[link.key];
+
+              return (
+                <a
+                  key={link.key}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={link.ariaLabel}
+                  className="text-3xl text-neutral hover:text-primary hover:-translate-y-1.5 shadow-lg mx-1 duration-300"
+                >
+                  <Icon></Icon>
+                </a>
+              );
+            })}
           </div>
         </div>
       </div>

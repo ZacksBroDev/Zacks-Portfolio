@@ -1,30 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Items from "../../Utils/Items";
 import { Link, useLocation } from "react-router-dom";
 import { FiArrowRight } from "react-icons/fi";
+import { PrimaryBtn } from "../../components";
 import "./Project.css";
 
 const Project = () => {
-  const [items, setItems] = useState(Items);
   const [activeBtn, setActiveBtn] = useState("all");
   const location = useLocation();
-
-  useEffect(() => {
-    if (location.pathname === "/" && items.length > 3) {
-      setItems(items.slice(0, 3));
-    }
-  }, [location, items]);
-
-  const filterItem = (category) => {
-    const filtered = Items.filter((item) => item.category === category);
-    setItems(filtered);
-    if (filtered.length > 3 && location.pathname === "/") {
-      setItems(filtered.slice(0, 3));
-    }
-  };
+  const isHomePage = location.pathname === "/";
+  const filteredItems =
+    activeBtn === "all"
+      ? Items
+      : Items.filter((item) => item.category === activeBtn);
+  const visibleItems = isHomePage ? filteredItems.slice(0, 3) : filteredItems;
 
   return (
-    <div className={`${location.pathname !== "/" && "pt-16"}`}>
+    <div className={`${!isHomePage && "pt-16"}`}>
       <div className="parent py-12">
         <div>
           <div className="mb-12">
@@ -40,12 +32,8 @@ const Project = () => {
               className={`btn btn-sm bg-primary border-2 border-primary text-white hover:bg-transparent hover:border-primary duration-300 mx-3 my-3 sm:my-0 ${
                 activeBtn === "all" && "active-btn"
               }`}
-              onClick={() => {
-                setActiveBtn("all");
-                location.pathname === "/"
-                  ? setItems(Items.slice(0, 3))
-                  : setItems(Items);
-              }}
+              onClick={() => setActiveBtn("all")}
+              aria-pressed={activeBtn === "all"}
             >
               All
             </button>
@@ -53,10 +41,8 @@ const Project = () => {
               className={`btn btn-sm bg-primary border-2 border-primary text-white hover:bg-transparent hover:border-primary duration-300 mx-3 my-3 sm:my-0 ${
                 activeBtn === "business" && "active-btn"
               }`}
-              onClick={() => {
-                setActiveBtn("business");
-                filterItem("business");
-              }}
+              onClick={() => setActiveBtn("business")}
+              aria-pressed={activeBtn === "business"}
             >
               Business
             </button>
@@ -64,10 +50,8 @@ const Project = () => {
               className={`btn btn-sm bg-primary border-2 border-primary text-white hover:bg-transparent hover:border-primary duration-300 mx-3 my-3 sm:my-0 ${
                 activeBtn === "personal" && "active-btn"
               }`}
-              onClick={() => {
-                setActiveBtn("personal");
-                filterItem("personal");
-              }}
+              onClick={() => setActiveBtn("personal")}
+              aria-pressed={activeBtn === "personal"}
             >
               Personal
             </button>
@@ -75,10 +59,8 @@ const Project = () => {
               className={`btn btn-sm bg-primary border-2 border-primary text-white hover:bg-transparent hover:border-primary duration-300 mx-3 my-3 sm:my-0 ${
                 activeBtn === "game" && "active-btn"
               }`}
-              onClick={() => {
-                setActiveBtn("game");
-                filterItem("game");
-              }}
+              onClick={() => setActiveBtn("game")}
+              aria-pressed={activeBtn === "game"}
             >
               Game
             </button>
@@ -86,7 +68,7 @@ const Project = () => {
 
           {/* Items Card */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {items.map((item) => (
+            {visibleItems.map((item) => (
               <Link
                 key={item.id}
                 to={`/project/${item.id}`}
@@ -147,19 +129,14 @@ const Project = () => {
             ))}
           </div>
         </div>
-        {location.pathname === "/" && (
+        {isHomePage && (
           <div className="mt-4 text-right">
-            <Link
-              to="/project"
-              className="text-2xl hover:text-primary duration-300"
-            >
-              <button className="primary-button">
-                <span>See All</span>
-                <span>
-                  <FiArrowRight />
-                </span>
-              </button>
-            </Link>
+            <PrimaryBtn as={Link} to="/project" className="ml-auto w-fit">
+              <span>See All</span>
+              <span>
+                <FiArrowRight />
+              </span>
+            </PrimaryBtn>
           </div>
         )}
       </div>

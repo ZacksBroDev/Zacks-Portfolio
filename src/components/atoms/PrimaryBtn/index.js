@@ -1,11 +1,23 @@
 import React from "react";
 import "./PrimaryBtn.css";
 
-const PrimaryBtn = ({ children, className, onClick }) => {
+const PrimaryBtn = ({
+  as: Component = "button",
+  children,
+  className = "",
+  type = "button",
+  ...props
+}) => {
+  const componentProps = Component === "button" ? { type } : {};
+
   return (
-    <button className={`${className} primary-button`} onClick={onClick}>
+    <Component
+      className={["primary-button", className].filter(Boolean).join(" ")}
+      {...componentProps}
+      {...props}
+    >
       {children}
-    </button>
+    </Component>
   );
 };
 

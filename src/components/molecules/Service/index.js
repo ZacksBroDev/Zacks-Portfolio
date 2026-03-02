@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   FiCode,
   FiCloud,
@@ -7,16 +8,16 @@ import {
   FiDatabase,
   FiFileText,
 } from "react-icons/fi";
-import { BottomLine } from "../../../components";
+import { BottomLine, PrimaryBtn } from "../../../components";
 
 const Service = () => {
   const services = [
     {
       id: 1,
-      title: "Full Stack Engineer",
+      title: "Frontend Engineer",
       icon: <FiCode />,
       description:
-        "Design and build end-to-end web applications from system architecture and backend APIs to responsive, high-performance frontends. Deliver production-ready software built to scale.",
+        "Design and build responsive, high-performance user interfaces and web applications. Deliver polished, production-ready frontends with clean architecture, smooth interactions, and accessible design.",
     },
     {
       id: 2,
@@ -30,7 +31,7 @@ const Service = () => {
       title: "Web Management & Ongoing Support",
       icon: <FiTool />,
       description:
-        "Provide ongoing support for existing websites and applications, including updates, content changes, feature improvements, and technical upkeup—so products stay stable and current.",
+        "Provide ongoing support for existing websites and applications, including updates, content changes, feature improvements, and technical upkeep so products stay stable and current.",
     },
     {
       id: 4,
@@ -99,12 +100,13 @@ const Service = () => {
           <p className="text-xl text-neutral mb-6">
             Have a project, problem, or idea you want to ship?
           </p>
-          <a
-            href="/contact"
-            className="primary-button inline-flex items-center justify-center text-sm px-6 py-2 w-[200px] mx-auto"
+          <PrimaryBtn
+            as={Link}
+            to="/contact"
+            className="text-sm px-6 py-2 w-[200px] mx-auto"
           >
             <span>Let's talk.</span>
-          </a>
+          </PrimaryBtn>
         </div>
       </div>
     </div>

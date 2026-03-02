@@ -12,10 +12,12 @@ import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
 import "../../../pages/shared/Shared.css";
 import { PrimaryBtn } from "../../../components";
-import { RESUME_LINK } from "../../../Utils/Constants";
+import { RESUME_LINK, SITE_PROFILE } from "../../../Utils/SiteContent";
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const year = new Date().getFullYear();
+
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState);
   };
@@ -36,25 +38,23 @@ export default function Navbar() {
 
   // Show Navbar on Scroll UP
   const [show, setShow] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
+
   useEffect(() => {
+    let lastScrollY = window.scrollY;
+
     const controlNavbar = () => {
-      if (typeof window !== "undefined") {
-        if (window.scrollY > lastScrollY) {
-          setShow(true);
-        } else {
-          setShow(false);
-        }
-        setLastScrollY(window.scrollY);
-      }
+      const currentScrollY = window.scrollY;
+
+      setShow(currentScrollY > lastScrollY);
+      lastScrollY = currentScrollY;
     };
-    if (typeof window !== "undefined") {
-      window.addEventListener("scroll", controlNavbar);
-      return () => {
-        window.removeEventListener("scroll", controlNavbar);
-      };
-    }
-  }, [lastScrollY]);
+
+    window.addEventListener("scroll", controlNavbar, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", controlNavbar);
+    };
+  }, []);
 
   return (
     <div
@@ -65,7 +65,7 @@ export default function Navbar() {
         <div>
           <Link to="/">
             <h1 className="text-2xl text-primary font-lobster">
-              Zackary Brown
+              {SITE_PROFILE.name}
             </h1>
           </Link>
         </div>
@@ -83,17 +83,26 @@ export default function Navbar() {
               </li>
             ))}
 
-            <a className="inline-block ml-4" href={RESUME_LINK} target="blank">
-              <PrimaryBtn>
-                <span>Resume</span>
-                <span>
-                  <FaDownload />
-                </span>
-              </PrimaryBtn>
-            </a>
+            <PrimaryBtn
+              as="a"
+              href={RESUME_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-4"
+              aria-label="Open resume in a new tab"
+            >
+              <span>Resume</span>
+              <span>
+                <FaDownload />
+              </span>
+            </PrimaryBtn>
           </ul>
           <div className="block lg:hidden">
-            <button onClick={toggleDrawer} className="btn btn-ghost text-white">
+            <button
+              onClick={toggleDrawer}
+              className="btn btn-ghost text-white"
+              aria-label="Open navigation menu"
+            >
               <RiMenu3Fill></RiMenu3Fill>
             </button>
             <Drawer
@@ -101,13 +110,14 @@ export default function Navbar() {
               onClose={toggleDrawer}
               direction="right"
               style={{ backgroundColor: "#212121" }}
-              className="bla bla bla flex flex-col justify-between pb-4"
+              className="flex flex-col justify-between pb-4"
             >
               <ul className="">
                 <li className="mt-6 mb-10 ml-4">
                   <GiCrossMark
                     className="cursor-pointer hover:text-primary duration-300"
                     onClick={() => setIsOpen(!isOpen)}
+                    aria-label="Close navigation menu"
                   ></GiCrossMark>
                 </li>
                 {navLinks.map((navItem) => (
@@ -127,23 +137,24 @@ export default function Navbar() {
                   </li>
                 ))}
                 <li className="text-center m-4">
-                  <a
-                    className="inline-block w-full"
+                  <PrimaryBtn
+                    as="a"
                     href={RESUME_LINK}
-                    target="blank"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full"
+                    aria-label="Open resume in a new tab"
                   >
-                    <button className="primary-button w-full text-white">
-                      <span>Resume</span>
-                      <span>
-                        <FaDownload />
-                      </span>
-                    </button>
-                  </a>
+                    <span>Resume</span>
+                    <span>
+                      <FaDownload />
+                    </span>
+                  </PrimaryBtn>
                 </li>
               </ul>
               <div className="text-center">
                 <p className="text-neutral">
-                  &copy; Copyright 2025, Zackary Brown.
+                  &copy; Copyright {year}, {SITE_PROFILE.name}.
                 </p>
               </div>
             </Drawer>

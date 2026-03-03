@@ -7,8 +7,6 @@ import {
   ProjectDetails,
   Navbar,
   Footer,
-  MernBlogRepair,
-  EmployeeSalaryManagementRepair,
 } from "./components";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
@@ -34,11 +32,6 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/404" element={<NotFound />} />
             <Route path="*" element={<Navigate replace to="/404" />}></Route>
-            <Route path="/mern-blog" element={<MernBlogRepair />} />
-            <Route
-              path="/employee-salary-management"
-              element={<EmployeeSalaryManagementRepair />}
-            />
           </Routes>
         </Suspense>
       </main>

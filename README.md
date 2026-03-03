@@ -1,7 +1,7 @@
 <h1 align ="center" >Zackary Brown | Portfolio</h1>
 
 <h5  align ="center"> 
-Full-stack MERN Developer Portfolio showcasing web applications built with React, Node.js, Express, and MongoDB.
+Frontend engineer portfolio showcasing web applications built with React and modern frontend tooling.
 </h5>
 
 <br/>
@@ -23,16 +23,29 @@ In the first terminal
 
 ```bash
 $ npm install
-$ npm start
+$ npm run dev
+```
+
+For a production build:
+
+```bash
+$ npm run build
+```
+
+To run the test suite:
+
+```bash
+$ npm test
 ```
 
 ## Key Features
 
 - Home
 - About
-- Project
+- Projects
+- Resume
 - Contact
-- Blog
+- Testimonials
 
 <br/>
 
@@ -48,6 +61,17 @@ This project was created using the following technologies.
 - [Tailwind CSS](https://tailwindcss.com/) - For User Interface
 - [React Hooks ](https://reactjs.org/docs/hooks-intro.html) - For managing and centralizing application state
 - [daisyUI ](https://daisyui.com/docs/changelog/) - For User Interface
+- [Vite](https://vite.dev/) - For local development, production builds, and the test toolchain foundation
+
+## Environment Variables
+
+The contact form expects the following EmailJS variables:
+
+```bash
+VITE_EMAILJS_SERVICE_ID=
+VITE_EMAILJS_TEMPLATE_ID=
+VITE_EMAILJS_PUBLIC_KEY=
+```
 
 ## Author
 

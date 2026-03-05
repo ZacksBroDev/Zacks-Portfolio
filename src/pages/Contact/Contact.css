@@ -1,3 +1,18 @@
+.honeypot-field {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.input-label {
+    display: block;
+    margin-top: 12px;
+    color: white;
+    font-weight: 600;
+}
+
 .input-field {
     display: inline-block;
     padding: 9px;
@@ -13,9 +28,33 @@
     color: gray;
 }
 
+.input-field:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+}
+
 .input-field:focus {
     outline: none;
     box-shadow: 0 0 5px 2px #FF651C;
+}
+
+.form-status {
+    margin-top: 16px;
+    padding: 12px 14px;
+    border-radius: 7px;
+    border: 1px solid transparent;
+}
+
+.form-status--success {
+    background-color: rgba(34, 197, 94, 0.12);
+    border-color: rgba(34, 197, 94, 0.35);
+    color: #86efac;
+}
+
+.form-status--error {
+    background-color: rgba(248, 113, 113, 0.12);
+    border-color: rgba(248, 113, 113, 0.35);
+    color: #fca5a5;
 }
 
 input:-webkit-autofill,

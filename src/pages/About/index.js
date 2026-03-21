@@ -1,11 +1,14 @@
 import React from "react";
 import TypeAnimation from "react-type-animation";
 import "./About.css";
-import "../../components/atoms/PrimaryBtn/PrimaryBtn.css";
 import "../shared/Shared.css";
-import { MySkill, Education } from "../../components";
+import { MySkill, Education, PrimaryBtn } from "../../components";
 import { FaDownload } from "react-icons/fa";
-import { RESUME_LINK } from "../../Utils/Constants";
+import {
+  ABOUT_CONTENT,
+  RESUME_LINK,
+  SITE_PROFILE,
+} from "../../Utils/SiteContent";
 
 const About = () => {
   return (
@@ -19,77 +22,68 @@ const About = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/v1766927361/IMG_7605_hkqdbu.jpg"
-              alt="Zackary Brown"
+              src={SITE_PROFILE.aboutImage}
+              alt={SITE_PROFILE.name}
               className="p-4 w-70 h-70"
-              title="Zackary Brown"
+              title={SITE_PROFILE.name}
               style={{ borderRadius: "25%" }}
             />
           </div>
           <div>
-            <h1 className="text-4xl font-semibold mb-4 text-left sm:text-3xl sm:mb-2">
-              Zackary Brown
-            </h1>
+            <h2 className="text-4xl font-semibold mb-4 text-left sm:text-3xl sm:mb-2">
+              {SITE_PROFILE.name}
+            </h2>
             <div className="my-8">
               <TypeAnimation
                 className="text-2xl text-primary font-bold text-left sm:text-2xl sm:mb-2"
                 cursor={true}
-                sequence={["A Full-stack Developer", 2000]}
+                sequence={[SITE_PROFILE.animatedTitle, 2000]}
                 wrapper="div"
                 repeat={Infinity}
               />
             </div>
             <p className="text-neutral font-medium text-left sm:mb-2">
-              I'm a full-stack developer with a strong focus on building
-              practical, production-ready web applications. I work across the
-              stack from frontend interfaces to backend APIs and cloud
-              deployment and take responsibility for the entire build process,
-              not just isolated features. My approach prioritizes clarity,
-              maintainability, and performance, so projects remain stable and
-              easy to evolve over time.
+              {ABOUT_CONTENT.paragraphs[0]}
             </p>
             <br />
             <p className="text-neutral font-medium text-left sm:mb-2">
-              I studied Computer Science at Western Colorado University, where I
-              built a solid foundation in software development and
-              problem-solving. Since then, I've applied those fundamentals to
-              real projects, collaborating with clients and teams to deliver
-              solutions that meet actual business needs. I value clear
-              communication, thoughtful architecture, and shipping software that
-              works reliably in production not over-engineered demos.
+              {ABOUT_CONTENT.paragraphs[1]}
             </p>
 
             <br />
             <p className="text-neutral font-medium text-left sm:mb-2">
-              I'm always refining my skills and tools, but I'm equally focused
-              on writing code that others can understand, maintain, and trust.
+              {ABOUT_CONTENT.paragraphs[2]}
             </p>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-4 mt-4 text-left sm:mb-2">
               <h2 className="font-medium">
-                <span className="mr-2 text-primary">Name : </span>Zackary Brown
+                <span className="mr-2 text-primary">Name : </span>
+                {SITE_PROFILE.name}
               </h2>
               <h2 className="font-medium">
-                <span className="mr-2 text-primary">Phone : </span>+1 505 358
-                8607
+                <span className="mr-2 text-primary">Phone : </span>
+                {SITE_PROFILE.phoneDisplay}
               </h2>
               <h2 className="font-medium">
                 <span className="mr-2 text-primary">Email : </span>
-                zackaryzbrown@gmail.com
+                {SITE_PROFILE.email}
               </h2>
               <h2 className="font-medium">
                 <span className="mr-2 text-primary">Address : </span>
-                Denver, Colorado
+                {SITE_PROFILE.location}
               </h2>
-              <a href={RESUME_LINK} target="blank">
-                <div className="flex justify-start mt-4">
-                  <button className="primary-button">
-                    <span>My Resume</span>
-                    <span>
-                      <FaDownload />
-                    </span>
-                  </button>
-                </div>
-              </a>
+              <PrimaryBtn
+                as="a"
+                href={RESUME_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 w-fit"
+                aria-label="Open resume in a new tab"
+              >
+                <span>My Resume</span>
+                <span>
+                  <FaDownload />
+                </span>
+              </PrimaryBtn>
             </div>
           </div>
         </div>

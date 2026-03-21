@@ -1,5 +1,13 @@
 import React from "react";
 import { FaTwitter, FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
+import { SITE_PROFILE, SOCIAL_LINKS } from "../../../Utils/SiteContent";
+
+const socialIcons = {
+  linkedin: FaLinkedin,
+  github: FaGithub,
+  x: FaTwitter,
+  instagram: FaInstagram,
+};
 
 const Footer = () => {
   const year = new Date();
@@ -11,38 +19,22 @@ const Footer = () => {
         style={{ backgroundColor: "#313131" }}
       >
         <div className="flex items-center justify-center mb-6">
-          <a
-            className="inline-block mx-2"
-            href="https://x.com/bmxbro01"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FaTwitter className="text-3xl text-blue-600" />
-          </a>
-          <a
-            className="inline-block mx-2"
-            href="https://www.linkedin.com/in/zackaryzbrown"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FaLinkedin className="text-3xl text-blue-400" />
-          </a>
-          <a
-            className="inline-block mx-2"
-            href="https://github.com/ZacksBroDev"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FaGithub className="text-3xl text-black" />
-          </a>
-          <a
-            className="inline-block mx-2"
-            href="https://www.instagram.com/zackarybroski/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FaInstagram className="text-3xl text-pink-500" />
-          </a>
+          {SOCIAL_LINKS.map((link) => {
+            const Icon = socialIcons[link.key];
+
+            return (
+              <a
+                key={link.key}
+                className="inline-block mx-2"
+                href={link.href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={link.ariaLabel}
+              >
+                <Icon className={link.footerIconClassName} />
+              </a>
+            );
+          })}
         </div>
 
         <div className="w-full h-[2px] bg-gray-600"></div>
@@ -51,11 +43,12 @@ const Footer = () => {
           <p>
             Built by{" "}
             <a
-              href="https://www.linkedin.com/in/zackaryzbrown"
+              href={SITE_PROFILE.linkedinUrl}
               className="text-primary hover:underline"
-              target="blank"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Zackary Brown
+              {SITE_PROFILE.name}
             </a>
           </p>
         </div>

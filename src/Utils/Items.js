@@ -176,6 +176,87 @@ const Items = [
     category: "game",
     codeLink: "https://github.com/ZacksBroDev/PersonalFinance",
   },
+  {
+    id: 6,
+    mainImage: "https://via.placeholder.com/600x400?text=Keepsake+Deck",
+    img: [
+      "https://via.placeholder.com/600x400?text=Keepsake+Deck+1",
+      "https://via.placeholder.com/600x400?text=Keepsake+Deck+2",
+      "https://via.placeholder.com/600x400?text=Keepsake+Deck+3",
+    ],
+    features: [
+      "Compliment card deck with 257+ cards",
+      "Voucher inventory and request/status workflows",
+      "5 voucher templates with reuse prevention",
+      "CRUD console managing 263 typed content items",
+      "Category-based card filtering (Stressed, Need a laugh, etc.)",
+      "Favorites and notes system",
+      "Draw and love streaks tracking",
+      "Love Meter progress system",
+      "4 unlockable themes (Blush, Lavender, Night, Sunset)",
+      "Stats dashboard with deck progress",
+      "Daily Mode and No Repeat settings",
+      "Responsive Design",
+    ],
+    technologies: ["React", "Vite", "CSS", "LocalStorage"],
+    title: "Keepsake Deck",
+    description:
+      "A gift-based web application with a compliment card deck, voucher inventory, and request/status workflows. Features 257+ personalized cards across multiple categories, redeemable vouchers with rarity tiers, streak tracking, and unlockable themes — all designed as a heartfelt, interactive gift.",
+    category: "personal",
+    codeLink: "https://github.com/ZacksBroDev/Valentines",
+  },
+  {
+    id: 7,
+    mainImage:
+      "https://via.placeholder.com/600x400?text=Blackjack+First-Decision+Coach",
+    img: [
+      "https://via.placeholder.com/600x400?text=Blackjack+Coach+1",
+      "https://via.placeholder.com/600x400?text=Blackjack+Coach+2",
+    ],
+    features: [
+      "Hit, Stand, Double, and Split decision evaluation",
+      "First-decision grading against basic strategy",
+      "Accuracy and streak tracking",
+      "Card Counting (Hi-Lo) with running/true count",
+      "Coach Mode",
+      "6-deck shoe simulation",
+      "Persistent stats in local storage",
+      "Responsive Design",
+    ],
+    technologies: ["HTML", "CSS", "JavaScript"],
+    title: "Blackjack First-Decision Coach",
+    description:
+      "A browser-based blackjack trainer that evaluates Hit, Stand, Double, and Split decisions against basic strategy. Features Hi-Lo card counting, coach mode, accuracy tracking, and streak stats — all stored in local storage for long-term progress.",
+    category: "game",
+    liveLink: "https://black-jack-nine-fawn.vercel.app/",
+    codeLink: "https://github.com/ZacksBroDev/BlackJack",
+  },
+  {
+    id: 8,
+    mainImage: "https://via.placeholder.com/600x400?text=Roulette+Risk+Lab",
+    img: [
+      "https://via.placeholder.com/600x400?text=Roulette+Risk+1",
+      "https://via.placeholder.com/600x400?text=Roulette+Risk+2",
+    ],
+    features: [
+      "Monte Carlo bankroll simulation",
+      "Configurable starting bankroll and bet size",
+      "Multiple bet types (Red/Black, etc.)",
+      "Max spins and goal amount settings",
+      "Bankroll curve visualization",
+      "Ending-distribution histogram",
+      "Performance analytics dashboard",
+      "Canvas API rendering",
+      "Responsive Design",
+    ],
+    technologies: ["HTML", "CSS", "JavaScript", "Canvas API"],
+    title: "Roulette Risk Lab",
+    description:
+      "A Monte Carlo roulette simulator that models bankroll variance across wheel and bet types. Visualizes outcomes with a bankroll curve and ending-distribution histogram, helping users understand risk and probability through interactive simulations.",
+    category: "game",
+    liveLink: "https://roulette-risk.vercel.app/",
+    codeLink: "https://github.com/ZacksBroDev/RouletteRisk",
+  },
 ];
 
 export default Items;

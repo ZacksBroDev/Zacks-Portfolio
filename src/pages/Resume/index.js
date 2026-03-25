@@ -147,7 +147,7 @@ const Resume = () => {
                 <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
                   <div className="flex items-center gap-2">
                     <h5 className="text-lg font-semibold text-primary">
-                      Just Malik Beats
+                      JustMalikBeats
                     </h5>
                     <a
                       href="https://main.d2l99u51v53uvg.amplifyapp.com"

@@ -108,7 +108,6 @@ const Items = [
     mainImage:
       "https://res.cloudinary.com/djnazqqgr/image/upload/v1766929724/Screenshot_2025-12-28_at_6.41.54_AM_ipzkrs.jpg",
     img: [
-      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766929724/Screenshot_2025-12-28_at_6.41.54_AM_ipzkrs.jpg",
       "https://res.cloudinary.com/djnazqqgr/image/upload/v1766962061/Screenshot_2025-12-28_at_3.45.34_PM_htnmee.jpg",
       "https://res.cloudinary.com/djnazqqgr/image/upload/v1766929725/Screenshot_2025-12-28_at_6.42.16_AM_ez1yba.jpg",
       "https://res.cloudinary.com/djnazqqgr/image/upload/v1766929727/Screenshot_2025-12-28_at_6.42.23_AM_xcfafx.jpg",
@@ -148,15 +147,35 @@ const Items = [
       "https://res.cloudinary.com/djnazqqgr/image/upload/v1767162300/Screenshot_2025-12-30_at_11.23.25_PM_h1qrhd.png",
     ],
     features: [
-      "Upload Documents",
-      "Display Documented Expenses data",
-      "Tracks Expenses and Income Over a Period of Time",
+      "Session-based authentication with rate limiting and Argon2id hashing",
+      "Dashboard with monthly summaries, spending trends, and cashflow charts",
+      "Top merchants and subscription detection",
+      "CSV import with search, filter, paginate, and inline editing",
+      "Merchant mapping with auto-linked aliases and retroactive application",
+      "Hierarchical categories with parent/child, colors, icons, and income/expense toggle",
+      "Monthly budgets with planned vs. actual comparison and progress bars",
+      "Savings goals with target amounts, deadlines, and contribution tracking",
+      "Recurring bills with weekly/bi-weekly/monthly/quarterly/yearly schedules",
+      "Due date calculation with overdue/due-soon status and reminders",
+      "Rules engine with conditions (regex, amount range, direction) and actions",
+      "SHA-256 data deduplication for transactions and CSV checksums",
       "Responsive Design",
     ],
-    technologies: ["Python"],
+    technologies: [
+      "Next.js 14",
+      "React 18",
+      "TypeScript",
+      "Prisma",
+      "PostgreSQL",
+      "Tailwind CSS",
+      "ECharts",
+      "Zod",
+      "Argon2",
+      "PapaParse",
+    ],
     title: "My Personal Accountant",
     description:
-      "A web-based personal finance tracker designed to log, categorize, and analyze income and expenses over time. Built with a clean, modern interface, it provides long-term financial visibility, trend tracking, and centralized money management in one easy-to-use system.",
+      "A full-featured personal finance platform built with Next.js and PostgreSQL for logging, categorizing, and analyzing income and expenses. Includes dashboard analytics, merchant mapping, hierarchical budgets, savings goals, recurring bill tracking, an automation rules engine, and SHA-256 deduplication — all behind session-based auth with Argon2id hashing and rate limiting.",
     category: "personal",
     codeLink: "https://github.com/ZacksBroDev/PersonalFinance",
   },
@@ -164,6 +183,9 @@ const Items = [
     id: 5,
     mainImage:
       "https://res.cloudinary.com/djnazqqgr/image/upload/v1767161121/Screenshot_2025-12-30_at_11.04.37_PM_vmmz3u.png",
+    img: [
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1767161121/Screenshot_2025-12-30_at_11.04.37_PM_vmmz3u.png",
+    ],
     features: [
       "Multiplayer",
       "Score Board",
@@ -178,11 +200,13 @@ const Items = [
   },
   {
     id: 6,
-    mainImage: "https://via.placeholder.com/600x400?text=Keepsake+Deck",
+    mainImage:
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1774651756/Screenshot_2026-03-25_at_8.18.29_AM_fvjfyy.png",
     img: [
-      "https://via.placeholder.com/600x400?text=Keepsake+Deck+1",
-      "https://via.placeholder.com/600x400?text=Keepsake+Deck+2",
-      "https://via.placeholder.com/600x400?text=Keepsake+Deck+3",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1774651755/Screenshot_2026-03-25_at_8.19.11_AM_o9jw6k.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1774651754/Screenshot_2026-03-25_at_8.18.47_AM_gf9jzr.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1774651752/Screenshot_2026-03-25_at_8.18.58_AM_p5gpcr.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1774651752/Screenshot_2026-03-25_at_8.19.28_AM_bnzyge.png",
     ],
     features: [
       "Compliment card deck with 257+ cards",
@@ -208,10 +232,9 @@ const Items = [
   {
     id: 7,
     mainImage:
-      "https://via.placeholder.com/600x400?text=Blackjack+First-Decision+Coach",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1774651690/Screenshot_2026-03-25_at_8.18.11_AM_qke5td.png",
     img: [
-      "https://via.placeholder.com/600x400?text=Blackjack+Coach+1",
-      "https://via.placeholder.com/600x400?text=Blackjack+Coach+2",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1774651690/Screenshot_2026-03-25_at_8.18.11_AM_qke5td.png",
     ],
     features: [
       "Hit, Stand, Double, and Split decision evaluation",
@@ -233,10 +256,10 @@ const Items = [
   },
   {
     id: 8,
-    mainImage: "https://via.placeholder.com/600x400?text=Roulette+Risk+Lab",
+    mainImage:
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1774651680/Screenshot_2026-03-25_at_8.17.59_AM_qcenez.png",
     img: [
-      "https://via.placeholder.com/600x400?text=Roulette+Risk+1",
-      "https://via.placeholder.com/600x400?text=Roulette+Risk+2",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1774651680/Screenshot_2026-03-25_at_8.17.59_AM_qcenez.png",
     ],
     features: [
       "Monte Carlo bankroll simulation",

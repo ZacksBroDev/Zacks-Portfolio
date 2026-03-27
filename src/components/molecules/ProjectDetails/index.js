@@ -24,26 +24,6 @@ const ProjectDetails = () => {
     setIsLoading(false);
   }, [id, navigate]);
 
-  const settings = {
-    dots: true,
-    arrows: false,
-    infinite: true,
-    speed: 500,
-    slidesToScroll: 1,
-    slidesToShow: 2,
-    autoplay: true,
-    pauseOnHover: true,
-    responsive: [
-      {
-        breakpoint: 1000,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
-
   if (isLoading) {
     return (
       <div className="parent py-16">
@@ -59,6 +39,27 @@ const ProjectDetails = () => {
   if (!item) {
     return null;
   }
+
+  const imageCount = item.img?.length || 0;
+  const settings = {
+    dots: true,
+    arrows: false,
+    infinite: imageCount > 1,
+    speed: 500,
+    slidesToScroll: 1,
+    slidesToShow: Math.min(imageCount, 2) || 1,
+    autoplay: imageCount > 1,
+    pauseOnHover: true,
+    responsive: [
+      {
+        breakpoint: 1000,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
 
   return (
     <div className="parent py-16">

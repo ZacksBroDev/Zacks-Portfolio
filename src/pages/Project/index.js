@@ -87,32 +87,63 @@ const Project = () => {
           {/* Items Card */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {items.map((item) => (
-              <div
+              <Link
                 key={item.id}
-                className="item-container rounded-lg shadow-lg p-3 flex flex-col justify-between hover:shadow-primary duration-500"
-                style={{ backgroundColor: "#313131" }}
+                to={`/project/${item.id}`}
+                className="item-container rounded-xl shadow-lg flex flex-col hover:shadow-primary hover:-translate-y-1 duration-300 group"
+                style={{ backgroundColor: "#1e1e1e" }}
               >
-                <div className="item h-full">
+                {/* Featured Badge for Business Projects */}
+                {item.category === "business" && (
+                  <div className="absolute top-3 left-3 z-10">
+                    <span className="bg-primary text-white text-xs font-bold px-2 py-1 rounded-full">
+                      Client Work
+                    </span>
+                  </div>
+                )}
+
+                {/* Image Container */}
+                <div className="item relative overflow-hidden rounded-t-xl">
                   <img
-                    className="rounded-lg h-full w-full"
+                    className="rounded-t-xl w-full h-56 object-contain bg-[#2a2a2a] group-hover:scale-105 transition-transform duration-300"
                     src={item.mainImage}
                     alt={item.title || "Item Image"}
                   />
-                  <div className="overlay">
-                    <h3 className="text-2xl text-primary font-semibold">
-                      {item.title}
-                    </h3>
-                    <Link
-                      to={`/project/${item.id}`}
-                      className="mt-3 inline-block"
-                    >
-                      <button className="btn btn-sm border-2 border-transparent bg-primary hover:bg-transparent text-white hover:border-primary duration-500">
-                        See Details
-                      </button>
-                    </Link>
+                  {/* Hover Overlay */}
+                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span className="btn btn-sm border-2 border-primary bg-transparent text-primary hover:bg-primary hover:text-white duration-300">
+                      View Project
+                    </span>
                   </div>
                 </div>
-              </div>
+
+                {/* Card Content - Always Visible */}
+                <div className="p-4 flex flex-col flex-grow">
+                  <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-primary transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-neutral text-sm line-clamp-2 mb-3 flex-grow">
+                    {item.description}
+                  </p>
+
+                  {/* Tech Tags */}
+                  <div className="flex flex-wrap gap-1 mt-auto">
+                    {item.technologies?.slice(0, 3).map((tech, index) => (
+                      <span
+                        key={index}
+                        className="text-xs bg-neutral/20 text-neutral px-2 py-1 rounded"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                    {item.technologies?.length > 3 && (
+                      <span className="text-xs text-neutral px-1">
+                        +{item.technologies.length - 3}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </Link>
             ))}
           </div>
         </div>

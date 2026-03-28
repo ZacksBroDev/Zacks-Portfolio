@@ -44,7 +44,7 @@ const Items = [
     ],
     title: "JustMalikBeats",
     description:
-      "A streamlined e-commerce website built to help an independent music producer sell beats and showcase their sound. Designed for conversion and simplicity, the platform makes it easy for artists to browse, preview, and purchase music while strengthening the producer's brand and online reach.",
+      "A responsive music storefront built for an independent producer to showcase beats, preview tracks, and move visitors through a clear purchase flow. The focus was a polished frontend experience, strong brand presentation, and a smoother path from discovery to checkout.",
     category: "business",
     liveLink: "https://main.d2l99u51v53uvg.amplifyapp.com/",
     codeLink: "https://github.com/ZacksBroDev/JustMalikBeats",
@@ -87,7 +87,7 @@ const Items = [
     ],
     title: "MHKTraining",
     description:
-      "A centralized training platform built to streamline the student experience bringing lessons, technique videos, schedules, and resources into one intuitive system. Designed for clarity and ease of use, MHKTraining gives students everything they need to learn, practice, and stay on track in one place.",
+      "A centralized training platform designed to make lessons, schedules, videos, and resources easy to navigate across desktop and mobile. The product emphasizes clear information architecture, responsive layouts, and a low-friction student experience.",
     category: "business",
     liveLink: "https://mhktraining.com/",
     codeLink: "https://github.com/ZacksBroDev/MHKWebsite",

@@ -1,14 +1,7 @@
 import React from "react";
 import Lottie from "react-lottie";
-import {
-  FaHtml5,
-  FaCss3Alt,
-  FaNodeJs,
-  FaReact,
-  FaGithub,
-  FaAws,
-} from "react-icons/fa";
-import { SiJavascript, SiExpress, SiMongodb } from "react-icons/si";
+import { FaHtml5, FaCss3Alt, FaReact, FaGithub, FaAws } from "react-icons/fa";
+import { SiJavascript } from "react-icons/si";
 import man from "../../../assets/man.json";
 
 const MySkill = () => {
@@ -37,31 +30,21 @@ const MySkill = () => {
     { title: "Component-Based Architecture", hasIcon: false },
   ];
 
-  const backendSkills = [
-    {
-      title: "Node.js",
-      icon: <FaNodeJs className="text-green-600" />,
-      hasIcon: true,
-    },
-    {
-      title: "Express.js",
-      icon: <SiExpress className="text-neutral" />,
-      hasIcon: true,
-    },
-    { title: "REST APIs", hasIcon: false },
-    { title: "Authentication (JWT)", hasIcon: false },
+  const uiSkills = [
+    { title: "Accessible UI", hasIcon: false },
+    { title: "Reusable Components", hasIcon: false },
+    { title: "Forms & Validation", hasIcon: false },
+    { title: "Content-Driven Interfaces", hasIcon: false },
     { title: "API Integration", hasIcon: false },
   ];
 
-  const databaseSkills = [
-    {
-      title: "MongoDB",
-      icon: <SiMongodb className="text-green-500" />,
-      hasIcon: true,
-    },
-    { title: "Mongoose", hasIcon: false },
-    { title: "Schema Design", hasIcon: false },
-    { title: "Data Modeling", hasIcon: false },
+  const qualitySkills = [
+    { title: "Performance Optimization", hasIcon: false },
+    { title: "Core Web Vitals", hasIcon: false },
+    { title: "Technical SEO", hasIcon: false },
+    { title: "Debugging", hasIcon: false },
+    { title: "Refactoring", hasIcon: false },
+    { title: "Cross-Browser QA", hasIcon: false },
   ];
 
   const toolsSkills = [
@@ -76,9 +59,9 @@ const MySkill = () => {
       hasIcon: true,
     },
     { title: "Vercel / Netlify", hasIcon: false },
-    { title: "CI/CD basics", hasIcon: false },
-    { title: "Performance Optimization", hasIcon: false },
-    { title: "Technical SEO", hasIcon: false },
+    { title: "VS Code", hasIcon: false },
+    { title: "Deployment Basics", hasIcon: false },
+    { title: "Production Support", hasIcon: false },
   ];
 
   const defaultOptions = {
@@ -93,7 +76,9 @@ const MySkill = () => {
   const SkillCategory = ({ title, subtitle, skills }) => (
     <div className="mb-8">
       <h2 className="text-primary text-2xl font-semibold mb-2">{title}</h2>
-      <p className="text-neutral text-sm mb-4 italic">{subtitle}</p>
+      {subtitle ? (
+        <p className="text-neutral text-sm mb-4 italic">{subtitle}</p>
+      ) : null}
       <div className="flex flex-wrap gap-3">
         {skills?.map((skill) => (
           <div key={skill.title} className="text-center">
@@ -118,15 +103,28 @@ const MySkill = () => {
   return (
     <div className="pt-24 parent">
       <h1 className="text-4xl font-semibold drop-shadow-md text-center mb-8">
-        My <span className="text-primary">Skills</span>
+        Frontend <span className="text-primary">Skillset</span>
       </h1>
       <div className="flex flex-col lg:flex-row items-start justify-between gap-8 my-8">
         <div className="flex-1">
-          <SkillCategory title="Frontend Engineering" skills={frontendSkills} />
-          <SkillCategory title="Backend & APIs" skills={backendSkills} />
-          <SkillCategory title="Databases & Data" skills={databaseSkills} />
           <SkillCategory
-            title="Tools, Deployment & Workflow"
+            title="Frontend Engineering"
+            subtitle="Core technologies I use to build polished, responsive interfaces."
+            skills={frontendSkills}
+          />
+          <SkillCategory
+            title="UI Architecture & Experience"
+            subtitle="How I shape maintainable interfaces that are easy to use and easy to extend."
+            skills={uiSkills}
+          />
+          <SkillCategory
+            title="Performance & Quality"
+            subtitle="Practices I rely on to keep frontend work fast, stable, and search-friendly."
+            skills={qualitySkills}
+          />
+          <SkillCategory
+            title="Tools & Workflow"
+            subtitle="Tooling that supports day-to-day frontend delivery and maintenance."
             skills={toolsSkills}
           />
         </div>

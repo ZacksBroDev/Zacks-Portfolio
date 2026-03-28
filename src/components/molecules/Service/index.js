@@ -14,45 +14,45 @@ const Service = () => {
   const services = [
     {
       id: 1,
-      title: "Frontend Engineer",
+      title: "Frontend Engineering",
       icon: <FiCode />,
       description:
-        "Design and build responsive, high-performance user interfaces and web applications. Deliver polished, production-ready frontends with clean architecture, smooth interactions, and accessible design.",
+        "Design and build responsive, high-performance user interfaces for modern web applications. Deliver polished frontends with clean architecture, accessible interaction patterns, and a strong focus on usability.",
     },
     {
       id: 2,
-      title: "Cloud Deployment & Maintenance",
+      title: "Frontend Delivery & Launch Support",
       icon: <FiCloud />,
       description:
-        "Deploy and maintain applications in production environments, handling hosting setup, CI/CD pipelines, monitoring, updates, and security to keep systems fast, reliable, and online.",
+        "Ship frontend projects to production with dependable hosting, environment setup, deploy previews, and release support across platforms like Vercel, Netlify, and Amplify.",
     },
     {
       id: 3,
-      title: "Web Management & Ongoing Support",
+      title: "Website Management & Ongoing Support",
       icon: <FiTool />,
       description:
-        "Provide ongoing support for existing websites and applications, including updates, content changes, feature improvements, and technical upkeep so products stay stable and current.",
+        "Maintain existing websites and frontend applications with content updates, bug fixes, feature refinements, and technical upkeep so products stay current and reliable.",
     },
     {
       id: 4,
-      title: "Performance & Optimization",
+      title: "Performance & Accessibility Optimization",
       icon: <FiZap />,
       description:
-        "Audit and optimize applications to improve load times, reliability, and user experience through performance tuning, image optimization, Core Web Vitals, and targeted refactoring.",
+        "Audit and improve load times, Core Web Vitals, accessibility, and overall usability through refactoring, responsive cleanup, image optimization, and targeted frontend tuning.",
     },
     {
       id: 5,
-      title: "Backend & API Engineering",
+      title: "API Integration & Dynamic Interfaces",
       icon: <FiDatabase />,
       description:
-        "Build secure, scalable backends and APIs that power real business logic, including authentication, databases, integrations, and clean data flows with security and maintainability prioritized.",
+        "Build dashboards, storefronts, forms, and customer-facing flows that connect cleanly to existing APIs and services while keeping the interface intuitive, responsive, and maintainable.",
     },
     {
       id: 6,
-      title: "Technical Consulting & Audits",
+      title: "Frontend Audits & Technical Consulting",
       icon: <FiFileText />,
       description:
-        "Advise teams and founders through architecture reviews, code audits, and MVP planning—helping reduce risk, avoid technical debt, and make informed technical decisions.",
+        "Review UI architecture, frontend code quality, and product friction points to help teams prioritize improvements, reduce maintenance risk, and ship cleaner user experiences.",
     },
   ];
   return (
@@ -66,9 +66,9 @@ const Service = () => {
         </h1>
         <BottomLine />
         <p className="text-center text-neutral mt-4 max-w-2xl mx-auto">
-          I build, optimize, and maintain production-ready web applications for
-          real businesses. From architecture and APIs to deployment and
-          long-term support.
+          I design, ship, and refine frontend experiences for real businesses,
+          from polished marketing pages and responsive product interfaces to
+          performance work, launch support, and long-term maintenance.
         </p>
       </div>
 

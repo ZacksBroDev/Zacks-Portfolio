@@ -1,5 +1,5 @@
 export const RESUME_LINK =
-  "https://drive.google.com/file/d/1d5lHNZpsbS5rCdfgRnPoDB-jtsKIL_sc/view?usp=sharing";
+  "https://drive.google.com/file/d/1qSTzEZW7JKXDqjVx9NmH4-X3MNYEvJd-/view?usp=sharing";
 
 export const SITE_PROFILE = {
   name: "Zackary Brown",

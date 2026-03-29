@@ -26,6 +26,7 @@ const MySkill = () => {
       icon: <FaReact className="text-cyan-400" />,
       hasIcon: true,
     },
+    { title: "Tailwind CSS", hasIcon: false },
     { title: "Responsive Design", hasIcon: false },
     { title: "Component-Based Architecture", hasIcon: false },
   ];

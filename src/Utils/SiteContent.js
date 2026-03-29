@@ -4,7 +4,7 @@ export const RESUME_LINK =
 export const SITE_PROFILE = {
   name: "Zackary Brown",
   title: "Frontend Engineer",
-  animatedTitle: "A Frontend Engineer",
+  aboutTitle: "A Frontend Engineer",
   email: "zackaryzbrown@gmail.com",
   emailHref: "mailto:zackaryzbrown@gmail.com",
   phoneDisplay: "+1 505 358 8607",
@@ -25,14 +25,26 @@ export const SITE_PROFILE = {
 export const HERO_CONTENT = {
   intro: "Hello, I'm",
   summary:
-    "I'm a frontend engineer focused on building polished, production-ready interfaces with React and modern frontend tooling. I care about responsive layout, accessible interactions, clean component architecture, and performance so products feel fast, intuitive, and dependable.",
+    "I build fast, responsive web interfaces with React, JavaScript, CSS, and Tailwind. My focus is shipping clean user-facing features, improving performance, and writing maintainable frontend code that works reliably in production. I've worked across the stack too, which helps me build interfaces with a strong understanding of APIs, deployment, and the bigger product.",
+  techStack: [
+    "React",
+    "JavaScript",
+    "CSS",
+    "Tailwind",
+    "Accessibility",
+    "Performance",
+  ],
 };
 
 export const ABOUT_CONTENT = {
   paragraphs: [
-    "I'm a frontend engineer with a strong focus on building practical, production-ready web applications. I specialize in responsive user interfaces, reusable components, and product experiences that feel clear, polished, and easy to use across devices.",
-    "I studied Computer Science at Western Colorado University, where I built a solid foundation in software development and problem-solving. Since then, I've applied those fundamentals to client and personal projects, turning business needs into maintainable frontend solutions with thoughtful UX, clean implementation, and reliable delivery.",
-    "While I understand the broader product stack, the work I am intentionally pursuing is frontend engineering: interface quality, accessibility, performance, and shipping experiences that users genuinely enjoy.",
+    "My strongest work is on the frontend: building practical web applications that feel clear, fast, and polished in real use. I work primarily with React, JavaScript, CSS, and Tailwind, with a focus on responsive UI, accessibility, performance, and maintainable component structure.",
+    "Recent projects include a centralized React training platform for a martial arts school serving 100+ students and a promotional site where I improved frontend performance with lazy loading and progressive image rendering for an image-heavy gallery experience.",
+    "I studied Computer Science at Western Colorado University, where I built a strong foundation in software development and problem-solving. Since then, I've built and deployed web applications from concept to production. While I can work across the stack, the role I am intentionally pursuing is frontend engineering: turning requirements into polished user-facing features that teams can understand, maintain, and trust.",
+  ],
+  highlights: [
+    "Built a centralized React training platform serving 100+ students with lessons, schedules, and resources in one responsive interface.",
+    "Improved frontend performance on a content-heavy band site with lazy loading and progressive image rendering.",
   ],
 };
 
@@ -55,7 +67,7 @@ export const RESUME_HEADER_LINKS = [
 ];
 
 export const RESUME_SUMMARY =
-  "I'm a frontend engineer focused on building practical, production-ready web applications. I specialize in responsive user interfaces, reusable component architecture, accessibility, and performance-minded implementation. I enjoy translating business needs into polished product experiences, and I am seeking a frontend engineering role where I can keep growing in UI quality, product thinking, and modern frontend development.";
+  "Frontend engineer building responsive, production-ready interfaces with React, JavaScript, CSS, and Tailwind. I focus on accessibility, performance, and clean user-facing implementation, with cross-stack experience that helps me collaborate effectively on APIs, deployment, and product delivery.";
 
 export const SOCIAL_LINKS = [
   {

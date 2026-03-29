@@ -170,6 +170,7 @@ export const resumeData = {
     "CSS3",
     "JavaScript",
     "React.js",
+    "Tailwind CSS",
     "Vite",
     "Responsive Design",
     "Accessibility",

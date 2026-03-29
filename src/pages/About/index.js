@@ -1,5 +1,4 @@
 import React from "react";
-import TypeAnimation from "react-type-animation";
 import "./About.css";
 import "../shared/Shared.css";
 import { MySkill, Education, PrimaryBtn } from "../../components";
@@ -34,26 +33,28 @@ const About = () => {
               {SITE_PROFILE.name}
             </h2>
             <div className="my-8">
-              <TypeAnimation
-                className="text-2xl text-primary font-bold text-left sm:text-2xl sm:mb-2"
-                cursor={true}
-                sequence={[SITE_PROFILE.animatedTitle, 2000]}
-                wrapper="div"
-                repeat={Infinity}
-              />
+              <p className="text-2xl text-primary font-bold text-left sm:text-2xl sm:mb-2">
+                {SITE_PROFILE.aboutTitle}
+              </p>
             </div>
-            <p className="text-neutral font-medium text-left sm:mb-2">
-              {ABOUT_CONTENT.paragraphs[0]}
-            </p>
-            <br />
-            <p className="text-neutral font-medium text-left sm:mb-2">
-              {ABOUT_CONTENT.paragraphs[1]}
-            </p>
-
-            <br />
-            <p className="text-neutral font-medium text-left sm:mb-2">
-              {ABOUT_CONTENT.paragraphs[2]}
-            </p>
+            {ABOUT_CONTENT.paragraphs.map((paragraph, index) => (
+              <React.Fragment key={paragraph}>
+                <p className="text-neutral font-medium text-left sm:mb-2">
+                  {paragraph}
+                </p>
+                {index < ABOUT_CONTENT.paragraphs.length - 1 ? <br /> : null}
+              </React.Fragment>
+            ))}
+            <div className="rounded-xl border border-primary/20 bg-[#313131] p-5 mb-6">
+              <h3 className="text-lg font-semibold text-white mb-3">
+                Recent Frontend Proof
+              </h3>
+              <ul className="list-disc list-inside space-y-2 text-neutral font-medium">
+                {ABOUT_CONTENT.highlights.map((highlight) => (
+                  <li key={highlight}>{highlight}</li>
+                ))}
+              </ul>
+            </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-4 mt-4 text-left sm:mb-2">
               <h2 className="font-medium">
                 <span className="mr-2 text-primary">Name : </span>

@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FaDownload } from "react-icons/fa";
 import { RiFolderInfoFill } from "react-icons/ri";
-import TypeAnimation from "react-type-animation";
 import Lottie from "react-lottie";
 import coding from "../../../assets/coding.json";
 import "../../../pages/shared/Shared.css";
@@ -28,19 +27,25 @@ const Banner = () => {
           {SITE_PROFILE.name}
         </h1>
         <div className="my-4">
-          <TypeAnimation
-            className="text-2xl text-primary font-bold translate-y-[-80%] sm:translate-y-[-0%]"
-            cursor={true}
-            sequence={[SITE_PROFILE.animatedTitle, 2000]}
-            wrapper="div"
-            repeat={Infinity}
-          />
+          <p className="text-2xl text-primary font-bold translate-y-[-80%] sm:translate-y-[-0%]">
+            {SITE_PROFILE.title}
+          </p>
         </div>
         <p className="text-neutral max-w-xl mb-6 font-medium translate-y-[-20%] sm:translate-y-[-0%]">
           {HERO_CONTENT.summary}
         </p>
+        <div className="flex flex-wrap gap-2 mb-6 translate-y-[-20%] sm:translate-y-[-0%]">
+          {HERO_CONTENT.techStack.map((item) => (
+            <span
+              key={item}
+              className="rounded-full border border-primary/40 bg-[#313131] px-3 py-1 text-sm font-medium text-neutral"
+            >
+              {item}
+            </span>
+          ))}
+        </div>
 
-        <div className="flex items-center translate-y-[-60%] sm:translate-y-[-0%]">
+        <div className="flex flex-wrap items-center gap-4 translate-y-[-60%] sm:translate-y-[-0%]">
           <PrimaryBtn
             as="a"
             href={RESUME_LINK}
@@ -53,7 +58,7 @@ const Banner = () => {
               <FaDownload />
             </span>
           </PrimaryBtn>
-          <SecondaryBtn as={Link} to="/about" className="ml-4">
+          <SecondaryBtn as={Link} to="/about">
             <span>About Me</span>
             <span>
               <RiFolderInfoFill />

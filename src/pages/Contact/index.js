@@ -63,7 +63,7 @@ const Contact = () => {
       setFormStatus({
         type: "error",
         message:
-          "The contact form is not configured yet. Please reach out by email or LinkedIn for now.",
+          `The form is temporarily unavailable. Prefer email directly? ${SITE_PROFILE.email}`,
       });
       return;
     }
@@ -105,15 +105,69 @@ const Contact = () => {
   };
 
   return (
-    <div className="parent py-24 mt-4">
-      <div>
-        <h1 className="text-4xl font-semibold drop-shadow-md text-center">
-          Get In <span className="text-primary">Touch</span>
+    <section className="parent py-16 md:py-20 mt-2 contact-section" aria-labelledby="contact-heading">
+      <div className="max-w-5xl mx-auto">
+        <h1 id="contact-heading" className="text-4xl font-semibold drop-shadow-md text-center">
+          Contact <span className="text-primary">Me</span>
         </h1>
+        <p className="contact-intro text-center mt-4 max-w-3xl mx-auto">
+          Have a frontend role, project, or collaboration in mind? Send a message and I&apos;ll get back to you.
+        </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-        <div>
-          <h2 className="text-2xl font-medium">Contact Me</h2>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 mt-10 max-w-5xl mx-auto">
+        <div className="contact-panel contact-panel--info">
+          <h2 className="text-2xl font-semibold">Let&apos;s Connect</h2>
+          <p className="contact-support-text mt-3">
+            Open to frontend and software engineering opportunities. I&apos;m happy to discuss role fit, project impact, and how I work.
+          </p>
+
+          <div className="mt-6 space-y-5">
+            <div className="flex items-center">
+              <FaUserAlt className="text-xl mr-5 text-primary"></FaUserAlt>
+              <h3 className="font-medium text-white">{SITE_PROFILE.name}</h3>
+            </div>
+            <div className="flex items-center">
+              <FaPhoneAlt className="text-xl mr-5 text-primary"></FaPhoneAlt>
+              <a href={SITE_PROFILE.phoneHref} className="font-medium text-white hover:text-primary duration-300">
+                {SITE_PROFILE.phoneDisplay}
+              </a>
+            </div>
+            <div className="flex items-center">
+              <MdEmail className="text-2xl mr-5 text-primary"></MdEmail>
+              <a href={SITE_PROFILE.emailHref} className="font-medium text-white hover:text-primary duration-300">
+                {SITE_PROFILE.email}
+              </a>
+            </div>
+            <div className="flex items-center">
+              <FaLocationArrow className="text-xl mr-5 text-primary"></FaLocationArrow>
+              <h3 className="font-medium text-white">{SITE_PROFILE.location}</h3>
+            </div>
+          </div>
+
+          <div className="mt-8 flex items-center flex-wrap gap-3">
+            <h3 className="text-base text-neutral w-full">Socials</h3>
+            {SOCIAL_LINKS.map((link) => {
+              const Icon = socialIcons[link.key];
+
+              return (
+                <a
+                  key={link.key}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={link.ariaLabel}
+                  className="contact-social-chip"
+                >
+                  <Icon></Icon>
+                </a>
+              );
+            })}
+          </div>
+        </div>
+
+        <div className="contact-panel contact-panel--form">
+          <h2 className="text-2xl font-semibold">Send a Message</h2>
           <form ref={form} onSubmit={handleSend}>
             <div className="honeypot-field" aria-hidden="true">
               <label htmlFor="company">Company</label>
@@ -125,7 +179,8 @@ const Contact = () => {
                 autoComplete="off"
               />
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-6">
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-4 mt-2">
               <div>
                 <label className="input-label" htmlFor="name">
                   Name
@@ -155,6 +210,7 @@ const Contact = () => {
                 />
               </div>
             </div>
+
             <label className="input-label" htmlFor="subject">
               Subject
             </label>
@@ -179,16 +235,19 @@ const Contact = () => {
               placeholder="Message"
               required
             ></textarea>
+
             <PrimaryBtn
               type="submit"
-              disabled={isSubmitting || !isEmailConfigured}
-              aria-disabled={isSubmitting || !isEmailConfigured}
+              className="mt-4"
+              disabled={isSubmitting}
+              aria-disabled={isSubmitting}
             >
               <span>{isSubmitting ? "Sending..." : "Send Message"}</span>
               <span>
                 <MdSend />
               </span>
             </PrimaryBtn>
+
             {formStatus.message && (
               <p
                 className={`form-status ${
@@ -202,67 +261,17 @@ const Contact = () => {
                 {formStatus.message}
               </p>
             )}
-            {!isEmailConfigured && (
-              <p className="text-sm text-neutral mt-4">
-                The form is awaiting EmailJS environment variables. In the
-                meantime, email{" "}
-                <a
-                  href={SITE_PROFILE.emailHref}
-                  className="text-primary hover:underline"
-                >
-                  {SITE_PROFILE.email}
-                </a>
-                .
-              </p>
-            )}
+
+            <p className="contact-support-text mt-4">
+              Prefer email directly?{" "}
+              <a href={SITE_PROFILE.emailHref} className="text-primary hover:underline">
+                {SITE_PROFILE.email}
+              </a>
+            </p>
           </form>
         </div>
-        <div className="mx-auto md:ml-64">
-          <h2 className="text-2xl font-medium">Contact Info</h2>
-          <div className="flex items-center my-6">
-            <FaUserAlt className="text-2xl mr-8 hover:text-primary cursor-pointer duration-300"></FaUserAlt>
-            <h3 className="font-medium text-primary">{SITE_PROFILE.name}</h3>
-          </div>
-          <div className="flex items-center my-6">
-            <FaPhoneAlt className="text-2xl mr-8 hover:text-primary cursor-pointer duration-300"></FaPhoneAlt>
-            <a href={SITE_PROFILE.phoneHref} className="font-medium text-primary hover:underline">
-              {SITE_PROFILE.phoneDisplay}
-            </a>
-          </div>
-          <div className="flex items-center my-6">
-            <MdEmail className="text-3xl mr-8 hover:text-primary cursor-pointer duration-300"></MdEmail>
-            <a href={SITE_PROFILE.emailHref} className="font-medium text-primary hover:underline">
-              {SITE_PROFILE.email}
-            </a>
-          </div>
-          <div className="flex items-center my-6">
-            <FaLocationArrow className="text-2xl mr-8 hover:text-primary cursor-pointer duration-300"></FaLocationArrow>
-
-            <h3 className="font-medium text-primary">{SITE_PROFILE.location}</h3>
-          </div>
-          <div className="mt-8 flex items-center">
-            <h3 className="text-xl text-neutral">Socials</h3>
-            <div className="bg-gray-400 w-10 h-[2px] mx-4"></div>
-            {SOCIAL_LINKS.map((link) => {
-              const Icon = socialIcons[link.key];
-
-              return (
-                <a
-                  key={link.key}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={link.ariaLabel}
-                  className="text-3xl text-neutral hover:text-primary hover:-translate-y-1.5 shadow-lg mx-1 duration-300"
-                >
-                  <Icon></Icon>
-                </a>
-              );
-            })}
-          </div>
-        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

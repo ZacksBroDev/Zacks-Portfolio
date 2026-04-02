@@ -7,6 +7,7 @@ import coding from "../../../assets/coding.json";
 import "../../../pages/shared/Shared.css";
 import { PrimaryBtn, SecondaryBtn } from "../../../components";
 import { HERO_CONTENT, RESUME_LINK, SITE_PROFILE } from "../../../Utils/SiteContent";
+import HeroUtilityBar from "../HeroUtilityBar";
 
 const Banner = () => {
   const defaultOptions = {
@@ -18,7 +19,9 @@ const Banner = () => {
     },
   };
   return (
-    <div className="parent min-h-[100vh] flex flex-col-reverse lg:flex-row items-center justify-between">
+    <>
+      <HeroUtilityBar />
+      <div className="parent py-16 flex flex-col-reverse lg:flex-row items-center justify-between">
       <div>
         <h2 className="text-neutral text-xl font-medium translate-y-[-90%] sm:translate-y-[-0%]">
           {HERO_CONTENT.intro}
@@ -70,6 +73,7 @@ const Banner = () => {
         <Lottie options={defaultOptions} height="90%" width="90%" />
       </div>
     </div>
+    </>
   );
 };
 

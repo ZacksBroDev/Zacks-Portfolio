@@ -260,9 +260,9 @@ const Resume = () => {
             href={RESUME_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Download PDF resume in a new tab"
+            aria-label="Open resume in a new tab"
           >
-            <span>Download PDF Resume</span>
+            <span>Resume</span>
             <span>
               <FaDownload />
             </span>

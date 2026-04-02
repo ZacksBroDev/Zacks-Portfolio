@@ -26,7 +26,10 @@ const ProjectDetails = () => {
     return null;
   }
 
-  const imageCount = item.img?.length || 0;
+  const galleryImages = [item.mainImage, ...(item.img || [])].filter(
+    (image, index, arr) => image && arr.indexOf(image) === index
+  );
+  const imageCount = galleryImages.length;
   const settings = {
     dots: true,
     arrows: false,
@@ -52,7 +55,7 @@ const ProjectDetails = () => {
       <h1 className="text-center text-4xl font-medium mt-8">{item.title}</h1>
 
       <Slider {...settings}>
-        {item.img?.map((image, index) => (
+        {galleryImages.map((image, index) => (
           <div key={index} className="mt-6">
             <div
               className="mx-1 md:mx-4 rounded-lg shadow-xl single-blog cursor-pointer border-2 border-primary flex flex-col justify-between"

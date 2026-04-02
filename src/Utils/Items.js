@@ -4,14 +4,13 @@ const Items = [
   {
     id: 1,
     mainImage:
-      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766930285/MALIKBEATSLOGO_l8vmxs.jpg",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/q_auto/f_auto/v1775109613/Screenshot_2026-04-01_at_11.53.35_PM_wzrvtd.png",
     img: [
-      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766929014/Screenshot_2025-12-28_at_6.26.53_AM_efyfis.jpg",
-      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766929017/Screenshot_2025-12-28_at_6.27.12_AM_uwgui8.jpg",
-      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766929017/Screenshot_2025-12-28_at_6.27.25_AM_xz1nvc.jpg",
-      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766929013/Screenshot_2025-12-28_at_6.27.00_AM_zcj0re.jpg",
-      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766929017/Screenshot_2025-12-28_at_6.27.25_AM_xz1nvc.jpg",
-      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766929019/Screenshot_2025-12-28_at_6.27.58_AM_oxc2gf.jpg",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/q_auto/f_auto/v1775109613/Screenshot_2026-04-01_at_11.53.48_PM_hch842.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/q_auto/f_auto/v1775109614/Screenshot_2026-04-01_at_11.54.04_PM_x3msqr.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/q_auto/f_auto/v1775109616/Screenshot_2026-04-01_at_11.54.35_PM_dl6k2r.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/q_auto/f_auto/v1775109616/Screenshot_2026-04-01_at_11.54.49_PM_sbiq4w.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/q_auto/f_auto/v1775109617/Screenshot_2026-04-01_at_11.55.04_PM_wssojg.png",
     ],
     features: [
       "User registration and login",
@@ -52,13 +51,15 @@ const Items = [
   {
     id: 2,
     mainImage:
-      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766928347/Screenshot_2025-12-28_at_6.17.39_AM_m0gojh.jpg",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/q_auto/f_auto/v1775106075/Screenshot_2026-04-01_at_10.38.11_PM_fg5yeh.png",
     img: [
-      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766928346/Screenshot_2025-12-28_at_6.17.49_AM_eqizvj.jpg",
-      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766928348/Screenshot_2025-12-28_at_6.18.02_AM_npaqpn.jpg",
-      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766928350/Screenshot_2025-12-28_at_6.18.16_AM_jyauzi.jpg",
-      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766928350/Screenshot_2025-12-28_at_6.18.55_AM_jxoh5i.jpg",
-      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766928345/Screenshot_2025-12-28_at_6.18.27_AM_elxxmf.jpg",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/q_auto/f_auto/v1775106077/Screenshot_2026-04-01_at_10.39.17_PM_mypy7m.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/q_auto/f_auto/v1775106075/Screenshot_2026-04-01_at_10.38.11_PM_fg5yeh.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/q_auto/f_auto/v1775106075/Screenshot_2026-04-01_at_10.38.23_PM_wcrlxl.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/q_auto/f_auto/v1775106075/Screenshot_2026-04-01_at_10.38.33_PM_hmouhg.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/q_auto/f_auto/v1775106076/Screenshot_2026-04-01_at_10.38.46_PM_d6bhms.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/q_auto/f_auto/v1775106076/Screenshot_2026-04-01_at_10.38.56_PM_ghvk4w.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/q_auto/f_auto/v1775106077/Screenshot_2026-04-01_at_10.39.05_PM_hunenv.png",
     ],
     features: [
       "User registration and login",
@@ -95,14 +96,15 @@ const Items = [
   {
     id: 3,
     mainImage:
-      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766929724/Screenshot_2025-12-28_at_6.41.54_AM_ipzkrs.jpg",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/q_auto/f_auto/v1775106051/Screenshot_2026-04-01_at_10.35.22_PM_c2gmbr.png",
     img: [
-      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766962061/Screenshot_2025-12-28_at_3.45.34_PM_htnmee.jpg",
-      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766929725/Screenshot_2025-12-28_at_6.42.16_AM_ez1yba.jpg",
-      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766929727/Screenshot_2025-12-28_at_6.42.23_AM_xcfafx.jpg",
-      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766929729/Screenshot_2025-12-28_at_6.42.31_AM_ldn3e2.jpg",
-      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766929730/Screenshot_2025-12-28_at_6.42.38_AM_o3vznk.jpg",
-      "https://res.cloudinary.com/djnazqqgr/image/upload/v1766929732/Screenshot_2025-12-28_at_6.42.46_AM_qzprcu.jpg",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/q_auto/f_auto/v1775106051/Screenshot_2026-04-01_at_10.35.22_PM_c2gmbr.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/q_auto/f_auto/v1775106051/Screenshot_2026-04-01_at_10.35.40_PM_paue1h.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/q_auto/f_auto/v1775106051/Screenshot_2026-04-01_at_10.35.53_PM_ahzr73.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/q_auto/f_auto/v1775106052/Screenshot_2026-04-01_at_10.36.05_PM_q3wjra.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/q_auto/f_auto/v1775106056/Screenshot_2026-04-01_at_10.36.17_PM_hge81q.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/q_auto/f_auto/v1775106052/Screenshot_2026-04-01_at_10.36.27_PM_sfel2e.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/q_auto/f_auto/v1775106052/Screenshot_2026-04-01_at_10.36.38_PM_gwon33.png",
     ],
     features: [
       "User registration and login",

@@ -45,7 +45,7 @@ const Items = [
     description:
       "A responsive music storefront built for an independent producer to showcase beats, preview tracks, and move visitors through a clear purchase flow. The focus was a polished frontend experience, strong brand presentation, and a smoother path from discovery to checkout.",
     category: "business",
-    liveLink: "https://main.d2l99u51v53uvg.amplifyapp.com/",
+    liveLink: "https://malikbeats.com/",
     codeLink: "https://github.com/ZacksBroDev/JustMalikBeats",
   },
   {

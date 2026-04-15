@@ -33,7 +33,7 @@ export const resumeData = {
       projects: [
         {
           title: "JustMalikBeats",
-          href: "https://main.d2l99u51v53uvg.amplifyapp.com",
+          href: "https://malikbeats.com",
           ariaLabel: "Visit the JustMalikBeats website",
           date: "October 2025 - January 2026",
           bullets: [

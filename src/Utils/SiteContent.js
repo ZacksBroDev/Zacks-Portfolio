@@ -12,8 +12,8 @@ export const SITE_PROFILE = {
   location: "Denver, Colorado",
   websiteLabel: "zackarybrown.net",
   websiteUrl: "https://zackarybrown.net",
-  githubLabel: "ZacksBroDev",
-  githubUrl: "https://github.com/ZacksBroDev",
+  githubLabel: "zackaryzbrown",
+  githubUrl: "https://github.com/zackaryzbrown",
   linkedinUrl: "https://www.linkedin.com/in/zackaryzbrown",
   xUrl: "https://x.com/bmxbro01",
   aboutImage:

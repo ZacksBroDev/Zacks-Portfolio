@@ -23,9 +23,13 @@ export const SITE_PROFILE = {
 };
 
 export const HERO_CONTENT = {
+  eyebrow: "Denver-based frontend engineer",
+  headline: "Frontend engineer building fast, clean product interfaces.",
   intro: "Hello, I'm",
   summary:
-    "I build fast, responsive web interfaces with React, JavaScript, CSS, and Tailwind. My focus is shipping clean user-facing features, improving performance, and writing maintainable frontend code that works reliably in production. I've worked across the stack too, which helps me build interfaces with a strong understanding of APIs, deployment, and the bigger product.",
+    "I build responsive React interfaces with a strong focus on clarity, performance, accessibility, and maintainable frontend code. My work spans client sites and product UI, with enough cross-stack experience to collaborate well on APIs, deployment, and product delivery.",
+  availability:
+    "Open to frontend engineer and junior frontend developer roles.",
   techStack: [
     "React",
     "JavaScript",
@@ -35,6 +39,23 @@ export const HERO_CONTENT = {
     "Performance",
   ],
 };
+
+export const HERO_PROOF_POINTS = [
+  {
+    label: "Focus",
+    value: "Product UI, performance, accessibility",
+  },
+  {
+    label: "Work",
+    value: "Client builds and responsive web apps",
+  },
+  {
+    label: "Approach",
+    value: "Clear interfaces, reliable delivery",
+  },
+];
+
+export const HOME_FEATURED_PROJECT_IDS = [2, 1, 4];
 
 export const ABOUT_CONTENT = {
   paragraphs: [

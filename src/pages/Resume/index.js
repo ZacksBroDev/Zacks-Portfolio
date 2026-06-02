@@ -84,7 +84,7 @@ const groupSkills = (skills) => {
   skills.forEach((skill) => {
     const normalized = skill.toLowerCase();
     const group = groups.find((entry) =>
-      entry.match.some((term) => normalized.includes(term))
+      entry.match.some((term) => normalized.includes(term)),
     );
 
     if (group) {
@@ -102,13 +102,23 @@ const groupSkills = (skills) => {
   return groups.filter((group) => group.items.length > 0);
 };
 
-const ResumeTimelineItem = ({ title, company, location, date, bullets = [] }) => (
+const ResumeTimelineItem = ({
+  title,
+  company,
+  location,
+  date,
+  bullets = [],
+}) => (
   <article className="resume-timeline-item">
     <div className="resume-timeline-item__top">
       <div>
         <h3>{title}</h3>
-        {company ? <p className="resume-timeline-item__subhead">{company}</p> : null}
-        {location ? <p className="resume-timeline-item__meta">{location}</p> : null}
+        {company ? (
+          <p className="resume-timeline-item__subhead">{company}</p>
+        ) : null}
+        {location ? (
+          <p className="resume-timeline-item__meta">{location}</p>
+        ) : null}
       </div>
       <span className="resume-date-pill">{date}</span>
     </div>
@@ -182,7 +192,11 @@ const Resume = () => {
         <div className="resume-hero">
           <div className="resume-hero__identity">
             <div className="resume-hero__image-wrap">
-              <img src={profile.image} alt={profile.name} className="resume-hero__image" />
+              <img
+                src={profile.image}
+                alt={profile.name}
+                className="resume-hero__image"
+              />
             </div>
 
             <div className="resume-hero__copy">
@@ -215,7 +229,9 @@ const Resume = () => {
 
           <aside className="resume-brief-card">
             <p className="resume-panel__kicker">Positioning summary</p>
-            <h2>Frontend roles where product polish and UI reliability matter.</h2>
+            <h2>
+              Frontend roles where product polish and UI reliability matter.
+            </h2>
             <ul className="resume-bullet-list">
               {recruiterNotes.map((note) => (
                 <li key={note}>{note}</li>
@@ -293,7 +309,10 @@ const Resume = () => {
 
                   <div className="resume-project-list">
                     {entry.projects.map((project) => (
-                      <ResumeProjectCard key={project.title} project={project} />
+                      <ResumeProjectCard
+                        key={project.title}
+                        project={project}
+                      />
                     ))}
                   </div>
                 </div>

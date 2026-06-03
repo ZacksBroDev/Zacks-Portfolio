@@ -75,7 +75,7 @@ VITE_EMAILJS_PUBLIC_KEY=
 
 ## Author
 
-- Github: [ZacksBroDev](https://github.com/ZacksBroDev)
+- Github: [zackaryzbrown](https://github.com/zackaryzbrown)
 - Linkedin: [zackaryzbrown](https://www.linkedin.com/in/zackaryzbrown)
 - Email: [zackaryzbrown@gmail.com](mailto:zackaryzbrown@gmail.com)
 

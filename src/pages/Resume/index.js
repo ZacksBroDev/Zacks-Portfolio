@@ -1,18 +1,18 @@
 import React from "react";
-import "./Resume.css";
-import "../shared/Shared.css";
-import { RESUME_LINK } from "../../Utils/Constants";
-import { PrimaryBtn } from "../../components";
-import { resumeData } from "../../Utils/ResumeData";
+import { Link } from "react-router-dom";
 import {
-  FaDownload,
-  FaEnvelope,
-  FaGlobe,
-  FaGithub,
-  FaExternalLinkAlt,
   FaAward,
   FaCertificate,
+  FaDownload,
+  FaEnvelope,
+  FaGithub,
+  FaGlobe,
 } from "react-icons/fa";
+import { PrimaryBtn, SecondaryBtn } from "../../components";
+import { RESUME_LINK, SITE_PROFILE } from "../../Utils/SiteContent";
+import { resumeData } from "../../Utils/ResumeData";
+import "./Resume.css";
+import "../shared/Shared.css";
 
 const contactIcons = {
   email: FaEnvelope,
@@ -25,24 +25,141 @@ const certificationIcons = {
   award: FaAward,
 };
 
-const ExperienceItem = ({ title, company, location, date, bullets = [] }) => (
-  <div className="experience-item">
-    <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
+const resumeSignals = [
+  {
+    label: "Target",
+    value: "Frontend Engineer / Junior Frontend Developer",
+  },
+  {
+    label: "Location",
+    value: SITE_PROFILE.location,
+  },
+  {
+    label: "Primary focus",
+    value: "Responsive UI, product frontend systems, and user experience",
+  },
+];
+
+const recruiterNotes = [
+  "Frontend-first portfolio with recent client work and product UI examples.",
+  "Comfortable collaborating across APIs, deployment, and user-facing delivery.",
+  "Production mindset shaped by client deadlines and technical operations work.",
+];
+
+const SKILL_GROUPS = [
+  {
+    label: "Frontend",
+    match: [
+      "html",
+      "css",
+      "javascript",
+      "react",
+      "tailwind",
+      "component",
+      "responsive",
+    ],
+  },
+  {
+    label: "Backend / APIs",
+    match: ["api", "node", "express", "mongodb", "auth", "jwt"],
+  },
+  {
+    label: "Cloud / Deployment",
+    match: ["aws", "amplify", "deployment", "hosting", "netlify", "vercel"],
+  },
+  {
+    label: "Tools",
+    match: ["git", "github", "vite", "vs code", "debug"],
+  },
+  {
+    label: "Design / Accessibility",
+    match: ["accessibility", "seo", "performance", "design", "ux", "ui"],
+  },
+];
+
+const groupSkills = (skills) => {
+  const groups = SKILL_GROUPS.map((group) => ({ ...group, items: [] }));
+  const unmatched = [];
+
+  skills.forEach((skill) => {
+    const normalized = skill.toLowerCase();
+    const group = groups.find((entry) =>
+      entry.match.some((term) => normalized.includes(term))
+    );
+
+    if (group) {
+      group.items.push(skill);
+      return;
+    }
+
+    unmatched.push(skill);
+  });
+
+  if (unmatched.length > 0) {
+    groups[3].items.push(...unmatched);
+  }
+
+  return groups.filter((group) => group.items.length > 0);
+};
+
+const ResumeTimelineItem = ({ title, company, location, date, bullets = [] }) => (
+  <article className="resume-timeline-item">
+    <div className="resume-timeline-item__top">
       <div>
-        <h4 className="text-xl font-semibold text-white">{title}</h4>
-        {company && <p className="text-primary font-medium">{company}</p>}
-        {location && <p className="text-neutral text-sm">{location}</p>}
+        <h3>{title}</h3>
+        {company ? <p className="resume-timeline-item__subhead">{company}</p> : null}
+        {location ? <p className="resume-timeline-item__meta">{location}</p> : null}
       </div>
-      <span className="date-badge">{date}</span>
+      <span className="resume-date-pill">{date}</span>
     </div>
-    {bullets.length > 0 && (
-      <ul className="list-disc list-inside text-neutral ml-4 space-y-2">
+
+    {bullets.length > 0 ? (
+      <ul className="resume-bullet-list">
         {bullets.map((bullet) => (
           <li key={bullet}>{bullet}</li>
         ))}
       </ul>
-    )}
-  </div>
+    ) : null}
+  </article>
+);
+
+const ResumeProjectCard = ({ project }) => (
+  <article className="resume-project-card">
+    <div className="resume-project-card__top">
+      <div>
+        <p className="resume-project-card__eyebrow">Case study</p>
+        <h4>{project.title}</h4>
+      </div>
+      <span className="resume-date-pill">{project.date}</span>
+    </div>
+
+    <a
+      href={project.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="resume-inline-link"
+      aria-label={project.ariaLabel}
+    >
+      Visit project
+    </a>
+
+    <ul className="resume-bullet-list">
+      {project.bullets.map((bullet) => (
+        <li key={bullet}>{bullet}</li>
+      ))}
+    </ul>
+  </article>
+);
+
+const ResumeSkillGroup = ({ label, items }) => (
+  <article className="resume-skill-group">
+    <p>{label}</p>
+    <div className="resume-tag-group">
+      {items.map((item) => (
+        <span key={item}>{item}</span>
+      ))}
+    </div>
+  </article>
 );
 
 const Resume = () => {
@@ -57,41 +174,24 @@ const Resume = () => {
     skills,
   } = resumeData;
 
-  return (
-    <div className="parent pt-16 my-16">
-      {/* Header Section */}
-      <div className="mb-12">
-        <h1 className="text-4xl font-semibold drop-shadow-md text-center">
-          My <span className="text-primary">Resume</span>
-        </h1>
-      </div>
+  const groupedSkills = groupSkills(skills);
 
-      <div className="resume-container">
-        {/* Profile Header */}
-        <div className="resume-header mb-12">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-            {/* Placeholder for photo */}
-            <div className="flex justify-center lg:justify-start">
-              <div className="profile-image-container">
-                <img
-                  src={profile.image}
-                  alt={profile.name}
-                  className="profile-image"
-                />
-              </div>
+  return (
+    <div className="resume-page pt-16">
+      <section className="parent resume-shell">
+        <div className="resume-hero">
+          <div className="resume-hero__identity">
+            <div className="resume-hero__image-wrap">
+              <img src={profile.image} alt={profile.name} className="resume-hero__image" />
             </div>
 
-            {/* Name and Title */}
-            <div className="text-center lg:col-span-2">
-              <h2 className="text-4xl font-bold text-white mb-2">
-                {profile.name}
-              </h2>
-              <p className="text-xl text-primary font-semibold mb-4">
-                {profile.title}
-              </p>
+            <div className="resume-hero__copy">
+              <p className="section-kicker">Professional profile</p>
+              <h1>{profile.name}</h1>
+              <p className="resume-hero__title">{profile.title}</p>
+              <p className="resume-hero__summary">{summary}</p>
 
-              {/* Contact Links */}
-              <div className="flex flex-wrap justify-center gap-4 mb-4">
+              <div className="resume-contact-list">
                 {profile.links.map((link) => {
                   const Icon = contactIcons[link.type];
                   const isExternal = link.href.startsWith("http");
@@ -100,175 +200,251 @@ const Resume = () => {
                     <a
                       key={link.href}
                       href={link.href}
-                      className="contact-link"
+                      className="resume-contact-pill"
                       target={isExternal ? "_blank" : undefined}
                       rel={isExternal ? "noopener noreferrer" : undefined}
                     >
-                      <Icon className="mr-2" />
-                      {link.label}
+                      <Icon />
+                      <span>{link.label}</span>
                     </a>
                   );
                 })}
               </div>
             </div>
           </div>
+
+          <aside className="resume-brief-card">
+            <p className="resume-panel__kicker">Positioning summary</p>
+            <h2>Frontend roles where product polish and UI reliability matter.</h2>
+            <ul className="resume-bullet-list">
+              {recruiterNotes.map((note) => (
+                <li key={note}>{note}</li>
+              ))}
+            </ul>
+
+            <div className="resume-brief-card__actions">
+              <PrimaryBtn
+                as="a"
+                href={RESUME_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open resume in a new tab"
+                className="w-fit"
+              >
+                <span>Download resume</span>
+                <span>
+                  <FaDownload />
+                </span>
+              </PrimaryBtn>
+
+              <SecondaryBtn as={Link} to="/contact" className="w-fit">
+                <span>Contact me</span>
+              </SecondaryBtn>
+            </div>
+          </aside>
         </div>
 
-        {/* Profile/Summary Section */}
-        <div className="resume-section">
-          <h3 className="section-title">Profile</h3>
-          <div className="section-content">
-            <p className="text-neutral leading-relaxed">{summary}</p>
-          </div>
+        <div className="resume-signal-grid">
+          {resumeSignals.map((signal) => (
+            <article key={signal.label} className="resume-signal-card">
+              <p>{signal.label}</p>
+              <h2>{signal.value}</h2>
+            </article>
+          ))}
         </div>
 
-        {/* Education Section */}
-        <div className="resume-section">
-          <h3 className="section-title">Education</h3>
-          <div className="section-content">
-            {education.map((entry) => (
-              <ExperienceItem
-                key={`${entry.title}-${entry.date}`}
-                title={entry.title}
-                company={entry.subtitle}
-                location={entry.location}
-                date={entry.date}
-                bullets={entry.bullets}
-              />
-            ))}
-          </div>
-        </div>
+        <div className="resume-layout">
+          <div className="resume-main">
+            <section className="resume-panel">
+              <div className="resume-panel__header">
+                <p className="resume-panel__kicker">Profile</p>
+                <h2>What I bring to a frontend team</h2>
+                <p>
+                  Frontend implementation focused on responsive interfaces,
+                  product-grade usability, and maintainable React delivery.
+                </p>
+              </div>
 
-        {/* Experience & Projects Section */}
-        <div className="resume-section">
-          <h3 className="section-title">Experience & Projects</h3>
-          <div className="section-content">
-            {featuredExperience.map((entry) => (
-              <div key={entry.role} className="mb-6">
-                <h4 className="text-xl font-semibold text-white">{entry.role}</h4>
-                <p className="text-neutral text-sm mb-4">{entry.companyLine}</p>
+              <ul className="resume-bullet-list resume-bullet-list--compact">
+                {recruiterNotes.map((note) => (
+                  <li key={note}>{note}</li>
+                ))}
+              </ul>
+            </section>
 
-                {entry.projects.map((project) => (
-                  <div key={`${project.title}-${project.date}`} className="experience-item">
-                    <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
-                      <div className="flex items-center gap-2">
-                        <h5 className="text-lg font-semibold text-primary">
-                          {project.title}
-                        </h5>
-                        <a
-                          href={project.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-primary hover:text-white transition-colors"
-                          aria-label={project.ariaLabel}
-                        >
-                          <FaExternalLinkAlt className="text-sm" />
-                        </a>
-                      </div>
-                      <span className="date-badge">{project.date}</span>
+            <section className="resume-panel">
+              <div className="resume-panel__header">
+                <p className="resume-panel__kicker">Experience & projects</p>
+                <h2>Selected frontend project work</h2>
+                <p>
+                  Core projects that represent client-facing frontend execution,
+                  UI architecture, and deployment-ready implementation.
+                </p>
+              </div>
+
+              {featuredExperience.map((entry) => (
+                <div key={entry.role} className="resume-project-group">
+                  <div className="resume-project-group__header">
+                    <div>
+                      <h3>{entry.role}</h3>
+                      <p>{entry.companyLine}</p>
                     </div>
-                    <ul className="list-disc list-inside text-neutral ml-4 space-y-2">
-                      {project.bullets.map((bullet) => (
-                        <li key={bullet}>{bullet}</li>
-                      ))}
-                    </ul>
                   </div>
+
+                  <div className="resume-project-list">
+                    {entry.projects.map((project) => (
+                      <ResumeProjectCard key={project.title} project={project} />
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </section>
+
+            <section className="resume-panel">
+              <div className="resume-panel__header">
+                <p className="resume-panel__kicker">Professional experience</p>
+                <h2>Work history</h2>
+              </div>
+
+              <div className="resume-timeline">
+                {workExperience.map((entry) => (
+                  <ResumeTimelineItem
+                    key={`${entry.title}-${entry.date}`}
+                    title={entry.title}
+                    company={entry.company}
+                    location={entry.location}
+                    date={entry.date}
+                    bullets={entry.bullets}
+                  />
                 ))}
               </div>
-            ))}
+            </section>
           </div>
-        </div>
 
-        {/* Other Work Experience Section */}
-        <div className="resume-section">
-          <h3 className="section-title">Other Work Experience</h3>
-          <div className="section-content">
-            {workExperience.map((entry) => (
-              <ExperienceItem
-                key={`${entry.title}-${entry.date}`}
-                title={entry.title}
-                company={entry.company}
-                location={entry.location}
-                date={entry.date}
-                bullets={entry.bullets}
-              />
-            ))}
-          </div>
-        </div>
+          <aside className="resume-sidebar">
+            <section className="resume-panel">
+              <p className="resume-panel__kicker">Quick view</p>
+              <div className="resume-quick-list">
+                <div>
+                  <span>Target role</span>
+                  <strong>Frontend Engineer</strong>
+                </div>
+                <div>
+                  <span>Location</span>
+                  <strong>{SITE_PROFILE.location}</strong>
+                </div>
+                <div>
+                  <span>Portfolio</span>
+                  <strong>{SITE_PROFILE.websiteLabel}</strong>
+                </div>
+                <div>
+                  <span>Current lane</span>
+                  <strong>Client delivery and frontend product work</strong>
+                </div>
+              </div>
+            </section>
 
-        {/* Interests/Self Development Section */}
-        <div className="resume-section">
-          <h3 className="section-title">Interests / Self Development</h3>
-          <div className="section-content">
-            {selfDevelopment.map((entry) => (
-              <ExperienceItem
-                key={`${entry.title}-${entry.date}`}
-                title={entry.title}
-                location={entry.location}
-                date={entry.date}
-                bullets={entry.bullets}
-              />
-            ))}
-          </div>
-        </div>
+            <section className="resume-panel">
+              <p className="resume-panel__kicker">Skills</p>
+              <div className="resume-skill-groups">
+                {groupedSkills.map((group) => (
+                  <ResumeSkillGroup
+                    key={group.label}
+                    label={group.label}
+                    items={group.items}
+                  />
+                ))}
+              </div>
+            </section>
 
-        {/* Certifications & Awards Section */}
-        <div className="resume-section">
-          <h3 className="section-title">Certifications & Awards</h3>
-          <div className="section-content">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {certifications.map((item) => {
-                const Icon = certificationIcons[item.type];
+            <section className="resume-panel">
+              <p className="resume-panel__kicker">Recognition</p>
+              <div className="resume-cert-list">
+                {certifications.map((item) => {
+                  const Icon = certificationIcons[item.type];
 
-                return (
-                  <div key={item.title} className="certification-card">
-                    <div className="flex items-start gap-3">
-                      <Icon className="text-primary text-2xl mt-1" />
+                  return (
+                    <article key={item.title} className="resume-cert-card">
+                      <Icon />
                       <div>
-                        <h4 className="text-lg font-semibold text-white">
-                          {item.title}
-                        </h4>
-                        <p className="text-primary font-medium">{item.issuer}</p>
-                        <p className="text-neutral text-sm">{item.detail}</p>
+                        <h3>{item.title}</h3>
+                        <p>{item.issuer}</p>
+                        <span>{item.detail}</span>
                       </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
+                    </article>
+                  );
+                })}
+              </div>
+            </section>
 
-        {/* Skills Section */}
-        <div className="resume-section">
-          <h3 className="section-title">Skills</h3>
-          <div className="section-content">
-            <div className="skills-grid">
-              {skills.map((skill) => (
-                <span key={skill} className="skill-tag">
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
+            <section className="resume-panel">
+              <div className="resume-panel__header">
+                <p className="resume-panel__kicker">Education</p>
+                <h2>Academic background</h2>
+              </div>
 
-        {/* Download Resume Button */}
-        <div className="flex justify-center mt-12">
-          <PrimaryBtn
-            as="a"
-            href={RESUME_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open resume in a new tab"
-          >
-            <span>Resume</span>
-            <span>
-              <FaDownload />
-            </span>
-          </PrimaryBtn>
+              <div className="resume-timeline">
+                {education.map((entry) => (
+                  <ResumeTimelineItem
+                    key={`${entry.title}-${entry.date}`}
+                    title={entry.title}
+                    company={entry.subtitle}
+                    location={entry.location}
+                    date={entry.date}
+                    bullets={entry.bullets}
+                  />
+                ))}
+              </div>
+            </section>
+
+            <section className="resume-panel">
+              <div className="resume-panel__header">
+                <p className="resume-panel__kicker">Self-development</p>
+                <h2>Ongoing training</h2>
+              </div>
+
+              <div className="resume-timeline">
+                {selfDevelopment.map((entry) => (
+                  <ResumeTimelineItem
+                    key={`${entry.title}-${entry.date}`}
+                    title={entry.title}
+                    location={entry.location}
+                    date={entry.date}
+                    bullets={entry.bullets}
+                  />
+                ))}
+              </div>
+            </section>
+
+            <section className="resume-panel">
+              <div className="resume-panel__header">
+                <p className="resume-panel__kicker">Contact</p>
+                <h2>Reach out</h2>
+              </div>
+
+              <div className="resume-contact-stack">
+                {profile.links.map((link) => {
+                  const Icon = contactIcons[link.type];
+                  const isExternal = link.href.startsWith("http");
+
+                  return (
+                    <a
+                      key={`sidebar-${link.href}`}
+                      href={link.href}
+                      className="resume-contact-pill"
+                      target={isExternal ? "_blank" : undefined}
+                      rel={isExternal ? "noopener noreferrer" : undefined}
+                    >
+                      <Icon />
+                      <span>{link.label}</span>
+                    </a>
+                  );
+                })}
+              </div>
+            </section>
+          </aside>
         </div>
-      </div>
+      </section>
     </div>
   );
 };

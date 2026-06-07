@@ -273,8 +273,18 @@ const Items = [
   },
   {
     id: 9,
-    mainImage: "PLACEHOLDER_IMAGE_URL",
-    img: ["PLACEHOLDER_IMAGE_URL"],
+    mainImage:
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780812675/Screenshot_2026-06-07_at_12.11.09_AM_de1jnz.png",
+    img: [
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780812675/Screenshot_2026-06-07_at_12.11.09_AM_de1jnz.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780812756/Screenshot_2026-06-07_at_12.12.30_AM_i58tbh.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780812797/Screenshot_2026-06-07_at_12.13.11_AM_x1gz4e.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780812821/Screenshot_2026-06-07_at_12.13.36_AM_qrxcal.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780812844/Screenshot_2026-06-07_at_12.13.57_AM_feenkn.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780812869/Screenshot_2026-06-07_at_12.14.22_AM_r8cdlf.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780812896/Screenshot_2026-06-07_at_12.14.51_AM_abafhl.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780812937/Screenshot_2026-06-07_at_12.15.29_AM_wy8jim.png",
+    ],
     features: [
       "Interactive before/after image comparison components",
       "Multi-step form with validation and progress tracking",
@@ -304,8 +314,27 @@ const Items = [
   },
   {
     id: 10,
-    mainImage: "PLACEHOLDER_IMAGE_URL",
-    img: ["PLACEHOLDER_IMAGE_URL"],
+    mainImage:
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780812061/Screenshot_2026-06-07_at_12.00.56_AM_hzmkwk.png",
+    img: [
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780812061/Screenshot_2026-06-07_at_12.00.56_AM_hzmkwk.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780812128/Screenshot_2026-06-07_at_12.02.03_AM_kspxk4.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1779347566/Screenshot_2026-05-21_at_1.08.57_AM_nphtu0.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780812199/Screenshot_2026-06-07_at_12.03.14_AM_aualon.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780812236/Screenshot_2026-06-07_at_12.03.51_AM_ef8ui6.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1779347631/Screenshot_2026-05-21_at_1.09.20_AM_jngtzn.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780812282/Screenshot_2026-06-07_at_12.04.36_AM_mpioh0.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780812305/Screenshot_2026-06-07_at_12.05.00_AM_tzzxbn.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780812345/Screenshot_2026-06-07_at_12.05.39_AM_j4lctw.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780812376/Screenshot_2026-06-07_at_12.06.10_AM_lgmhxt.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780812404/Screenshot_2026-06-07_at_12.06.37_AM_p3xlur.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780812473/Screenshot_2026-06-07_at_12.07.48_AM_dxqi2z.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780812523/Screenshot_2026-06-07_at_12.08.38_AM_ihgel5.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780812546/Screenshot_2026-06-07_at_12.09.00_AM_ixyghj.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780812576/Screenshot_2026-06-07_at_12.09.31_AM_qkouv7.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780812602/Screenshot_2026-06-07_at_12.09.57_AM_j8xxjz.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780812630/Screenshot_2026-06-07_at_12.10.23_AM_dr1noq.png",
+    ],
     features: [
       "Multi-step patient intake form with validation",
       "Interactive service information architecture",
@@ -325,8 +354,21 @@ const Items = [
   },
   {
     id: 11,
-    mainImage: "PLACEHOLDER_IMAGE_URL",
-    img: ["PLACEHOLDER_IMAGE_URL"],
+    mainImage:
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780811705/Screenshot_2026-06-06_at_11.55.00_PM_hjfnrr.png",
+    img: [
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780811705/Screenshot_2026-06-06_at_11.55.00_PM_hjfnrr.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780811720/Screenshot_2026-06-06_at_11.55.15_PM_jl3zft.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780811734/Screenshot_2026-06-06_at_11.55.29_PM_t1ecey.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780811765/Screenshot_2026-06-06_at_11.55.52_PM_ffjid0.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780811765/Screenshot_2026-06-06_at_11.55.52_PM_ffjid0.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780811773/Screenshot_2026-06-06_at_11.56.09_PM_wuojie.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780811799/Screenshot_2026-06-06_at_11.56.24_PM_ysgmmh.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780811814/Screenshot_2026-06-06_at_11.56.36_PM_vqf2wt.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780811859/Screenshot_2026-06-06_at_11.57.16_PM_nut4hz.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780811838/Screenshot_2026-06-06_at_11.57.00_PM_mysq59.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780811861/Screenshot_2026-06-06_at_11.57.37_PM_kqsfoz.png",
+    ],
     features: [
       "Custom WordPress theme with modular components",
       "Dynamic service catalog with filtering",
@@ -345,8 +387,19 @@ const Items = [
   },
   {
     id: 12,
-    mainImage: "PLACEHOLDER_IMAGE_URL",
-    img: ["PLACEHOLDER_IMAGE_URL"],
+    mainImage:
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780811345/Screenshot_2026-06-06_at_11.49.01_PM_kqwvmx.png",
+    img: [
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780811345/Screenshot_2026-06-06_at_11.49.01_PM_kqwvmx.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780811394/Screenshot_2026-06-06_at_11.49.44_PM_qmgvdr.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1779347164/Screenshot_2026-05-21_at_1.04.14_AM_kwzk4n.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780811472/Screenshot_2026-06-06_at_11.51.07_PM_csio1a.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780811529/Screenshot_2026-06-06_at_11.52.03_PM_l9pybg.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780811557/Screenshot_2026-06-06_at_11.52.33_PM_f5ocbw.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780811576/Screenshot_2026-06-06_at_11.52.52_PM_iv5qhl.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1779347164/Screenshot_2026-05-21_at_1.05.14_AM_mezt0i.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1780811500/Screenshot_2026-06-06_at_11.51.33_PM_ijtnbl.png",
+    ],
     features: [
       "Interactive pricing comparison table with JavaScript",
       "Responsive feature grid with CSS Grid",
@@ -366,8 +419,17 @@ const Items = [
   },
   {
     id: 13,
-    mainImage: "PLACEHOLDER_IMAGE_URL",
-    img: ["PLACEHOLDER_IMAGE_URL"],
+    mainImage:
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1779346911/Screenshot_2026-05-21_at_12.59.50_AM_cjyafj.png",
+    img: [
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1779346911/Screenshot_2026-05-21_at_12.59.50_AM_cjyafj.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1779346915/Screenshot_2026-05-21_at_1.00.00_AM_a8mwto.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1779346918/Screenshot_2026-05-21_at_1.00.14_AM_jldh43.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1779346915/Screenshot_2026-05-21_at_1.00.26_AM_gmcmvs.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1779346916/Screenshot_2026-05-21_at_1.00.34_AM_iqcx3o.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1779346917/Screenshot_2026-05-21_at_1.00.52_AM_zbyxcb.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1779346919/Screenshot_2026-05-21_at_1.01.06_AM_yfuptj.png",
+    ],
     features: [
       "Type-safe React components with TypeScript",
       "React Hook Form with Zod schema validation",
@@ -397,8 +459,18 @@ const Items = [
   },
   {
     id: 14,
-    mainImage: "PLACEHOLDER_IMAGE_URL",
-    img: ["PLACEHOLDER_IMAGE_URL"],
+    mainImage:
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1779348370/Screenshot_2026-05-21_at_1.17.32_AM_asildh.png",
+    img: [
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1779348370/Screenshot_2026-05-21_at_1.17.32_AM_asildh.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1779348381/Screenshot_2026-05-21_at_1.17.44_AM_pvpfo4.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1779348380/Screenshot_2026-05-21_at_1.17.54_AM_hc7tva.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1779348381/Screenshot_2026-05-21_at_1.18.20_AM_ecvu0f.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1779348380/Screenshot_2026-05-21_at_1.18.33_AM_jjug3v.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1779348380/Screenshot_2026-05-21_at_1.18.42_AM_skpduk.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1779348380/Screenshot_2026-05-21_at_1.18.53_AM_fx26yg.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1779348380/Screenshot_2026-05-21_at_1.18.02_AM_uqjohb.png",
+    ],
     features: [
       "Pet photo contest platform with voting system",
       "Server actions for secure full-stack data workflows",
@@ -445,8 +517,28 @@ const Items = [
   },
   {
     id: 15,
-    mainImage: "PLACEHOLDER_IMAGE_URL",
-    img: ["PLACEHOLDER_IMAGE_URL"],
+    mainImage:
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1779346688/Screenshot_2026-05-21_at_12.53.55_AM_fgxunu.png",
+    img: [
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1779346688/Screenshot_2026-05-21_at_12.53.55_AM_fgxunu.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1779346699/Screenshot_2026-05-21_at_12.54.06_AM_lc09sm.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1779346698/Screenshot_2026-05-21_at_12.54.27_AM_wjx1ag.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1779346700/Screenshot_2026-05-21_at_12.54.38_AM_ycad9j.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1779346700/Screenshot_2026-05-21_at_12.54.38_AM_ycad9j.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1779346696/Screenshot_2026-05-21_at_12.54.16_AM_mi6cli.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1779346704/Screenshot_2026-05-21_at_12.56.21_AM_yrgder.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1779346707/Screenshot_2026-05-21_at_12.56.28_AM_ijoy3u.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1779346703/Screenshot_2026-05-21_at_12.54.50_AM_tj5adq.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1779346703/Screenshot_2026-05-21_at_12.54.50_AM_tj5adq.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1779346705/Screenshot_2026-05-21_at_12.55.03_AM_nzsc8v.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1779346695/Screenshot_2026-05-21_at_12.55.34_AM_cvqtdw.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1779346697/Screenshot_2026-05-21_at_12.55.43_AM_anpr7l.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1779346697/Screenshot_2026-05-21_at_12.56.00_AM_eqatts.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1779346702/Screenshot_2026-05-21_at_12.56.09_AM_d8len4.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1779346703/Screenshot_2026-05-21_at_12.57.01_AM_viaw69.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1779346701/Screenshot_2026-05-21_at_12.57.16_AM_t8z7sf.png",
+      "https://res.cloudinary.com/djnazqqgr/image/upload/v1779346706/Screenshot_2026-05-21_at_12.55.13_AM_qo8ymu.png",
+    ],
     features: [
       "Server-side rendering with Next.js for SEO optimization",
       "Component-based architecture with React",

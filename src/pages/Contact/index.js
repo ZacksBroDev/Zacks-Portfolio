@@ -14,6 +14,7 @@ import { MdEmail, MdSend } from "react-icons/md";
 import emailjs from "@emailjs/browser";
 import { PrimaryBtn } from "../../components";
 import { SITE_PROFILE, SOCIAL_LINKS } from "../../Utils/SiteContent";
+import { useLocation } from "react-router-dom";
 
 const EMAILJS_CONFIG = {
   serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,
@@ -31,6 +32,7 @@ const socialIcons = {
 };
 
 const Contact = () => {
+  const location = useLocation();
   const form = useRef();
   const lastSubmittedAtRef = useRef(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -39,6 +41,9 @@ const Contact = () => {
     message: "",
   });
   const isEmailConfigured = Object.values(EMAILJS_CONFIG).every(Boolean);
+  const isHomePage = location.pathname === "/";
+  const HeadingTag = isHomePage ? "h2" : "h1";
+  const PanelHeadingTag = isHomePage ? "h3" : "h2";
 
   const handleSend = async (e) => {
     e.preventDefault();
@@ -107,25 +112,52 @@ const Contact = () => {
   return (
     <section className="parent py-16 md:py-20 mt-2 contact-section" aria-labelledby="contact-heading">
       <div className="max-w-5xl mx-auto">
-        <h1 id="contact-heading" className="text-4xl font-semibold drop-shadow-md text-center">
-          Contact <span className="text-primary">Me</span>
-        </h1>
-        <p className="contact-intro text-center mt-4 max-w-3xl mx-auto">
-          Have a frontend role, project, or collaboration in mind? Send a message and I&apos;ll get back to you.
-        </p>
+        <div className="section-heading-row section-heading-row--center">
+          <p className="section-kicker">Get in touch</p>
+          <HeadingTag id="contact-heading" className="section-heading section-heading--center">
+            Contact <span>Me</span>
+          </HeadingTag>
+          <p className="section-copy section-copy--center contact-intro">
+            Open to frontend engineer and junior frontend developer roles.
+            Recruiters, hiring managers, and collaborators are all welcome to reach
+            out.
+          </p>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 mt-10 max-w-5xl mx-auto">
         <div className="contact-panel contact-panel--info">
-          <h2 className="text-2xl font-semibold">Let&apos;s Connect</h2>
+          <p className="contact-status-pill">Best first contact: email or LinkedIn</p>
+          <PanelHeadingTag className="text-2xl font-semibold">
+            Let&apos;s Connect
+          </PanelHeadingTag>
           <p className="contact-support-text mt-3">
-            Open to frontend and software engineering opportunities. I&apos;m happy to discuss role fit, project impact, and how I work.
+            Have a frontend role, project, or collaboration in mind? I&apos;m happy
+            to talk through role fit, project goals, and how I approach product UI
+            work.
           </p>
+
+          <div className="contact-quick-links">
+            <a href={SITE_PROFILE.emailHref} className="contact-quick-link">
+              Email
+            </a>
+            <a
+              href={SITE_PROFILE.linkedinUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-quick-link"
+            >
+              LinkedIn
+            </a>
+            <a href={SITE_PROFILE.phoneHref} className="contact-quick-link">
+              Call
+            </a>
+          </div>
 
           <div className="mt-6 space-y-5">
             <div className="flex items-center">
               <FaUserAlt className="text-xl mr-5 text-primary"></FaUserAlt>
-              <h3 className="font-medium text-white">{SITE_PROFILE.name}</h3>
+              <p className="font-medium text-white">{SITE_PROFILE.name}</p>
             </div>
             <div className="flex items-center">
               <FaPhoneAlt className="text-xl mr-5 text-primary"></FaPhoneAlt>
@@ -141,12 +173,12 @@ const Contact = () => {
             </div>
             <div className="flex items-center">
               <FaLocationArrow className="text-xl mr-5 text-primary"></FaLocationArrow>
-              <h3 className="font-medium text-white">{SITE_PROFILE.location}</h3>
+              <p className="font-medium text-white">{SITE_PROFILE.location}</p>
             </div>
           </div>
 
           <div className="mt-8 flex items-center flex-wrap gap-3">
-            <h3 className="text-base text-neutral w-full">Socials</h3>
+            <p className="text-base text-neutral w-full">Socials</p>
             {SOCIAL_LINKS.map((link) => {
               const Icon = socialIcons[link.key];
 
@@ -167,8 +199,10 @@ const Contact = () => {
         </div>
 
         <div className="contact-panel contact-panel--form">
-          <h2 className="text-2xl font-semibold">Send a Message</h2>
-          <form ref={form} onSubmit={handleSend}>
+          <PanelHeadingTag className="text-2xl font-semibold">
+            Send a Message
+          </PanelHeadingTag>
+          <form ref={form} onSubmit={handleSend} className="contact-form">
             <div className="honeypot-field" aria-hidden="true">
               <label htmlFor="company">Company</label>
               <input

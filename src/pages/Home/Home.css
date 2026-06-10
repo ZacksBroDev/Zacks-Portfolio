@@ -1,0 +1,522 @@
+.home-page {
+    position: relative;
+}
+
+.home-page::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 960px;
+    background:
+        radial-gradient(circle at 18% 12%, rgba(255, 106, 26, 0.18), transparent 28%),
+        radial-gradient(circle at 82% 18%, rgba(255, 176, 122, 0.08), transparent 24%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.home-section {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-section {
+    padding: 2.5rem 0 3rem;
+}
+
+.hero-grid {
+    align-items: center;
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: minmax(0, 1.02fr) minmax(340px, 0.98fr);
+}
+
+.hero-copy {
+    max-width: 38rem;
+}
+
+.hero-intro {
+    color: var(--text-soft);
+    font-size: 0.98rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.hero-intro span {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.hero-title {
+    font-size: clamp(3.1rem, 6vw, 5.6rem);
+    letter-spacing: -0.05em;
+    line-height: 0.94;
+    max-width: 11ch;
+}
+
+.hero-summary {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.82;
+    margin-top: 1.35rem;
+    max-width: 37rem;
+}
+
+.hero-availability {
+    color: var(--text);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+.hero-tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.hero-tech-chip {
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    color: var(--text-muted);
+    font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    padding: 0.62rem 0.9rem;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.hero-utility {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+}
+
+.hero-utility__link {
+    align-items: center;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--text-muted);
+    display: inline-flex;
+    gap: 0.6rem;
+    min-height: 44px;
+    padding: 0.7rem 0.95rem;
+    text-decoration: none;
+    transition: transform 0.24s ease, border-color 0.24s ease, color 0.24s ease;
+}
+
+.hero-utility__link:hover {
+    border-color: var(--line-strong);
+    color: var(--text);
+    transform: translateY(-2px);
+}
+
+.hero-utility__link span {
+    font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+    font-size: 0.76rem;
+    font-weight: 600;
+}
+
+.hero-visual {
+    min-height: 560px;
+    position: relative;
+}
+
+.hero-visual__glow {
+    background: radial-gradient(circle, rgba(255, 106, 26, 0.22) 0%, rgba(255, 106, 26, 0) 68%);
+    filter: blur(8px);
+    inset: 8% 6% auto auto;
+    position: absolute;
+    width: 72%;
+    height: 72%;
+}
+
+.browser-card {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
+        var(--surface);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 28px;
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    position: absolute;
+}
+
+.browser-card--back {
+    inset: 2.5rem 5rem 8rem 2rem;
+    opacity: 0.74;
+    transform: rotate(-8deg);
+}
+
+.browser-card--front {
+    inset: 0 0 5rem 7rem;
+    transform: rotate(5.5deg);
+}
+
+.browser-card__toolbar {
+    align-items: center;
+    background: rgba(18, 17, 15, 0.64);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    padding: 0.95rem 1.15rem;
+}
+
+.browser-card__dots {
+    display: flex;
+    gap: 0.42rem;
+}
+
+.browser-card__dots span {
+    background: rgba(255, 255, 255, 0.34);
+    border-radius: 999px;
+    display: inline-block;
+    height: 0.62rem;
+    width: 0.62rem;
+}
+
+.browser-card__dots span:first-child {
+    background: #ff7c6b;
+}
+
+.browser-card__dots span:nth-child(2) {
+    background: #f0bf4e;
+}
+
+.browser-card__dots span:last-child {
+    background: #74d89c;
+}
+
+.browser-card__address {
+    color: var(--text-soft);
+    font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+    font-size: 0.74rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.browser-card__screen {
+    aspect-ratio: 16 / 11;
+    background: rgba(0, 0, 0, 0.18);
+    overflow: hidden;
+}
+
+.browser-card__screen img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
+.browser-card__meta {
+    align-items: center;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    padding: 1rem 1.15rem 1.1rem;
+}
+
+.browser-card__meta p {
+    color: var(--text);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.browser-card__meta span {
+    color: var(--accent-soft);
+    font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.hero-profile-card {
+    align-items: center;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03)),
+        rgba(23, 22, 21, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    bottom: 0;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    gap: 1rem;
+    left: 0;
+    max-width: 22rem;
+    padding: 1rem;
+    position: absolute;
+}
+
+.hero-profile-card img {
+    border: 1px solid rgba(255, 106, 26, 0.36);
+    border-radius: 18px;
+    height: 78px;
+    object-fit: cover;
+    width: 78px;
+}
+
+.hero-profile-card__label {
+    color: var(--accent-soft);
+    font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.35rem;
+    text-transform: uppercase;
+}
+
+.hero-profile-card h2 {
+    font-size: 1.2rem;
+    line-height: 1.08;
+}
+
+.hero-profile-card__copy {
+    color: var(--text-muted);
+    font-size: 0.93rem;
+    line-height: 1.5;
+    margin-top: 0.45rem;
+}
+
+.hero-proof-strip {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 2.25rem;
+}
+
+.hero-proof-card {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02)),
+        var(--surface-soft);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 22px;
+    min-height: 132px;
+    padding: 1.25rem 1.35rem;
+}
+
+.hero-proof-card__label {
+    color: var(--accent-soft);
+    font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+}
+
+.hero-proof-card__value {
+    color: var(--text);
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.experience-section {
+    padding: 4.5rem 0 1rem;
+}
+
+.experience-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.experience-card {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.018)),
+        var(--surface);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 26px;
+    display: flex;
+    flex-direction: column;
+    min-height: 220px;
+    overflow: hidden;
+    padding: 1.5rem;
+}
+
+.experience-card--wide {
+    grid-column: span 7;
+}
+
+.experience-card--compact {
+    grid-column: span 5;
+}
+
+.experience-card__label {
+    color: var(--accent-soft);
+    font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.9rem;
+    text-transform: uppercase;
+}
+
+.experience-card__title {
+    font-size: 1.55rem;
+    margin-bottom: 1rem;
+    margin-top: 0;
+    padding-bottom: 1rem;
+    position: relative;
+}
+
+.experience-card__title::after {
+    background: linear-gradient(90deg, rgba(255, 106, 26, 0.45), rgba(255, 176, 122, 0));
+    content: "";
+    height: 1px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.experience-card__copy {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.75;
+    margin-top: auto;
+    max-width: 34rem;
+}
+
+@media only screen and (max-width: 560px) {
+    .experience-card__title {
+        font-size: 1.38rem;
+    }
+
+    .experience-card__copy {
+        margin-top: 0;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    .hero-grid {
+        gap: 2.25rem;
+        grid-template-columns: 1fr;
+    }
+
+    .hero-visual {
+        min-height: 520px;
+        order: -1;
+    }
+
+    .browser-card--front {
+        inset: 0 1rem 4.5rem 6rem;
+    }
+
+    .browser-card--back {
+        inset: 2rem 6rem 8rem 1rem;
+    }
+
+    .hero-profile-card {
+        left: 1rem;
+    }
+
+    .hero-proof-strip {
+        grid-template-columns: 1fr;
+    }
+
+    .experience-card--wide,
+    .experience-card--compact {
+        grid-column: span 12;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .hero-section {
+        padding: 1.5rem 0 2rem;
+    }
+
+    .hero-visual {
+        min-height: 420px;
+    }
+
+    .browser-card--front {
+        inset: 0 0 4rem 2.75rem;
+    }
+
+    .browser-card--back {
+        inset: 1.9rem 2.4rem 6.6rem 0;
+    }
+
+    .browser-card__toolbar,
+    .browser-card__meta {
+        padding-left: 0.9rem;
+        padding-right: 0.9rem;
+    }
+
+    .browser-card__meta {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .hero-profile-card {
+        border-radius: 20px;
+        left: 0;
+        max-width: 18rem;
+        padding: 0.85rem;
+    }
+
+    .hero-profile-card img {
+        height: 64px;
+        width: 64px;
+    }
+
+    .hero-title {
+        font-size: clamp(2.45rem, 13vw, 4rem);
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .hero-actions .primary-button,
+    .hero-actions .inline-flex {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 560px) {
+    .hero-visual {
+        min-height: 360px;
+    }
+
+    .browser-card--front {
+        inset: 0 0 3.5rem 2rem;
+    }
+
+    .browser-card--back {
+        inset: 1.8rem 2rem 5.5rem 0;
+    }
+
+    .browser-card__address {
+        max-width: 10rem;
+    }
+
+    .hero-utility__link {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero-profile-card {
+        left: 0;
+        max-width: 100%;
+        right: 0;
+    }
+
+    .hero-summary,
+    .experience-card__copy {
+        font-size: 0.98rem;
+    }
+}

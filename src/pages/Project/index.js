@@ -22,12 +22,14 @@ const FILTER_OPTIONS = [
   {
     key: "all",
     label: "All builds",
-    description: "Every client site, product build, and interactive experiment.",
+    description:
+      "Every client site, product build, and interactive experiment.",
   },
   {
     key: "business",
     label: "Client work",
-    description: "Production work built for businesses, creators, and real users.",
+    description:
+      "Production work built for businesses, creators, and real users.",
   },
   {
     key: "personal",
@@ -37,7 +39,8 @@ const FILTER_OPTIONS = [
   {
     key: "game",
     label: "Interactive builds",
-    description: "Training tools and browser experiments with tighter feedback loops.",
+    description:
+      "Training tools and browser experiments with tighter feedback loops.",
   },
 ];
 
@@ -50,7 +53,7 @@ const ARCHIVE_REVIEW_POINTS = [
 const ARCHIVE_FEATURED_PROJECT_IDS = [2, 1, 3];
 
 const homeFeaturedProjects = HOME_FEATURED_PROJECT_IDS.map((id) =>
-  Items.find((item) => item.id === id)
+  Items.find((item) => item.id === id),
 ).filter(Boolean);
 
 const ProjectArchiveCard = ({ item }) => {
@@ -67,7 +70,7 @@ const ProjectArchiveCard = ({ item }) => {
           className="project-collection-card__image"
           src={optimizeCloudinaryImage(
             item.mainImage,
-            "f_auto,q_auto,w_1200,c_limit"
+            "f_auto,q_auto,w_1200,c_limit",
           )}
           alt={`${item.title} preview`}
           loading="lazy"
@@ -88,7 +91,8 @@ const ProjectArchiveCard = ({ item }) => {
         </div>
 
         <p className="project-collection-card__meta">
-          {getProjectKindLabel(item)} • {item.liveLink ? "Live deployment" : "Case study"}
+          {getProjectKindLabel(item)} •{" "}
+          {item.liveLink ? "Live deployment" : "Case study"}
         </p>
 
         <p className="project-collection-card__summary">{item.description}</p>
@@ -163,14 +167,19 @@ const ArchiveFeaturedCard = ({ item, isLead = false }) => {
       >
         <span className="project-badge">{getProjectKindLabel(item)}</span>
         <img
-          src={optimizeCloudinaryImage(item.mainImage, "f_auto,q_auto,w_1400,c_limit")}
+          src={optimizeCloudinaryImage(
+            item.mainImage,
+            "f_auto,q_auto,w_1400,c_limit",
+          )}
           alt={`${item.title} featured preview`}
           loading="lazy"
         />
       </div>
 
       <div className="archive-featured-card__body">
-        <p className="archive-featured-card__eyebrow">{getProjectCaseLabel(item)}</p>
+        <p className="archive-featured-card__eyebrow">
+          {getProjectCaseLabel(item)}
+        </p>
         <h3>{item.title}</h3>
         <p>{item.description}</p>
 
@@ -231,12 +240,14 @@ const Project = () => {
     personal: Items.filter((item) => item.category === "personal").length,
     game: Items.filter((item) => item.category === "game").length,
   };
-  const featuredArchiveProjects = ARCHIVE_FEATURED_PROJECT_IDS.map((projectId) =>
-    Items.find((item) => item.id === projectId)
+  const featuredArchiveProjects = ARCHIVE_FEATURED_PROJECT_IDS.map(
+    (projectId) => Items.find((item) => item.id === projectId),
   ).filter(Boolean);
-  const featuredArchiveIds = new Set(featuredArchiveProjects.map((item) => item.id));
+  const featuredArchiveIds = new Set(
+    featuredArchiveProjects.map((item) => item.id),
+  );
   const archiveCollectionItems = filteredItems.filter(
-    (item) => !featuredArchiveIds.has(item.id)
+    (item) => !featuredArchiveIds.has(item.id),
   );
 
   if (isHomePage) {
@@ -269,7 +280,7 @@ const Project = () => {
               <img
                 src={optimizeCloudinaryImage(
                   featuredProject.mainImage,
-                  "f_auto,q_auto,w_1400,c_limit"
+                  "f_auto,q_auto,w_1400,c_limit",
                 )}
                 alt={`${featuredProject.title} preview`}
               />
@@ -351,11 +362,13 @@ const Project = () => {
                 className="supporting-project-card__media"
                 style={getProjectMediaVars(item.id, "supporting")}
               >
-                <span className="project-badge">{getProjectKindLabel(item)}</span>
+                <span className="project-badge">
+                  {getProjectKindLabel(item)}
+                </span>
                 <img
                   src={optimizeCloudinaryImage(
                     item.mainImage,
-                    "f_auto,q_auto,w_900,c_limit"
+                    "f_auto,q_auto,w_900,c_limit",
                   )}
                   alt={`${item.title} preview`}
                   loading="lazy"
@@ -497,7 +510,7 @@ const Project = () => {
                 <img
                   src={optimizeCloudinaryImage(
                     archiveLeadProject.mainImage,
-                    "f_auto,q_auto,w_1200,c_limit"
+                    "f_auto,q_auto,w_1200,c_limit",
                   )}
                   alt={`${archiveLeadProject.title} spotlight`}
                 />
@@ -531,11 +544,16 @@ const Project = () => {
           )}
         </div>
 
-        <section className="project-filter-panel" aria-labelledby="project-filter-heading">
+        <section
+          className="project-filter-panel"
+          aria-labelledby="project-filter-heading"
+        >
           <div className="project-filter-panel__header">
             <div>
               <p className="section-kicker">Browse by work type</p>
-              <h2 id="project-filter-heading">Projects sorted for quick review</h2>
+              <h2 id="project-filter-heading">
+                Projects sorted for quick review
+              </h2>
             </div>
             <p>{activeFilterMeta.description}</p>
           </div>
@@ -549,7 +567,9 @@ const Project = () => {
               <button
                 key={option.key}
                 className={`project-filter-chip ${
-                  activeFilter === option.key ? "project-filter-chip--active" : ""
+                  activeFilter === option.key
+                    ? "project-filter-chip--active"
+                    : ""
                 }`}
                 onClick={() => setActiveFilter(option.key)}
                 aria-pressed={activeFilter === option.key}
@@ -570,12 +590,16 @@ const Project = () => {
           >
             <div className="archive-featured-section__header">
               <p className="section-kicker">Featured case studies</p>
-              <h2 id="featured-case-studies-heading" className="section-heading">
+              <h2
+                id="featured-case-studies-heading"
+                className="section-heading"
+              >
                 Recruiter-priority project work
               </h2>
               <p className="section-copy">
-                The strongest examples of client-facing frontend delivery, from IA and
-                responsive implementation to integration and production launch.
+                The strongest examples of client-facing frontend delivery, from
+                IA and responsive implementation to integration and production
+                launch.
               </p>
             </div>
 

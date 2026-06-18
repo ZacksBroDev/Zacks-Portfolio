@@ -1,24 +1,60 @@
-/* Customize Carousel Dots */
-.slick-dots {
+.testimonial-section {
+    padding-top: 5rem;
+}
+
+.testimonial-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.testimonial-card {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.018)),
+        var(--surface);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 26px;
     display: flex;
-    justify-content: center;
-    list-style-type: none;
-    bottom: -30px !important;
+    flex-direction: column;
+    gap: 1.1rem;
+    justify-content: space-between;
+    min-height: 280px;
+    padding: 1.5rem;
 }
 
-.slick-dots li {
-    margin: 0 0.25rem;
+.testimonial-card__quote {
+    color: var(--accent);
+    font-size: 2.7rem;
 }
 
-.slick-dots li button {
-    width: 2px !important;
-    height: 2px !important;
-    padding: 0;
-    border-radius: 100%;
-    border: 2px solid #FF651C !important;
-    text-indent: -9999px;
+.testimonial-card__copy {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.8;
 }
 
-.slick-dots li.slick-active button {
-    background-color: #FF651C;
+.testimonial-card__footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 1rem;
+}
+
+.testimonial-card__footer h3 {
+    color: var(--text);
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+}
+
+.testimonial-card__footer p {
+    color: var(--accent-soft);
+    font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+@media only screen and (max-width: 1100px) {
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
 }

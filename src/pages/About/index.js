@@ -1,100 +1,210 @@
 import React from "react";
-import "./About.css";
-import "../shared/Shared.css";
-import { MySkill, Education, PrimaryBtn } from "../../components";
+import { Link } from "react-router-dom";
 import { FaDownload } from "react-icons/fa";
+import { FiArrowRight } from "react-icons/fi";
+import { PrimaryBtn, SecondaryBtn } from "../../components";
 import {
   ABOUT_CONTENT,
   RESUME_LINK,
   SITE_PROFILE,
 } from "../../Utils/SiteContent";
+import { resumeData } from "../../Utils/ResumeData";
+import "./About.css";
+import "../shared/Shared.css";
+
+const skillBuckets = [
+  {
+    title: "Frontend foundations",
+    items: ["React", "JavaScript", "CSS", "Tailwind CSS", "Responsive Design"],
+  },
+  {
+    title: "Interface quality",
+    items: ["Accessibility", "Performance Optimization", "Technical SEO", "Debugging"],
+  },
+  {
+    title: "Delivery workflow",
+    items: ["Git", "GitHub", "AWS Amplify", "API Integration", "Component Architecture"],
+  },
+];
+
+const workPrinciples = [
+  "I care about interfaces feeling clear and trustworthy in real use, not just in screenshots.",
+  "I prefer maintainable component structure and practical implementation over clever complexity.",
+  "I like collaborating closely with product needs, content, and layout decisions until the UI feels intentional.",
+];
 
 const About = () => {
+  const { education, selfDevelopment, certifications } = resumeData;
+
   return (
-    <div className="parent pt-16 my-16">
-      <div className="">
-        <div className="mb-10">
-          <h1 className="text-4xl font-semibold drop-shadow-md text-center">
-            About <span className="text-primary">Me</span>
-          </h1>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div>
+    <div className="about-page pt-16">
+      <section className="parent about-shell">
+        <div className="about-hero">
+          <div className="about-hero__media">
             <img
               src={SITE_PROFILE.aboutImage}
               alt={SITE_PROFILE.name}
-              className="p-4 w-70 h-70"
-              title={SITE_PROFILE.name}
-              style={{ borderRadius: "25%" }}
+              className="about-hero__image"
             />
           </div>
-          <div>
-            <h2 className="text-4xl font-semibold mb-4 text-left sm:text-3xl sm:mb-2">
-              {SITE_PROFILE.name}
-            </h2>
-            <div className="my-8">
-              <p className="text-2xl text-primary font-bold text-left sm:text-2xl sm:mb-2">
-                {SITE_PROFILE.aboutTitle}
-              </p>
+
+          <div className="about-hero__content">
+            <p className="section-kicker">About Zackary Brown</p>
+            <h1 className="section-heading">
+              Frontend perspective shaped by real delivery, not just coursework.
+            </h1>
+
+            <div className="about-copy">
+              {ABOUT_CONTENT.paragraphs.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
             </div>
-            {ABOUT_CONTENT.paragraphs.map((paragraph, index) => (
-              <React.Fragment key={paragraph}>
-                <p className="text-neutral font-medium text-left sm:mb-2">
-                  {paragraph}
-                </p>
-                {index < ABOUT_CONTENT.paragraphs.length - 1 ? <br /> : null}
-              </React.Fragment>
-            ))}
-            <div className="rounded-xl border border-primary/20 bg-[#313131] p-5 mb-6">
-              <h3 className="text-lg font-semibold text-white mb-3">
-                Recent Frontend Proof
-              </h3>
-              <ul className="list-disc list-inside space-y-2 text-neutral font-medium">
-                {ABOUT_CONTENT.highlights.map((highlight) => (
-                  <li key={highlight}>{highlight}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-4 mt-4 text-left sm:mb-2">
-              <h2 className="font-medium">
-                <span className="mr-2 text-primary">Name : </span>
-                {SITE_PROFILE.name}
-              </h2>
-              <h2 className="font-medium">
-                <span className="mr-2 text-primary">Phone : </span>
-                {SITE_PROFILE.phoneDisplay}
-              </h2>
-              <h2 className="font-medium">
-                <span className="mr-2 text-primary">Email : </span>
-                {SITE_PROFILE.email}
-              </h2>
-              <h2 className="font-medium">
-                <span className="mr-2 text-primary">Address : </span>
-                {SITE_PROFILE.location}
-              </h2>
+
+            <div className="about-hero__actions">
               <PrimaryBtn
                 as="a"
                 href={RESUME_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 w-fit"
+                className="w-fit"
                 aria-label="Open resume in a new tab"
               >
-                <span>My Resume</span>
+                <span>Open resume</span>
                 <span>
                   <FaDownload />
                 </span>
               </PrimaryBtn>
+
+              <SecondaryBtn as={Link} to="/contact" className="w-fit">
+                <span>Contact me</span>
+                <span>
+                  <FiArrowRight />
+                </span>
+              </SecondaryBtn>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* My Skill */}
-      <MySkill />
+        <div className="about-proof-grid">
+          <article className="about-proof-card">
+            <p className="about-proof-card__eyebrow">Frontend proof</p>
+            <ul className="about-list">
+              {ABOUT_CONTENT.highlights.map((highlight) => (
+                <li key={highlight}>{highlight}</li>
+              ))}
+            </ul>
+          </article>
 
-      {/* Education */}
-      <Education />
+          <article className="about-proof-card">
+            <p className="about-proof-card__eyebrow">What teams get</p>
+            <ul className="about-list">
+              {workPrinciples.map((principle) => (
+                <li key={principle}>{principle}</li>
+              ))}
+            </ul>
+          </article>
+        </div>
+
+        <div className="about-grid">
+          <section className="about-panel">
+            <div className="about-panel__header">
+              <p className="about-panel__kicker">Frontend coverage</p>
+              <h2>How I work across the stack</h2>
+            </div>
+
+            <div className="about-skill-groups">
+              {skillBuckets.map((bucket) => (
+                <div key={bucket.title} className="about-skill-group">
+                  <h3>{bucket.title}</h3>
+                  <div className="about-tag-group">
+                    {bucket.items.map((item) => (
+                      <span key={item}>{item}</span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="about-panel">
+            <div className="about-panel__header">
+              <p className="about-panel__kicker">Education</p>
+              <h2>Academic background</h2>
+            </div>
+
+            <div className="about-timeline">
+              {education.map((entry) => (
+                <article key={`${entry.title}-${entry.date}`} className="about-timeline-item">
+                  <div className="about-timeline-item__top">
+                    <div>
+                      <h3>{entry.title}</h3>
+                      {entry.subtitle ? <p>{entry.subtitle}</p> : null}
+                      {entry.location ? (
+                        <span className="about-timeline-item__meta">{entry.location}</span>
+                      ) : null}
+                    </div>
+                    <span className="about-date-pill">{entry.date}</span>
+                  </div>
+
+                  {entry.bullets?.length ? (
+                    <ul className="about-list">
+                      {entry.bullets.map((bullet) => (
+                        <li key={bullet}>{bullet}</li>
+                      ))}
+                    </ul>
+                  ) : null}
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section className="about-panel">
+            <div className="about-panel__header">
+              <p className="about-panel__kicker">Ongoing development</p>
+              <h2>Training and community growth</h2>
+            </div>
+
+            <div className="about-timeline">
+              {selfDevelopment.map((entry) => (
+                <article key={`${entry.title}-${entry.date}`} className="about-timeline-item">
+                  <div className="about-timeline-item__top">
+                    <div>
+                      <h3>{entry.title}</h3>
+                      {entry.location ? (
+                        <span className="about-timeline-item__meta">{entry.location}</span>
+                      ) : null}
+                    </div>
+                    <span className="about-date-pill">{entry.date}</span>
+                  </div>
+
+                  <ul className="about-list">
+                    {entry.bullets.map((bullet) => (
+                      <li key={bullet}>{bullet}</li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section className="about-panel">
+            <div className="about-panel__header">
+              <p className="about-panel__kicker">Recognition</p>
+              <h2>Certifications and awards</h2>
+            </div>
+
+            <div className="about-recognition-grid">
+              {certifications.map((item) => (
+                <article key={item.title} className="about-recognition-card">
+                  <h3>{item.title}</h3>
+                  <p>{item.issuer}</p>
+                  <span>{item.detail}</span>
+                </article>
+              ))}
+            </div>
+          </section>
+        </div>
+      </section>
     </div>
   );
 };

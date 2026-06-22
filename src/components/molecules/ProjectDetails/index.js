@@ -70,7 +70,7 @@ const getDecisionPoints = (item) => {
 
   if (allFeatures.includes("responsive") || allTech.includes("tailwind")) {
     decisions.push(
-      "Prioritized responsive layout behavior so the core flow stays usable across mobile, tablet, and desktop."
+      "Prioritized responsive layout behavior so the core flow stays usable across mobile, tablet, and desktop.",
     );
   }
 
@@ -80,7 +80,7 @@ const getDecisionPoints = (item) => {
     allTech.includes("jwt")
   ) {
     decisions.push(
-      "Structured authenticated user flows to keep navigation and permissions predictable once users sign in."
+      "Structured authenticated user flows to keep navigation and permissions predictable once users sign in.",
     );
   }
 
@@ -90,25 +90,25 @@ const getDecisionPoints = (item) => {
     allTech.includes("stripe")
   ) {
     decisions.push(
-      "Designed purchase and conversion paths to reduce friction from discovery to completion."
+      "Designed purchase and conversion paths to reduce friction from discovery to completion.",
     );
   }
 
   if (allFeatures.includes("gallery") || allTech.includes("cloudinary")) {
     decisions.push(
-      "Used media optimization and progressive image handling to keep visual content rich without slowing the page."
+      "Used media optimization and progressive image handling to keep visual content rich without slowing the page.",
     );
   }
 
   if (allFeatures.includes("dashboard") || allFeatures.includes("admin")) {
     decisions.push(
-      "Separated information and controls into clearer sections so high-density interfaces remain scannable."
+      "Separated information and controls into clearer sections so high-density interfaces remain scannable.",
     );
   }
 
   if (decisions.length === 0) {
     decisions.push(
-      "Focused on straightforward UI structure, clear hierarchy, and maintainable frontend patterns for long-term iteration."
+      "Focused on straightforward UI structure, clear hierarchy, and maintainable frontend patterns for long-term iteration.",
     );
   }
 
@@ -143,7 +143,7 @@ const ProjectDetails = () => {
   }
 
   const galleryImages = [item.mainImage, ...(item.img || [])].filter(
-    (image, index, arr) => image && arr.indexOf(image) === index
+    (image, index, arr) => image && arr.indexOf(image) === index,
   );
   const [leadImage, ...supportingImages] = galleryImages;
   const focusPoints = getProjectFocusPoints(item, 4);
@@ -154,7 +154,7 @@ const ProjectDetails = () => {
   const outcomeStatus = useMemo(() => getOutcomeStatus(item), [item]);
   const buildItems = useMemo(
     () => (item.features || []).slice(0, 6),
-    [item.features]
+    [item.features],
   );
 
   return (
@@ -171,7 +171,11 @@ const ProjectDetails = () => {
             <h1>{item.title}</h1>
             <p className="project-detail-summary">{item.description}</p>
 
-            <div className="project-detail-meta-pills" role="list" aria-label="Project metadata">
+            <div
+              className="project-detail-meta-pills"
+              role="list"
+              aria-label="Project metadata"
+            >
               <span role="listitem" className="project-detail-meta-pill">
                 {getProjectCaseLabel(item)}
               </span>

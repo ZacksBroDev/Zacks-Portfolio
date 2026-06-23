@@ -29,12 +29,10 @@ export default function Navbar() {
     { title: "Projects", link: "/project", icon: <MdWork /> },
     { title: "Contact", link: "/contact", icon: <RiContactsBook2Fill /> },
   ];
-  const activeLink = ({ isActive }) => {
-    return {
-      fontWeight: 500,
-      color: isActive && "#FF651C",
-    };
-  };
+  const linkClassName = ({ isActive }) =>
+    ["site-nav__link", isActive && "site-nav__link--active"]
+      .filter(Boolean)
+      .join(" ");
 
   // Show Navbar on Scroll UP
   const [show, setShow] = useState(false);
@@ -57,110 +55,119 @@ export default function Navbar() {
   }, []);
 
   return (
-    <div
-      className={`visible ${show && "nav-hidden"} shadow-lg bg-[#313131] 
-     z-50`}
-    >
-      <div className="w-full flex items-center justify-between px-3 md:px-24 py-3">
-        <div>
-          <Link to="/">
-            <h1 className="text-2xl text-primary font-lobster">
-              {SITE_PROFILE.name}
-            </h1>
-          </Link>
-        </div>
-        <div>
-          <ul className="lg:flex items-center hidden">
-            {navLinks.map((navItem) => (
-              <li className="mx-4" key={navItem.title}>
-                <NavLink
-                  to={navItem.link}
-                  style={activeLink}
-                  className="text-white hover:text-primary duration-300"
-                >
-                  {navItem.title}
-                </NavLink>
-              </li>
-            ))}
+    <header className={`visible ${show ? "nav-hidden" : ""}`}>
+      <div className="parent site-nav">
+        <Link to="/" className="site-brand" aria-label="Go to the homepage">
+          <span className="site-brand__mark">ZB</span>
+          <span className="site-brand__text">
+            <strong>{SITE_PROFILE.name}</strong>
+            <span>{SITE_PROFILE.title}</span>
+          </span>
+        </Link>
 
+        <div className="site-nav__desktop">
+          <nav aria-label="Primary">
+            <ul className="site-nav__links">
+              {navLinks.map((navItem) => (
+                <li key={navItem.title}>
+                  <NavLink to={navItem.link} className={linkClassName}>
+                    {navItem.title}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div className="site-nav__actions">
+            <span className="site-nav__status">Open to frontend roles</span>
             <PrimaryBtn
               as="a"
               href={RESUME_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-4"
+              className="site-nav__resume"
               aria-label="Open resume in a new tab"
             >
-              <span>Resume</span>
+              <span>View resume</span>
               <span>
                 <FaDownload />
               </span>
             </PrimaryBtn>
-          </ul>
-          <div className="block lg:hidden">
-            <button
-              onClick={toggleDrawer}
-              className="btn btn-ghost text-white"
-              aria-label="Open navigation menu"
-            >
-              <RiMenu3Fill></RiMenu3Fill>
-            </button>
-            <Drawer
-              open={isOpen}
-              onClose={toggleDrawer}
-              direction="right"
-              style={{ backgroundColor: "#212121" }}
-              className="flex flex-col justify-between pb-4"
-            >
-              <ul className="">
-                <li className="mt-6 mb-10 ml-4">
-                  <GiCrossMark
-                    className="cursor-pointer hover:text-primary duration-300"
-                    onClick={() => setIsOpen(!isOpen)}
-                    aria-label="Close navigation menu"
-                  ></GiCrossMark>
-                </li>
+          </div>
+        </div>
+
+        <div className="block lg:hidden">
+          <button
+            onClick={toggleDrawer}
+            className="site-nav__menu"
+            aria-label="Open navigation menu"
+            aria-expanded={isOpen}
+          >
+            <RiMenu3Fill />
+          </button>
+          <Drawer
+            open={isOpen}
+            onClose={toggleDrawer}
+            direction="right"
+            style={{ backgroundColor: "#171716" }}
+            className="site-drawer"
+          >
+            <div className="site-drawer__inner">
+              <div className="site-drawer__header">
+                <div>
+                  <p className="site-drawer__eyebrow">{SITE_PROFILE.title}</p>
+                  <h2 className="site-drawer__name">{SITE_PROFILE.name}</h2>
+                </div>
+                <button
+                  type="button"
+                  className="site-drawer__close"
+                  onClick={toggleDrawer}
+                  aria-label="Close navigation menu"
+                >
+                  <GiCrossMark />
+                </button>
+              </div>
+
+              <ul className="site-drawer__links">
                 {navLinks.map((navItem) => (
                   <li
-                    className="m-4"
                     key={navItem.title}
-                    onClick={() => setIsOpen(!isOpen)}
+                    onClick={() => setIsOpen(false)}
+                    className="site-drawer__item"
                   >
-                    <NavLink
-                      to={navItem.link}
-                      style={activeLink}
-                      className="flex items-center text-white hover:text-primary duration-300"
-                    >
-                      <span className="mr-3">{navItem.icon}</span>
+                    <NavLink to={navItem.link} className={linkClassName}>
+                      <span className="site-drawer__icon">{navItem.icon}</span>
                       <span>{navItem.title}</span>
                     </NavLink>
                   </li>
                 ))}
-                <li className="text-center m-4">
-                  <PrimaryBtn
-                    as="a"
-                    href={RESUME_LINK}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full"
-                    aria-label="Open resume in a new tab"
-                  >
-                    <span>Resume</span>
-                    <span>
-                      <FaDownload />
-                    </span>
-                  </PrimaryBtn>
-                </li>
               </ul>
-              <div className="text-center">
-                <p className="text-neutral">
-                  &copy; Copyright {year}, {SITE_PROFILE.name}.
+
+              <div className="site-drawer__footer">
+                <p className="site-nav__status site-nav__status--mobile">
+                  Open to frontend roles
+                </p>
+                <PrimaryBtn
+                  as="a"
+                  href={RESUME_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full"
+                  aria-label="Open resume in a new tab"
+                >
+                  <span>View resume</span>
+                  <span>
+                    <FaDownload />
+                  </span>
+                </PrimaryBtn>
+                <p className="site-drawer__copyright">
+                  &copy; {year} {SITE_PROFILE.name}
                 </p>
               </div>
-            </Drawer>
-          </div>
+            </div>
+          </Drawer>
         </div>
       </div>
-    </div>
+    </header>
   );
 }

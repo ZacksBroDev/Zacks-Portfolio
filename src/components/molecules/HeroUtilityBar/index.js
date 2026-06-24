@@ -25,24 +25,20 @@ const HeroUtilityBar = () => {
   ];
 
   return (
-    <div className="w-full border-b border-primary/20 bg-[#212121]">
-      <div className="parent py-3">
-        <div className="flex flex-wrap gap-3 justify-center sm:justify-start">
-          {socialLinks.map((link) => (
-            <a
-              key={link.id}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={link.label}
-              className="flex items-center gap-2 px-4 py-2 rounded-full border border-primary/40 hover:border-primary hover:text-primary text-neutral transition-all duration-300 text-sm font-medium whitespace-nowrap"
-            >
-              {link.icon}
-              <span>{link.label}</span>
-            </a>
-          ))}
-        </div>
-      </div>
+    <div className="hero-utility" aria-label="Direct links">
+      {socialLinks.map((link) => (
+        <a
+          key={link.id}
+          href={link.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={link.label}
+          className="hero-utility__link"
+        >
+          {link.icon}
+          <span>{link.label}</span>
+        </a>
+      ))}
     </div>
   );
 };

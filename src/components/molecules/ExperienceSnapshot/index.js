@@ -3,24 +3,32 @@ import React from "react";
 const proofCards = [
   {
     id: 1,
+    label: "Client work",
+    layout: "wide",
     title: "Real Client Work",
     description:
       "Built and shipped production websites and frontend features for real clients, with a focus on clean UX, responsive layouts, and reliable delivery.",
   },
   {
     id: 2,
+    label: "Scope",
+    layout: "compact",
     title: "Frontend-First, Full-Stack Capable",
     description:
       "Strong in React, JavaScript, CSS, and Tailwind, with the ability to work across APIs, backend logic, and deployment when the product needs it.",
   },
   {
     id: 3,
+    label: "Quality",
+    layout: "compact",
     title: "Performance & Usability Focus",
     description:
       "Prioritize responsive interfaces, accessibility, maintainable code, and practical frontend decisions that improve speed, clarity, and user experience.",
   },
   {
     id: 4,
+    label: "Mindset",
+    layout: "wide",
     title: "Technical Operations Background",
     description:
       "Bring a hands-on troubleshooting mindset, fast iteration under pressure, and strong production awareness from years in technical, high-accountability environments.",
@@ -29,21 +37,32 @@ const proofCards = [
 
 const ExperienceSnapshot = () => {
   return (
-    <section className="parent py-10 md:py-12" aria-labelledby="experience-snapshot-heading">
-      <div className="mb-8 md:mb-10">
-        <h2 id="experience-snapshot-heading" className="text-3xl md:text-4xl font-semibold text-center">
-          Experience <span className="text-primary">Snapshot</span>
+    <section
+      className="home-section parent experience-section"
+      aria-labelledby="experience-snapshot-heading"
+    >
+      <div className="section-heading-row section-heading-row--center">
+        <p className="section-kicker">Why teams trust me</p>
+        <h2
+          id="experience-snapshot-heading"
+          className="section-heading section-heading--center"
+        >
+          What I bring
         </h2>
+        <p className="section-copy section-copy--center">
+          Evidence of how I approach frontend work, collaboration, and delivery.
+        </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
+      <div className="experience-grid">
         {proofCards.map((card) => (
           <article
             key={card.id}
-            className="rounded-lg border border-primary/20 bg-[#2a2a2a] px-5 py-5 md:px-6 md:py-6 shadow-md hover:shadow-primary/30 transition-shadow duration-300"
+            className={`experience-card experience-card--${card.layout}`}
           >
-            <h3 className="text-lg md:text-xl font-semibold text-white mb-2">{card.title}</h3>
-            <p className="text-neutral leading-relaxed text-sm md:text-base">{card.description}</p>
+            <p className="experience-card__label">{card.label}</p>
+            <h3 className="experience-card__title">{card.title}</h3>
+            <p className="experience-card__copy">{card.description}</p>
           </article>
         ))}
       </div>

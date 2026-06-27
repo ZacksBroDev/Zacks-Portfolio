@@ -1,77 +1,184 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaDownload } from "react-icons/fa";
-import { RiFolderInfoFill } from "react-icons/ri";
+import { FiArrowRight } from "react-icons/fi";
 import "../../../pages/shared/Shared.css";
 import { PrimaryBtn, SecondaryBtn } from "../../../components";
 import {
+  HERO_PROOF_POINTS,
   HERO_CONTENT,
+  HOME_FEATURED_PROJECT_IDS,
   RESUME_LINK,
   SITE_PROFILE,
 } from "../../../Utils/SiteContent";
 import HeroUtilityBar from "../HeroUtilityBar";
+import Items from "../../../Utils/Items";
+import { optimizeCloudinaryImage } from "../../../Utils/imageUtils";
 
 const Banner = () => {
+  const previewProjects = HOME_FEATURED_PROJECT_IDS.map((id) =>
+    Items.find((item) => item.id === id)
+  ).filter(Boolean);
+  const [leadPreview, supportingPreview] = previewProjects;
+
+  const previewAddress = (project) => {
+    if (!project?.liveLink) {
+      return `${project?.title?.toLowerCase().replace(/\s+/g, "-")}.case-study`;
+    }
+
+    try {
+      return new URL(project.liveLink).hostname;
+    } catch {
+      return project.liveLink;
+    }
+  };
+
   return (
-    <>
-      <HeroUtilityBar />
-      <div className="parent py-16 flex flex-col-reverse lg:flex-row items-center justify-between">
-        <div>
-          <h2 className="text-neutral text-xl font-medium translate-y-[-90%] sm:translate-y-[-0%]">
-            {HERO_CONTENT.intro}
-          </h2>
-          <h1 className="text-4xl font-semibold mb-0 translate-y-[-50%] sm:translate-y-[-0%]">
-            {SITE_PROFILE.name}
-          </h1>
-          <div className="my-4">
-            <p className="text-2xl text-primary font-bold translate-y-[-80%] sm:translate-y-[-0%]">
-              {SITE_PROFILE.title}
-            </p>
-          </div>
-          <p className="text-neutral max-w-xl mb-6 font-medium translate-y-[-20%] sm:translate-y-[-0%]">
-            {HERO_CONTENT.summary}
+    <section
+      className="home-section hero-section parent"
+      aria-labelledby="home-hero-heading"
+    >
+      <div className="hero-grid">
+        <div className="hero-copy">
+          <p className="section-kicker">{HERO_CONTENT.eyebrow}</p>
+          <p className="hero-intro">
+            {HERO_CONTENT.intro} <span>{SITE_PROFILE.name}</span>
           </p>
-          <div className="flex flex-wrap gap-2 mb-6 translate-y-[-20%] sm:translate-y-[-0%]">
+          <h1 id="home-hero-heading" className="hero-title">
+            {HERO_CONTENT.headline}
+          </h1>
+          <p className="hero-summary">{HERO_CONTENT.summary}</p>
+          <p className="hero-availability">{HERO_CONTENT.availability}</p>
+
+          <div className="hero-tech-stack" aria-label="Core frontend skills">
             {HERO_CONTENT.techStack.map((item) => (
-              <span
-                key={item}
-                className="rounded-full border border-primary/40 bg-[#313131] px-3 py-1 text-sm font-medium text-neutral"
-              >
+              <span key={item} className="hero-tech-chip">
                 {item}
               </span>
             ))}
           </div>
 
-          <div className="flex flex-wrap items-center gap-4 translate-y-[-60%] sm:translate-y-[-0%]">
+          <div className="hero-actions">
             <PrimaryBtn
               as="a"
               href={RESUME_LINK}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Open resume in a new tab"
+              className="w-fit"
             >
-              <span>My Resume</span>
+              <span>View resume</span>
               <span>
                 <FaDownload />
               </span>
             </PrimaryBtn>
-            <SecondaryBtn as={Link} to="/about">
-              <span>About Me</span>
+            <SecondaryBtn as={Link} to="/project" className="w-fit">
+              <span>View work</span>
               <span>
-                <RiFolderInfoFill />
+                <FiArrowRight />
               </span>
             </SecondaryBtn>
           </div>
+
+          <HeroUtilityBar />
         </div>
-        <div className="w-full md:w-1/2 flex justify-center">
-          <img
-            src="https://res.cloudinary.com/djnazqqgr/image/upload/q_auto/f_auto/v1775241541/IMG_7401_lrflk7.jpg"
-            alt={SITE_PROFILE.name}
-            className="rounded-full w-72 h-72 md:w-96 md:h-96 object-cover shadow-lg border-4 border-primary/40"
-          />
+
+        <div className="hero-visual">
+          <div className="hero-visual__glow"></div>
+
+          {supportingPreview && (
+            <article className="browser-card browser-card--back">
+              <div className="browser-card__toolbar">
+                <div className="browser-card__dots" aria-hidden="true">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <p className="browser-card__address">
+                  {previewAddress(supportingPreview)}
+                </p>
+              </div>
+
+              <div className="browser-card__screen">
+                <img
+                  src={optimizeCloudinaryImage(
+                    supportingPreview.mainImage,
+                    "f_auto,q_auto,w_1000,c_limit"
+                  )}
+                  alt={`${supportingPreview.title} preview`}
+                  loading="lazy"
+                />
+              </div>
+
+              <div className="browser-card__meta">
+                <p>{supportingPreview.title}</p>
+                <span>
+                  {supportingPreview.category === "business"
+                    ? "Client platform"
+                    : "Product UI"}
+                </span>
+              </div>
+            </article>
+          )}
+
+          {leadPreview && (
+            <article className="browser-card browser-card--front">
+              <div className="browser-card__toolbar">
+                <div className="browser-card__dots" aria-hidden="true">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <p className="browser-card__address">
+                  {previewAddress(leadPreview)}
+                </p>
+              </div>
+
+              <div className="browser-card__screen">
+                <img
+                  src={optimizeCloudinaryImage(
+                    leadPreview.mainImage,
+                    "f_auto,q_auto,w_1200,c_limit"
+                  )}
+                  alt={`${leadPreview.title} preview`}
+                />
+              </div>
+
+              <div className="browser-card__meta">
+                <p>{leadPreview.title}</p>
+                <span>Selected case study</span>
+              </div>
+            </article>
+          )}
+
+          <div className="hero-profile-card">
+            <img
+              src={optimizeCloudinaryImage(
+                "https://res.cloudinary.com/djnazqqgr/image/upload/q_auto/f_auto/v1775241541/IMG_7401_lrflk7.jpg",
+                "f_auto,q_auto,w_640,c_fill,g_auto"
+              )}
+              alt={SITE_PROFILE.name}
+            />
+            <div>
+              <p className="hero-profile-card__label">Frontend Engineer</p>
+              <h2>{SITE_PROFILE.name}</h2>
+              <p className="hero-profile-card__copy">
+                React, CSS, and polished product UI.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-    </>
+
+      <div className="hero-proof-strip">
+        {HERO_PROOF_POINTS.map((point) => (
+          <article key={point.label} className="hero-proof-card">
+            <p className="hero-proof-card__label">{point.label}</p>
+            <p className="hero-proof-card__value">{point.value}</p>
+          </article>
+        ))}
+      </div>
+    </section>
   );
 };
 

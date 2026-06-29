@@ -12,7 +12,7 @@ const SecondaryBtn = ({
   return (
     <Component
       className={[
-        "btn text-white flex items-center gap-2 border-2 border-primary bg-transparent hover:bg-primary hover:border-transparent duration-500 disabled:cursor-not-allowed disabled:opacity-60",
+        "inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full border border-[rgba(255,106,26,0.32)] bg-[rgba(255,255,255,0.02)] px-4 py-3 font-['JetBrains_Mono'] text-[0.82rem] font-semibold tracking-[0.02em] text-white transition duration-300 hover:-translate-y-0.5 hover:border-[rgba(255,106,26,0.56)] hover:bg-[rgba(255,255,255,0.05)] disabled:cursor-not-allowed disabled:opacity-60",
         className,
       ]
         .filter(Boolean)

@@ -1,78 +1,61 @@
 .primary-button {
-    padding: 8px 12px;
+    min-height: 48px;
+    padding: 0.85rem 1.15rem;
     font-weight: 600;
-    border-radius: 6px;
-    text-transform: uppercase;
+    border-radius: 999px;
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 0.55rem;
     position: relative;
-    overflow: hidden;
-    border: 2px solid #FF651C;
+    border: 1px solid rgba(255, 106, 26, 0.4);
     cursor: pointer;
-    background-color: #FF651C;
-    color: white;
+    background:
+        linear-gradient(135deg, #ff8742 0%, #ff6a1a 55%, #ef5e13 100%);
+    color: #1e140d;
     text-decoration: none;
-    transition: all 0.5s ease;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease,
+        filter 0.25s ease;
+    box-shadow: 0 18px 36px rgba(255, 106, 26, 0.24);
+    font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
 }
 
 .primary-button span {
-    z-index: 1;
-    transition: all 0.3s ease-out;
-    margin: 0 5px;
-}
-
-.primary-button::after,
-.primary-button::before {
-    width: 0%;
-    height: 0%;
-    content: "";
-    position: absolute;
-    border-radius: 100%;
-}
-
-.primary-button::after {
-    transition: all 0.5s ease;
-    background-color: #313131;
-}
-
-.primary-button::before {
-    transition: all 0.5s ease-out;
-    background: #ec743c;
+    transition: transform 0.25s ease;
 }
 
 .primary-button:hover {
-    color: #FF651C;
-    transform: translateY(-5px);
+    transform: translateY(-2px);
+    box-shadow: 0 24px 46px rgba(255, 106, 26, 0.3);
+    filter: saturate(1.05);
 }
 
 .primary-button:disabled {
     cursor: not-allowed;
     opacity: 0.65;
+    box-shadow: none;
 }
 
 .primary-button:disabled:hover {
-    color: white;
     transform: none;
 }
 
-.primary-button:hover:after,
-.primary-button:hover:before {
-    width: 200px;
-    height: 200px;
-    border-radius: 4px;
+.primary-button:hover span:last-child {
+    transform: translateX(2px);
 }
 
-.primary-button:hover:after {
-    transition: all 0.7s ease-in;
+.primary-button:focus-visible {
+    outline: 3px solid rgba(255, 176, 122, 0.44);
+    outline-offset: 3px;
 }
 
-.primary-button:hover:before {
-    transition: all 0.5s ease-in;
-}
-
-.primary-button:disabled:hover:after,
-.primary-button:disabled:hover:before {
-    width: 0%;
-    height: 0%;
+@media only screen and (max-width: 600px) {
+    .primary-button {
+        width: 100%;
+    }
 }

@@ -1,7 +1,5 @@
-import BottomLine from './BottomLine';
-import Loader from './Loader';
-import PrimaryBtn from './PrimaryBtn';
-import ScrollToTop from './ScrollToTop';
-import SecondaryBtn from './SecondaryBtn';
-
-export { BottomLine, Loader, PrimaryBtn, ScrollToTop, SecondaryBtn };
+export { default as BottomLine } from "./BottomLine";
+export { default as Loader } from "./Loader";
+export { default as PrimaryBtn } from "./PrimaryBtn";
+export { default as ScrollToTop } from "./ScrollToTop";
+export { default as SecondaryBtn } from "./SecondaryBtn";

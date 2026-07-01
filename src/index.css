@@ -2,6 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  color-scheme: dark;
+  --bg: #171716;
+  --bg-strong: #131210;
+  --surface: #23211f;
+  --surface-strong: #2b2724;
+  --surface-soft: #1d1a18;
+  --surface-tint: rgba(255, 255, 255, 0.025);
+  --line: rgba(255, 255, 255, 0.075);
+  --line-strong: rgba(255, 106, 26, 0.34);
+  --text: #f3efe8;
+  --text-muted: #a7a099;
+  --text-soft: #7c766f;
+  --accent: #ff6a1a;
+  --accent-soft: #ffb07a;
+  --accent-strong: #ff8b46;
+  --accent-ink: #1e140d;
+  --success: #8dd8a8;
+  --danger: #f3a09a;
+  --shadow-lg: 0 36px 96px rgba(0, 0, 0, 0.34);
+  --shadow-md: 0 22px 60px rgba(0, 0, 0, 0.28);
+  --radius-xl: 32px;
+  --radius-lg: 24px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -10,24 +37,93 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: var(--bg);
 }
 
 body {
   display: block;
-  background-color: #212121;
-  color: white;
+  background:
+    radial-gradient(circle at top left, rgba(255, 106, 26, 0.18), transparent 30%),
+    radial-gradient(circle at 80% 10%, rgba(255, 176, 122, 0.1), transparent 24%),
+    linear-gradient(180deg, #1a1816 0%, var(--bg) 22%, var(--bg-strong) 100%);
+  color: var(--text);
   min-height: 100vh;
   position: relative;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.55;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.42), transparent 82%);
+  pointer-events: none;
+  opacity: 0.35;
+  z-index: -2;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 16% 14%, rgba(255, 106, 26, 0.14), transparent 22%),
+    radial-gradient(circle at 78% 18%, rgba(255, 176, 122, 0.08), transparent 22%);
+  pointer-events: none;
+  z-index: -1;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: rgba(255, 106, 26, 0.26);
+  color: var(--text);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Space Grotesk", "IBM Plex Sans", sans-serif;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+}
+
+p {
+  color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid rgba(255, 176, 122, 0.44);
+  outline-offset: 3px;
 }
 
 /* Customize Scroll Bar */
@@ -54,20 +150,35 @@ code {
 
 * {
   scrollbar-width: medium;
-  scrollbar-color: #FF651C #313131;
+  scrollbar-color: var(--accent) var(--surface);
 }
 
 /* Works on Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
-  width: 15px;
+  width: 12px;
 }
 
 *::-webkit-scrollbar-track {
-  background: #313131;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: #FF651C;
+  background-color: rgba(255, 106, 26, 0.85);
   border-radius: 20px;
-  border: 3px solid #313131;
+  border: 2px solid rgba(255, 255, 255, 0.05);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -16,14 +16,18 @@ test("renders the home route", async () => {
   renderApp();
 
   expect(await screen.findByText(/Hello, I'm/i)).toBeInTheDocument();
-  expect(screen.getByRole("heading", { name: /My Services/i })).toBeInTheDocument();
+  expect(
+    screen.getByRole("heading", {
+      name: /Frontend engineer building fast, clean product interfaces/i,
+    })
+  ).toBeInTheDocument();
 });
 
 test("renders the contact route with the form", async () => {
   renderApp(["/contact"]);
 
   expect(
-    await screen.findByRole("heading", { name: /Get In Touch/i })
+    await screen.findByRole("heading", { name: /Contact Me/i })
   ).toBeInTheDocument();
   expect(screen.getByLabelText(/Name/i)).toBeInTheDocument();
   expect(screen.getByRole("button", { name: /Send Message/i })).toBeInTheDocument();

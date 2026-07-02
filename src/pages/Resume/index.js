@@ -107,6 +107,7 @@ const ResumeTimelineItem = ({
   company,
   location,
   date,
+  type,
   bullets = [],
 }) => (
   <article className="resume-timeline-item">
@@ -122,6 +123,13 @@ const ResumeTimelineItem = ({
       </div>
       <span className="resume-date-pill">{date}</span>
     </div>
+
+    {(type || location) && (
+      <div className="resume-meta-pill-row" aria-label="Role metadata">
+        {type ? <span className="resume-meta-pill">{type}</span> : null}
+        {location ? <span className="resume-meta-pill">{location}</span> : null}
+      </div>
+    )}
 
     {bullets.length > 0 ? (
       <ul className="resume-bullet-list">
@@ -142,6 +150,27 @@ const ResumeProjectCard = ({ project }) => (
       </div>
       <span className="resume-date-pill">{project.date}</span>
     </div>
+
+    {(project.type || project.location) && (
+      <div className="resume-meta-pill-row" aria-label="Project metadata">
+        {project.type ? (
+          <span className="resume-meta-pill">{project.type}</span>
+        ) : null}
+        {project.location ? (
+          <span className="resume-meta-pill">{project.location}</span>
+        ) : null}
+      </div>
+    )}
+
+    {project.stack?.length > 0 ? (
+      <div className="resume-stack-pill-row" aria-label="Project stack">
+        {project.stack.map((tech) => (
+          <span key={tech} className="resume-stack-pill">
+            {tech}
+          </span>
+        ))}
+      </div>
+    ) : null}
 
     <a
       href={project.href}
@@ -291,10 +320,10 @@ const Resume = () => {
             <section className="resume-panel">
               <div className="resume-panel__header">
                 <p className="resume-panel__kicker">Experience & projects</p>
-                <h2>Selected frontend project work</h2>
+                <h2>Featured technical experience</h2>
                 <p>
-                  Core projects that represent client-facing frontend execution,
-                  UI architecture, and deployment-ready implementation.
+                  Frontend and product-focused work that best represents client
+                  delivery, technical scope, and implementation quality.
                 </p>
               </div>
 
@@ -321,8 +350,14 @@ const Resume = () => {
 
             <section className="resume-panel">
               <div className="resume-panel__header">
-                <p className="resume-panel__kicker">Professional experience</p>
-                <h2>Work history</h2>
+                <p className="resume-panel__kicker">
+                  Other technical background
+                </p>
+                <h2>Transferable work experience</h2>
+                <p>
+                  Previous operations-focused roles that shaped troubleshooting,
+                  communication, reliability, and execution under pressure.
+                </p>
               </div>
 
               <div className="resume-timeline">
@@ -333,6 +368,7 @@ const Resume = () => {
                     company={entry.company}
                     location={entry.location}
                     date={entry.date}
+                    type={entry.type}
                     bullets={entry.bullets}
                   />
                 ))}

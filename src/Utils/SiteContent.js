@@ -88,7 +88,7 @@ export const RESUME_HEADER_LINKS = [
 ];
 
 export const RESUME_SUMMARY =
-  "Frontend engineer building responsive, production-ready interfaces with React, JavaScript, CSS, and Tailwind. I focus on accessibility, performance, and clean user-facing implementation, with cross-stack experience that helps me collaborate effectively on APIs, deployment, and product delivery.";
+  "Frontend developer focused on React, TypeScript, and production-ready UI implementation. I build responsive interfaces with strong accessibility, performance, and conversion-minded UX, and I collaborate comfortably across APIs, deployment, and client delivery.";
 
 export const SOCIAL_LINKS = [
   {

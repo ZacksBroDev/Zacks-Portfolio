@@ -317,6 +317,37 @@
   padding: 1rem;
 }
 
+.resume-meta-pill-row,
+.resume-stack-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 0.75rem;
+}
+
+.resume-meta-pill,
+.resume-stack-pill {
+  border-radius: 999px;
+  font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 0.45rem 0.68rem;
+  text-transform: uppercase;
+}
+
+.resume-meta-pill {
+  background: rgba(255, 106, 26, 0.08);
+  border: 1px solid rgba(255, 106, 26, 0.28);
+  color: var(--accent-soft);
+}
+
+.resume-stack-pill {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-muted);
+}
+
 .resume-project-card__top,
 .resume-timeline-item__top {
   align-items: start;

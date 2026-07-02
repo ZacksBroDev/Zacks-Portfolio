@@ -65,12 +65,10 @@ This project was created using the following technologies.
 
 ## Environment Variables
 
-The contact form expects the following EmailJS variables:
+The contact form expects the following Web3Forms variable:
 
 ```bash
-VITE_EMAILJS_SERVICE_ID=
-VITE_EMAILJS_TEMPLATE_ID=
-VITE_EMAILJS_PUBLIC_KEY=
+VITE_WEB3FORMS_ACCESS_KEY=
 ```
 
 ## Author

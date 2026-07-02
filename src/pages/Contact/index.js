@@ -11,16 +11,12 @@ import {
   FaInstagramSquare,
 } from "react-icons/fa";
 import { MdEmail, MdSend } from "react-icons/md";
-import emailjs from "@emailjs/browser";
 import { PrimaryBtn } from "../../components";
 import { SITE_PROFILE, SOCIAL_LINKS } from "../../Utils/SiteContent";
 import { useLocation } from "react-router-dom";
 
-const EMAILJS_CONFIG = {
-  serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,
-  templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-  publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-};
+const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 
 const SUBMIT_COOLDOWN_MS = 10000;
 
@@ -40,7 +36,7 @@ const Contact = () => {
     type: "idle",
     message: "",
   });
-  const isEmailConfigured = Object.values(EMAILJS_CONFIG).every(Boolean);
+  const isFormConfigured = Boolean(WEB3FORMS_ACCESS_KEY);
   const isHomePage = location.pathname === "/";
   const HeadingTag = isHomePage ? "h2" : "h1";
   const PanelHeadingTag = isHomePage ? "h3" : "h2";
@@ -64,11 +60,10 @@ const Contact = () => {
       return;
     }
 
-    if (!isEmailConfigured) {
+    if (!isFormConfigured) {
       setFormStatus({
         type: "error",
-        message:
-          `The form is temporarily unavailable. Prefer email directly? ${SITE_PROFILE.email}`,
+        message: `The form is temporarily unavailable. Prefer email directly? ${SITE_PROFILE.email}`,
       });
       return;
     }
@@ -85,12 +80,29 @@ const Contact = () => {
     setFormStatus({ type: "idle", message: "" });
 
     try {
-      await emailjs.sendForm(
-        EMAILJS_CONFIG.serviceId,
-        EMAILJS_CONFIG.templateId,
-        form.current,
-        EMAILJS_CONFIG.publicKey
-      );
+      const payload = {
+        access_key: WEB3FORMS_ACCESS_KEY,
+        name: String(formData.get("name") || "").trim(),
+        email: String(formData.get("email") || "").trim(),
+        subject: String(formData.get("subject") || "").trim(),
+        message: String(formData.get("message") || "").trim(),
+        from_name: "Portfolio Contact Form",
+      };
+
+      const response = await fetch(WEB3FORMS_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || "Unable to send message");
+      }
 
       lastSubmittedAtRef.current = Date.now();
       form.current.reset();
@@ -101,8 +113,7 @@ const Contact = () => {
     } catch {
       setFormStatus({
         type: "error",
-        message:
-          `Something went wrong while sending your message. Please email me directly at ${SITE_PROFILE.email}.`,
+        message: `Something went wrong while sending your message. Please email me directly at ${SITE_PROFILE.email}.`,
       });
     } finally {
       setIsSubmitting(false);
@@ -110,31 +121,39 @@ const Contact = () => {
   };
 
   return (
-    <section className="parent py-16 md:py-20 mt-2 contact-section" aria-labelledby="contact-heading">
+    <section
+      className="parent py-16 md:py-20 mt-2 contact-section"
+      aria-labelledby="contact-heading"
+    >
       <div className="max-w-5xl mx-auto">
         <div className="section-heading-row section-heading-row--center">
           <p className="section-kicker">Get in touch</p>
-          <HeadingTag id="contact-heading" className="section-heading section-heading--center">
+          <HeadingTag
+            id="contact-heading"
+            className="section-heading section-heading--center"
+          >
             Contact <span>Me</span>
           </HeadingTag>
           <p className="section-copy section-copy--center contact-intro">
             Open to frontend engineer and junior frontend developer roles.
-            Recruiters, hiring managers, and collaborators are all welcome to reach
-            out.
+            Recruiters, hiring managers, and collaborators are all welcome to
+            reach out.
           </p>
         </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 mt-10 max-w-5xl mx-auto">
         <div className="contact-panel contact-panel--info">
-          <p className="contact-status-pill">Best first contact: email or LinkedIn</p>
+          <p className="contact-status-pill">
+            Best first contact: email or LinkedIn
+          </p>
           <PanelHeadingTag className="text-2xl font-semibold">
             Let&apos;s Connect
           </PanelHeadingTag>
           <p className="contact-support-text mt-3">
-            Have a frontend role, project, or collaboration in mind? I&apos;m happy
-            to talk through role fit, project goals, and how I approach product UI
-            work.
+            Have a frontend role, project, or collaboration in mind? I&apos;m
+            happy to talk through role fit, project goals, and how I approach
+            product UI work.
           </p>
 
           <div className="contact-quick-links">
@@ -161,13 +180,19 @@ const Contact = () => {
             </div>
             <div className="flex items-center">
               <FaPhoneAlt className="text-xl mr-5 text-primary"></FaPhoneAlt>
-              <a href={SITE_PROFILE.phoneHref} className="font-medium text-white hover:text-primary duration-300">
+              <a
+                href={SITE_PROFILE.phoneHref}
+                className="font-medium text-white hover:text-primary duration-300"
+              >
                 {SITE_PROFILE.phoneDisplay}
               </a>
             </div>
             <div className="flex items-center">
               <MdEmail className="text-2xl mr-5 text-primary"></MdEmail>
-              <a href={SITE_PROFILE.emailHref} className="font-medium text-white hover:text-primary duration-300">
+              <a
+                href={SITE_PROFILE.emailHref}
+                className="font-medium text-white hover:text-primary duration-300"
+              >
                 {SITE_PROFILE.email}
               </a>
             </div>
@@ -298,7 +323,10 @@ const Contact = () => {
 
             <p className="contact-support-text mt-4">
               Prefer email directly?{" "}
-              <a href={SITE_PROFILE.emailHref} className="text-primary hover:underline">
+              <a
+                href={SITE_PROFILE.emailHref}
+                className="text-primary hover:underline"
+              >
                 {SITE_PROFILE.email}
               </a>
             </p>

@@ -50,7 +50,32 @@ const ARCHIVE_REVIEW_POINTS = [
   "Enough backend and deployment context to collaborate beyond the UI layer.",
 ];
 
-const ARCHIVE_FEATURED_PROJECT_IDS = [2, 1, 3];
+const ARCHIVE_FEATURED_PROJECT_IDS = [2, 1, 3, 14];
+const NOT_READY_PROJECT_TITLES = [
+  "a child's perspective",
+  "a childs perspective",
+  "a child's purpose",
+];
+
+const isProjectReady = (item) => {
+  if (!item) {
+    return false;
+  }
+
+  return !NOT_READY_PROJECT_TITLES.includes(item.title.trim().toLowerCase());
+};
+
+const sortProjects = (projects) =>
+  [...projects].sort((a, b) => {
+    const aHasLive = Boolean(a.liveLink);
+    const bHasLive = Boolean(b.liveLink);
+
+    if (aHasLive !== bHasLive) {
+      return aHasLive ? -1 : 1;
+    }
+
+    return b.id - a.id;
+  });
 
 const homeFeaturedProjects = HOME_FEATURED_PROJECT_IDS.map((id) =>
   Items.find((item) => item.id === id),
@@ -229,25 +254,38 @@ const Project = () => {
   const [activeFilter, setActiveFilter] = useState("all");
   const location = useLocation();
   const isHomePage = location.pathname === "/";
+  const readyItems = Items.filter(isProjectReady);
   const filteredItems =
     activeFilter === "all"
-      ? Items
-      : Items.filter((item) => item.category === activeFilter);
+      ? readyItems
+      : readyItems.filter((item) => item.category === activeFilter);
   const archiveLeadProject = homeFeaturedProjects[0];
   const archiveCounts = {
-    all: Items.length,
-    business: Items.filter((item) => item.category === "business").length,
-    personal: Items.filter((item) => item.category === "personal").length,
-    game: Items.filter((item) => item.category === "game").length,
+    all: readyItems.length,
+    business: readyItems.filter((item) => item.category === "business").length,
+    personal: readyItems.filter((item) => item.category === "personal").length,
+    game: readyItems.filter((item) => item.category === "game").length,
   };
   const featuredArchiveProjects = ARCHIVE_FEATURED_PROJECT_IDS.map(
-    (projectId) => Items.find((item) => item.id === projectId),
+    (projectId) => readyItems.find((item) => item.id === projectId),
   ).filter(Boolean);
   const featuredArchiveIds = new Set(
     featuredArchiveProjects.map((item) => item.id),
   );
-  const archiveCollectionItems = filteredItems.filter(
-    (item) => !featuredArchiveIds.has(item.id),
+  const shouldShowFeaturedArchive =
+    activeFilter === "all" || activeFilter === "business";
+  const archiveCollectionItems = sortProjects(
+    filteredItems.filter((item) => !featuredArchiveIds.has(item.id)),
+  );
+
+  const clientArchiveItems = sortProjects(
+    archiveCollectionItems.filter((item) => item.category === "business"),
+  );
+  const personalArchiveItems = sortProjects(
+    archiveCollectionItems.filter((item) => item.category === "personal"),
+  );
+  const demoArchiveItems = sortProjects(
+    archiveCollectionItems.filter((item) => item.category === "game"),
   );
 
   if (isHomePage) {
@@ -583,7 +621,7 @@ const Project = () => {
           </div>
         </section>
 
-        {featuredArchiveProjects.length > 0 && (
+        {shouldShowFeaturedArchive && featuredArchiveProjects.length > 0 && (
           <section
             className="archive-featured-section"
             aria-labelledby="featured-case-studies-heading"
@@ -615,11 +653,82 @@ const Project = () => {
           </section>
         )}
 
-        <div className="project-collection-grid">
-          {archiveCollectionItems.map((item) => (
-            <ProjectArchiveCard key={item.id} item={item} />
-          ))}
-        </div>
+        {!shouldShowFeaturedArchive && (
+          <p className="project-filter-hint" role="status" aria-live="polite">
+            Featured client case studies are hidden while filtering this view.
+            Switch to Client work to review recruiter-priority projects.
+          </p>
+        )}
+
+        {activeFilter === "all" ? (
+          <div className="project-archive-groups">
+            {clientArchiveItems.length > 0 && (
+              <section
+                className="project-archive-group"
+                aria-labelledby="client-work-archive-heading"
+              >
+                <div className="project-archive-group__header">
+                  <p className="section-kicker">Client work archive</p>
+                  <h2
+                    id="client-work-archive-heading"
+                    className="section-heading"
+                  >
+                    Additional client projects
+                  </h2>
+                </div>
+                <div className="project-collection-grid">
+                  {clientArchiveItems.map((item) => (
+                    <ProjectArchiveCard key={item.id} item={item} />
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {personalArchiveItems.length > 0 && (
+              <section
+                className="project-archive-group"
+                aria-labelledby="personal-builds-heading"
+              >
+                <div className="project-archive-group__header">
+                  <p className="section-kicker">Personal product builds</p>
+                  <h2 id="personal-builds-heading" className="section-heading">
+                    Product and systems practice
+                  </h2>
+                </div>
+                <div className="project-collection-grid">
+                  {personalArchiveItems.map((item) => (
+                    <ProjectArchiveCard key={item.id} item={item} />
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {demoArchiveItems.length > 0 && (
+              <section
+                className="project-archive-group"
+                aria-labelledby="demo-labs-heading"
+              >
+                <div className="project-archive-group__header">
+                  <p className="section-kicker">Demo labs</p>
+                  <h2 id="demo-labs-heading" className="section-heading">
+                    Interactive experiments
+                  </h2>
+                </div>
+                <div className="project-collection-grid">
+                  {demoArchiveItems.map((item) => (
+                    <ProjectArchiveCard key={item.id} item={item} />
+                  ))}
+                </div>
+              </section>
+            )}
+          </div>
+        ) : (
+          <div className="project-collection-grid">
+            {archiveCollectionItems.map((item) => (
+              <ProjectArchiveCard key={item.id} item={item} />
+            ))}
+          </div>
+        )}
       </section>
     </div>
   );

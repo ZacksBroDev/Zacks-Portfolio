@@ -302,28 +302,11 @@ const Resume = () => {
           <div className="resume-main">
             <section className="resume-panel">
               <div className="resume-panel__header">
-                <p className="resume-panel__kicker">Profile</p>
-                <h2>What I bring to a frontend team</h2>
+                <p className="resume-panel__kicker">Featured experience</p>
+                <h2>Frontend and product delivery</h2>
                 <p>
-                  Frontend implementation focused on responsive interfaces,
-                  product-grade usability, and maintainable React delivery.
-                </p>
-              </div>
-
-              <ul className="resume-bullet-list resume-bullet-list--compact">
-                {recruiterNotes.map((note) => (
-                  <li key={note}>{note}</li>
-                ))}
-              </ul>
-            </section>
-
-            <section className="resume-panel">
-              <div className="resume-panel__header">
-                <p className="resume-panel__kicker">Experience & projects</p>
-                <h2>Featured technical experience</h2>
-                <p>
-                  Frontend and product-focused work that best represents client
-                  delivery, technical scope, and implementation quality.
+                  Recruiter-priority work that shows production frontend
+                  implementation, client delivery, and technical execution.
                 </p>
               </div>
 

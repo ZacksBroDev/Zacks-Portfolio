@@ -10,7 +10,8 @@ export const CASE_STUDY_META = {
   },
   2: {
     label: "Lead case study",
-    archiveNote: "Member training portal with schedule, resources, and role-aware UI.",
+    archiveNote:
+      "Member training portal with schedule, resources, and role-aware UI.",
     focus: [
       "Responsive training dashboard",
       "Clear information architecture",
@@ -19,7 +20,8 @@ export const CASE_STUDY_META = {
   },
   3: {
     label: "Performance site",
-    archiveNote: "Image-heavy promotional site tuned for performance and clarity.",
+    archiveNote:
+      "Image-heavy promotional site tuned for performance and clarity.",
     focus: [
       "Performance-minded gallery experience",
       "Clear promotional storytelling",
@@ -37,7 +39,8 @@ export const CASE_STUDY_META = {
   },
   6: {
     label: "Interactive product",
-    archiveNote: "Gift-style product experience with stateful interaction design.",
+    archiveNote:
+      "Gift-style product experience with stateful interaction design.",
     focus: [
       "Interface state systems",
       "Content-rich product design",
@@ -55,7 +58,8 @@ export const CASE_STUDY_META = {
   },
   8: {
     label: "Simulation build",
-    archiveNote: "Probability sandbox with configurable controls and chart output.",
+    archiveNote:
+      "Probability sandbox with configurable controls and chart output.",
     focus: [
       "Interactive controls and simulation flow",
       "Chart-based output",
@@ -139,7 +143,7 @@ export const getProjectKindLabel = (item) => {
     ? "Client work"
     : item.category === "personal"
       ? "Product build"
-      : "Interactive build";
+      : "Demo / Lab";
 };
 
 export const getProjectCaseLabel = (item) =>

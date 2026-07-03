@@ -258,6 +258,16 @@
     border-color: rgba(255, 176, 122, 0.6);
 }
 
+.project-filter-hint {
+    background: rgba(255, 106, 26, 0.08);
+    border: 1px solid rgba(255, 106, 26, 0.24);
+    border-radius: 16px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin: 0.25rem 0 1rem;
+    padding: 0.85rem 1rem;
+}
+
 .archive-featured-section {
     margin: 1.1rem 0 1.25rem;
 }
@@ -391,6 +401,25 @@
     display: grid;
     gap: 1rem;
     grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.project-archive-groups {
+    display: grid;
+    gap: 1.4rem;
+}
+
+.project-archive-group {
+    display: grid;
+    gap: 1rem;
+}
+
+.project-archive-group__header {
+    display: grid;
+    gap: 0.35rem;
+}
+
+.project-archive-group__header .section-heading {
+    max-width: 14ch;
 }
 
 .project-collection-card,

@@ -8,7 +8,6 @@ import {
   RESUME_LINK,
   SITE_PROFILE,
 } from "../../Utils/SiteContent";
-import { resumeData } from "../../Utils/ResumeData";
 import "./About.css";
 import "../shared/Shared.css";
 
@@ -19,23 +18,44 @@ const skillBuckets = [
   },
   {
     title: "Interface quality",
-    items: ["Accessibility", "Performance Optimization", "Technical SEO", "Debugging"],
+    items: [
+      "Accessibility",
+      "Performance Optimization",
+      "Technical SEO",
+      "Debugging",
+    ],
   },
   {
     title: "Delivery workflow",
-    items: ["Git", "GitHub", "AWS Amplify", "API Integration", "Component Architecture"],
+    items: [
+      "Git",
+      "GitHub",
+      "AWS Amplify",
+      "API Integration",
+      "Component Architecture",
+    ],
   },
 ];
 
 const workPrinciples = [
-  "I care about interfaces feeling clear and trustworthy in real use, not just in screenshots.",
-  "I prefer maintainable component structure and practical implementation over clever complexity.",
-  "I like collaborating closely with product needs, content, and layout decisions until the UI feels intentional.",
+  "I ask what users are trying to do first, then design and build around that flow.",
+  "I document key UI decisions so handoffs and future updates stay predictable.",
+  "I balance polish with speed so teams can ship improvements consistently.",
+];
+
+const buildWorkflow = [
+  "Define the core page goal and primary action before touching implementation.",
+  "Build responsive layout and content hierarchy first, then tune interactions.",
+  "Run accessibility and performance checks before final QA and launch.",
+];
+
+const outsideWork = [
+  "I enjoy robotics and hands-on technical problem solving beyond web work.",
+  "I stay active with BMX, mountain biking, and snow sports, which keeps my process disciplined and consistent.",
+  "I use personal projects to try new frontend patterns before introducing them to client work.",
 ];
 
 const About = () => {
-  const { education, selfDevelopment, certifications } = resumeData;
-
   return (
     <div className="about-page pt-16">
       <section className="parent about-shell">
@@ -87,7 +107,9 @@ const About = () => {
 
         <div className="about-proof-grid">
           <article className="about-proof-card">
-            <p className="about-proof-card__eyebrow">Frontend proof</p>
+            <p className="about-proof-card__eyebrow">
+              What drives my frontend work
+            </p>
             <ul className="about-list">
               {ABOUT_CONTENT.highlights.map((highlight) => (
                 <li key={highlight}>{highlight}</li>
@@ -96,7 +118,7 @@ const About = () => {
           </article>
 
           <article className="about-proof-card">
-            <p className="about-proof-card__eyebrow">What teams get</p>
+            <p className="about-proof-card__eyebrow">What teams can expect</p>
             <ul className="about-list">
               {workPrinciples.map((principle) => (
                 <li key={principle}>{principle}</li>
@@ -108,8 +130,8 @@ const About = () => {
         <div className="about-grid">
           <section className="about-panel">
             <div className="about-panel__header">
-              <p className="about-panel__kicker">Frontend coverage</p>
-              <h2>How I work across the stack</h2>
+              <p className="about-panel__kicker">Technical toolkit</p>
+              <h2>How I build and ship frontend work</h2>
             </div>
 
             <div className="about-skill-groups">
@@ -128,80 +150,42 @@ const About = () => {
 
           <section className="about-panel">
             <div className="about-panel__header">
-              <p className="about-panel__kicker">Education</p>
-              <h2>Academic background</h2>
+              <p className="about-panel__kicker">Process</p>
+              <h2>Build rhythm and collaboration style</h2>
             </div>
 
-            <div className="about-timeline">
-              {education.map((entry) => (
-                <article key={`${entry.title}-${entry.date}`} className="about-timeline-item">
-                  <div className="about-timeline-item__top">
-                    <div>
-                      <h3>{entry.title}</h3>
-                      {entry.subtitle ? <p>{entry.subtitle}</p> : null}
-                      {entry.location ? (
-                        <span className="about-timeline-item__meta">{entry.location}</span>
-                      ) : null}
-                    </div>
-                    <span className="about-date-pill">{entry.date}</span>
-                  </div>
+            <div className="about-dual-list">
+              <div>
+                <p className="about-panel__kicker">Build workflow</p>
+                <ul className="about-list about-list--tight">
+                  {buildWorkflow.map((step) => (
+                    <li key={step}>{step}</li>
+                  ))}
+                </ul>
+              </div>
 
-                  {entry.bullets?.length ? (
-                    <ul className="about-list">
-                      {entry.bullets.map((bullet) => (
-                        <li key={bullet}>{bullet}</li>
-                      ))}
-                    </ul>
-                  ) : null}
-                </article>
-              ))}
+              <div>
+                <p className="about-panel__kicker">Team collaboration</p>
+                <ul className="about-list about-list--tight">
+                  {workPrinciples.map((principle) => (
+                    <li key={`principle-${principle}`}>{principle}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </section>
 
           <section className="about-panel">
             <div className="about-panel__header">
-              <p className="about-panel__kicker">Ongoing development</p>
-              <h2>Training and community growth</h2>
+              <p className="about-panel__kicker">Outside of client work</p>
+              <h2>What keeps me learning</h2>
             </div>
 
-            <div className="about-timeline">
-              {selfDevelopment.map((entry) => (
-                <article key={`${entry.title}-${entry.date}`} className="about-timeline-item">
-                  <div className="about-timeline-item__top">
-                    <div>
-                      <h3>{entry.title}</h3>
-                      {entry.location ? (
-                        <span className="about-timeline-item__meta">{entry.location}</span>
-                      ) : null}
-                    </div>
-                    <span className="about-date-pill">{entry.date}</span>
-                  </div>
-
-                  <ul className="about-list">
-                    {entry.bullets.map((bullet) => (
-                      <li key={bullet}>{bullet}</li>
-                    ))}
-                  </ul>
-                </article>
+            <ul className="about-list">
+              {outsideWork.map((item) => (
+                <li key={item}>{item}</li>
               ))}
-            </div>
-          </section>
-
-          <section className="about-panel">
-            <div className="about-panel__header">
-              <p className="about-panel__kicker">Recognition</p>
-              <h2>Certifications and awards</h2>
-            </div>
-
-            <div className="about-recognition-grid">
-              {certifications.map((item) => (
-                <article key={item.title} className="about-recognition-card">
-                  <h3>{item.title}</h3>
-                  <p>{item.issuer}</p>
-                  <span>{item.detail}</span>
-                </article>
-              ))}
-            </div>
+            </ul>
           </section>
         </div>
       </section>

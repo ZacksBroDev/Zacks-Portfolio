@@ -8,9 +8,7 @@
 
 .about-hero,
 .about-proof-card,
-.about-panel,
-.about-recognition-card,
-.about-timeline-item {
+.about-panel {
     background:
         linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02)),
         var(--surface);
@@ -127,6 +125,10 @@
     padding: 0;
 }
 
+.about-list--tight {
+    margin-top: 0.6rem;
+}
+
 .about-list li {
     align-items: flex-start;
     color: var(--text);
@@ -145,10 +147,14 @@
     width: 0.58rem;
 }
 
-.about-skill-group h3,
-.about-timeline-item h3,
-.about-recognition-card h3 {
+.about-skill-group h3 {
     font-size: 1.05rem;
+}
+
+.about-dual-list {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .about-tag-group {
@@ -168,40 +174,15 @@
     padding: 0.58rem 0.82rem;
 }
 
-.about-timeline-item,
-.about-recognition-card {
-    border-radius: 22px;
-    padding: 1rem;
-}
-
-.about-timeline-item__top {
-    align-items: start;
-    display: grid;
-    gap: 0.9rem;
-    grid-template-columns: minmax(0, 1fr) auto;
-}
-
-.about-timeline-item p,
-.about-recognition-card p {
-    color: var(--text);
-    margin: 0.25rem 0 0;
-}
-
-.about-date-pill {
-    background: linear-gradient(135deg, rgba(255, 135, 66, 0.95), rgba(255, 106, 26, 0.95));
-    border-radius: 999px;
-    color: var(--accent-ink);
-    font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
-    font-size: 0.74rem;
-    font-weight: 700;
-    padding: 0.55rem 0.8rem;
-    white-space: nowrap;
-}
-
 @media (max-width: 1120px) {
+
     .about-hero,
     .about-proof-grid,
     .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-dual-list {
         grid-template-columns: 1fr;
     }
 }
@@ -225,11 +206,4 @@
         flex-direction: column;
     }
 
-    .about-timeline-item__top {
-        grid-template-columns: 1fr;
-    }
-
-    .about-date-pill {
-        width: fit-content;
-    }
 }

@@ -50,6 +50,8 @@ const SKILL_GROUPS = [
   {
     label: "Frontend",
     match: [
+      "typescript",
+      "next",
       "html",
       "css",
       "javascript",
@@ -61,7 +63,16 @@ const SKILL_GROUPS = [
   },
   {
     label: "Backend / APIs",
-    match: ["api", "node", "express", "mongodb", "auth", "jwt"],
+    match: [
+      "api",
+      "node",
+      "express",
+      "mongodb",
+      "postgresql",
+      "stripe",
+      "auth",
+      "jwt",
+    ],
   },
   {
     label: "Cloud / Deployment",
@@ -109,8 +120,11 @@ const ResumeTimelineItem = ({
   date,
   type,
   bullets = [],
+  compact = false,
 }) => (
-  <article className="resume-timeline-item">
+  <article
+    className={`resume-timeline-item ${compact ? "resume-timeline-item--compact" : ""}`}
+  >
     <div className="resume-timeline-item__top">
       <div>
         <h3>{title}</h3>
@@ -172,15 +186,17 @@ const ResumeProjectCard = ({ project }) => (
       </div>
     ) : null}
 
-    <a
-      href={project.href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="resume-inline-link"
-      aria-label={project.ariaLabel}
-    >
-      Visit project
-    </a>
+    {project.href ? (
+      <a
+        href={project.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="resume-inline-link"
+        aria-label={project.ariaLabel}
+      >
+        {project.ctaLabel || "View case study ->"}
+      </a>
+    ) : null}
 
     <ul className="resume-bullet-list">
       {project.bullets.map((bullet) => (
@@ -353,6 +369,7 @@ const Resume = () => {
                     date={entry.date}
                     type={entry.type}
                     bullets={entry.bullets}
+                    compact={Boolean(entry.compact)}
                   />
                 ))}
               </div>

@@ -314,6 +314,7 @@
 .resume-project-card,
 .resume-timeline-item {
   border-radius: 22px;
+  container-type: inline-size;
   padding: 1rem;
 }
 
@@ -373,15 +374,24 @@
   color: var(--accent-soft);
 }
 
+.resume-inline-link:focus-visible {
+  color: var(--text);
+  outline: 2px solid rgba(255, 176, 122, 0.44);
+  outline-offset: 2px;
+}
+
 .resume-date-pill {
   background: linear-gradient(135deg, rgba(255, 135, 66, 0.95), rgba(255, 106, 26, 0.95));
   border-radius: 999px;
   color: var(--accent-ink);
+  display: inline-flex;
   font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
   font-size: 0.74rem;
   font-weight: 700;
+  line-height: 1.4;
+  max-width: 100%;
   padding: 0.55rem 0.8rem;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .resume-bullet-list {
@@ -430,6 +440,31 @@
   position: relative;
 }
 
+.resume-timeline-item--compact {
+  background: rgba(255, 255, 255, 0.015);
+  padding: 0.85rem;
+}
+
+.resume-timeline-item--compact h3 {
+  font-size: 1rem;
+}
+
+.resume-timeline-item--compact .resume-bullet-list {
+  gap: 0.55rem;
+  margin-top: 0.7rem;
+}
+
+.resume-timeline-item--compact .resume-bullet-list li {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.resume-timeline-item--compact .resume-bullet-list li::before {
+  height: 0.48rem;
+  margin-top: 0.5rem;
+  width: 0.48rem;
+}
+
 .resume-timeline-item::before {
   background: linear-gradient(135deg, var(--accent-soft), var(--accent));
   border-radius: 999px;
@@ -448,6 +483,19 @@
 
 .resume-contact-stack .resume-contact-pill {
   justify-content: flex-start;
+}
+
+@container (max-width: 430px) {
+
+  .resume-project-card__top,
+  .resume-timeline-item__top {
+    grid-template-columns: 1fr;
+  }
+
+  .resume-date-pill {
+    justify-self: start;
+    width: fit-content;
+  }
 }
 
 @media (max-width: 1180px) {

@@ -3,35 +3,27 @@ import React from "react";
 const proofCards = [
   {
     id: 1,
-    label: "Client work",
+    label: "Production experience",
     layout: "wide",
     title: "Real Client Work",
     description:
-      "Built and shipped production websites and frontend features for real clients, with a focus on clean UX, responsive layouts, and reliable delivery.",
+      "Built and shipped client-facing websites and applications through requirements, iteration, deployment, and delivery.",
   },
   {
     id: 2,
-    label: "Scope",
+    label: "Frontend engineering",
     layout: "compact",
     title: "Frontend-First, Full-Stack Capable",
     description:
-      "Strong in React, JavaScript, CSS, and Tailwind, with the ability to work across APIs, backend logic, and deployment when the product needs it.",
+      "Frontend-focused engineering with the ability to work across APIs, backend logic, integrations, and deployment when required.",
   },
   {
     id: 3,
-    label: "Quality",
-    layout: "compact",
-    title: "Performance & Usability Focus",
-    description:
-      "Prioritize responsive interfaces, accessibility, maintainable code, and practical frontend decisions that improve speed, clarity, and user experience.",
-  },
-  {
-    id: 4,
-    label: "Mindset",
+    label: "Problem solving",
     layout: "wide",
-    title: "Technical Operations Background",
+    title: "Technical Problem-Solving",
     description:
-      "Bring a hands-on troubleshooting mindset, fast iteration under pressure, and strong production awareness from years in technical, high-accountability environments.",
+      "Hands-on troubleshooting experience combined with software engineering, rapid iteration, and practical delivery.",
   },
 ];
 

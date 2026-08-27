@@ -135,9 +135,8 @@ const Contact = () => {
             Contact <span>Me</span>
           </HeadingTag>
           <p className="section-copy section-copy--center contact-intro">
-            Open to frontend engineer and junior frontend developer roles.
-            Recruiters, hiring managers, and collaborators are all welcome to
-            reach out.
+            Open to frontend engineering opportunities. Recruiters, hiring
+            managers, and collaborators are all welcome to reach out.
           </p>
         </div>
       </div>

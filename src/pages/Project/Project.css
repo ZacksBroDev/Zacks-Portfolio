@@ -464,12 +464,43 @@
     font-size: clamp(2rem, 3vw, 3rem);
 }
 
+.featured-case-study__type,
+.supporting-project-card__type {
+    color: var(--text);
+    font-size: 0.98rem;
+    font-weight: 600;
+    line-height: 1.45;
+}
+
 .featured-case-study__stack,
 .supporting-project-card__tags,
-.project-collection-card__tags {
+.project-collection-card__tags,
+.project-engineering-indicators {
     display: flex;
     flex-wrap: wrap;
     gap: 0.6rem;
+}
+
+.project-engineering-indicators span {
+    align-items: center;
+    background: rgba(255, 106, 26, 0.08);
+    border: 1px solid rgba(255, 106, 26, 0.22);
+    border-radius: 999px;
+    color: var(--accent-soft);
+    display: inline-flex;
+    font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+    font-size: 0.7rem;
+    font-weight: 700;
+    gap: 0.35rem;
+    padding: 0.48rem 0.68rem;
+}
+
+.project-engineering-indicators span::before {
+    background: var(--accent);
+    border-radius: 999px;
+    content: "";
+    height: 0.42rem;
+    width: 0.42rem;
 }
 
 .featured-case-study__stack span,

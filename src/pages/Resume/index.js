@@ -28,7 +28,7 @@ const certificationIcons = {
 const resumeSignals = [
   {
     label: "Target",
-    value: "Frontend Engineer / Junior Frontend Developer",
+    value: "Frontend Engineering Roles",
   },
   {
     label: "Location",

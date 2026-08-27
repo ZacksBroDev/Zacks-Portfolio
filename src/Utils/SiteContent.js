@@ -1,5 +1,5 @@
 export const RESUME_LINK =
-  "https://drive.google.com/file/d/1qSTzEZW7JKXDqjVx9NmH4-X3MNYEvJd-/view?usp=sharing";
+  "https://drive.google.com/file/d/1kkvc8CpPhsCAmPWMNQBovybQLpii8imD/view?usp=drive_link";
 
 export const SITE_PROFILE = {
   name: "Zackary Brown",
@@ -24,12 +24,11 @@ export const SITE_PROFILE = {
 
 export const HERO_CONTENT = {
   eyebrow: "Denver-based frontend engineer",
-  headline: "Frontend engineer building fast, clean product interfaces.",
+  headline: "Clean frontend interfaces that ship fast.",
   intro: "Hello, I'm",
   summary:
-    "I build responsive React interfaces with a strong focus on clarity, performance, accessibility, and maintainable frontend code. My work spans client sites and product UI, with enough cross-stack experience to collaborate well on APIs, deployment, and product delivery.",
-  availability:
-    "Open to frontend engineer and junior frontend developer roles.",
+    "I build responsive React interfaces with a strong focus on clarity, performance, accessibility, and maintainable frontend code. My work spans client sites, product UI, deployment, and delivery.",
+  availability: "Open to frontend engineering opportunities.",
   techStack: [
     "React",
     "JavaScript",
@@ -42,20 +41,62 @@ export const HERO_CONTENT = {
 
 export const HERO_PROOF_POINTS = [
   {
-    label: "Focus",
-    value: "Product UI, performance, accessibility",
+    label: "Shipped",
+    title: "Production Client Work",
+    description:
+      "Real websites and applications built and deployed for actual clients.",
   },
   {
-    label: "Work",
-    value: "Client builds and responsive web apps",
+    label: "Engineering",
+    title: "React + TypeScript",
+    description:
+      "Responsive component-driven interfaces and maintainable frontend architecture.",
   },
   {
-    label: "Approach",
-    value: "Clear interfaces, reliable delivery",
+    label: "Quality",
+    title: "Performance & Accessibility",
+    description:
+      "Semantic UI, responsive validation, and performance-conscious implementation.",
+  },
+  {
+    label: "Delivery",
+    title: "Build → Test → Deploy",
+    description:
+      "Implementation through validation, production builds, and cloud deployment.",
+  },
+];
+
+export const ENGINEERING_PRACTICES = [
+  {
+    label: "Component architecture",
+    description:
+      "Reusable React components with clear responsibilities, shared content data, and maintainable composition.",
+  },
+  {
+    label: "Testing",
+    description:
+      "Automated validation for route rendering and regression-prone portfolio behavior where coverage is practical.",
+  },
+  {
+    label: "Accessibility",
+    description:
+      "Semantic markup, keyboard-accessible links and controls, visible focus states, readable contrast, and responsive UI.",
+  },
+  {
+    label: "Performance",
+    description:
+      "Optimized Cloudinary image delivery, reserved media space, production builds, and restrained transform-based motion.",
+  },
+  {
+    label: "Delivery",
+    description:
+      "Git-based iteration, deploy-ready builds, hosting setup, and post-launch adjustments based on real project needs.",
   },
 ];
 
 export const HOME_FEATURED_PROJECT_IDS = [2, 1, 4];
+
+export const HERO_SHOWCASE_PROJECT_IDS = [2, 3, 1];
 
 export const ABOUT_CONTENT = {
   paragraphs: [

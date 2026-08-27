@@ -1,4 +1,5 @@
 export { default as Banner } from "./Banner";
+export { default as EngineeringPractice } from "./EngineeringPractice";
 export { default as ExperienceSnapshot } from "./ExperienceSnapshot";
 export { default as Footer } from "./Footer";
 export { default as HeroUtilityBar } from "./HeroUtilityBar";

@@ -9,7 +9,7 @@ const renderApp = (initialEntries = ["/"]) =>
       future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
     >
       <App />
-    </MemoryRouter>
+    </MemoryRouter>,
   );
 
 test("renders the home route", async () => {
@@ -18,8 +18,8 @@ test("renders the home route", async () => {
   expect(await screen.findByText(/Hello, I'm/i)).toBeInTheDocument();
   expect(
     screen.getByRole("heading", {
-      name: /Frontend engineer building fast, clean product interfaces/i,
-    })
+      name: /Clean frontend interfaces that ship fast/i,
+    }),
   ).toBeInTheDocument();
 });
 
@@ -27,28 +27,31 @@ test("renders the contact route with the form", async () => {
   renderApp(["/contact"]);
 
   expect(
-    await screen.findByRole("heading", { name: /Contact Me/i })
+    await screen.findByRole("heading", { name: /Contact Me/i }),
   ).toBeInTheDocument();
   expect(screen.getByLabelText(/Name/i)).toBeInTheDocument();
-  expect(screen.getByRole("button", { name: /Send Message/i })).toBeInTheDocument();
+  expect(
+    screen.getByRole("button", { name: /Send Message/i }),
+  ).toBeInTheDocument();
 });
 
 test("renders project details from route params", async () => {
   renderApp(["/project/1"]);
 
   expect(
-    await screen.findByRole("heading", { name: /JustMalikBeats/i })
+    await screen.findByRole("heading", { name: /JustMalikBeats/i }),
   ).toBeInTheDocument();
-  expect(screen.getByRole("link", { name: /Source Code/i })).toHaveAttribute(
-    "href",
-    expect.stringContaining("JustMalikBeats")
-  );
+  expect(
+    screen
+      .getAllByRole("link", { name: /Source Code/i })
+      .some((link) => link.href.includes("JustMalikBeats")),
+  ).toBe(true);
 });
 
 test("redirects unknown routes to the not found page", async () => {
   renderApp(["/does-not-exist"]);
 
   expect(
-    await screen.findByText(/Sorry, This page isn't available/i)
+    await screen.findByText(/Sorry, This page isn't available/i),
   ).toBeInTheDocument();
 });

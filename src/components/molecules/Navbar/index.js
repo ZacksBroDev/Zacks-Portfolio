@@ -6,7 +6,7 @@ import {
   RiFolderInfoFill,
 } from "react-icons/ri";
 import { GiCrossMark } from "react-icons/gi";
-import { FaHome, FaDownload } from "react-icons/fa";
+import { FaHome, FaDownload, FaGithub, FaLinkedin } from "react-icons/fa";
 import { MdWork } from "react-icons/md";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
@@ -25,14 +25,26 @@ export default function Navbar() {
   const navLinks = [
     { title: "Home", link: "/", icon: <FaHome /> },
     { title: "About", link: "/about", icon: <RiFolderInfoFill /> },
-    { title: "Resume", link: "/resume", icon: <RiFolderInfoFill /> },
     { title: "Projects", link: "/project", icon: <MdWork /> },
+    { title: "Resume", link: "/resume", icon: <RiFolderInfoFill /> },
     { title: "Contact", link: "/contact", icon: <RiContactsBook2Fill /> },
   ];
   const linkClassName = ({ isActive }) =>
     ["site-nav__link", isActive && "site-nav__link--active"]
       .filter(Boolean)
       .join(" ");
+  const quickLinks = [
+    {
+      label: "GitHub",
+      href: SITE_PROFILE.githubUrl,
+      icon: <FaGithub />,
+    },
+    {
+      label: "LinkedIn",
+      href: SITE_PROFILE.linkedinUrl,
+      icon: <FaLinkedin />,
+    },
+  ];
 
   // Show Navbar on Scroll UP
   const [show, setShow] = useState(false);
@@ -43,9 +55,11 @@ export default function Navbar() {
     const controlNavbar = () => {
       const currentScrollY = window.scrollY;
 
-      setShow(currentScrollY > lastScrollY);
+      setShow(currentScrollY > lastScrollY && currentScrollY > 80);
       lastScrollY = currentScrollY;
     };
+
+    controlNavbar();
 
     window.addEventListener("scroll", controlNavbar, { passive: true });
 
@@ -96,7 +110,24 @@ export default function Navbar() {
           </div>
         </div>
 
-        <div className="block lg:hidden">
+        <div className="site-nav__mobile-actions">
+          <div
+            className="site-nav__quick-links"
+            aria-label="Quick profile links"
+          >
+            {quickLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={link.label}
+                className="site-nav__quick-link"
+              >
+                {link.icon}
+              </a>
+            ))}
+          </div>
           <button
             onClick={toggleDrawer}
             className="site-nav__menu"
@@ -105,6 +136,8 @@ export default function Navbar() {
           >
             <RiMenu3Fill />
           </button>
+        </div>
+        <div className="block lg:hidden">
           <Drawer
             open={isOpen}
             onClose={toggleDrawer}

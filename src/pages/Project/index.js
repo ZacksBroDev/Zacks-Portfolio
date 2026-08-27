@@ -51,6 +51,26 @@ const ARCHIVE_REVIEW_POINTS = [
 ];
 
 const ARCHIVE_FEATURED_PROJECT_IDS = [2, 1, 3, 14];
+const HOME_PROJECT_PRESENTATION = {
+  1: {
+    type: "Client storefront",
+    summary:
+      "Built the responsive storefront experience, brand presentation, checkout-oriented purchase path, and content/admin flows for an independent producer.",
+    indicators: ["Responsive", "Commerce flow", "Production"],
+  },
+  2: {
+    type: "Training management platform",
+    summary:
+      "Built the responsive training-management interface, role-aware workflows, resource/schedule views, and deployment-ready React frontend.",
+    indicators: ["Responsive", "Role-aware UI", "Production"],
+  },
+  4: {
+    type: "Finance dashboard",
+    summary:
+      "Built a data-heavy Next.js and TypeScript finance application with dashboard analytics, CSV workflows, budgeting, recurring bills, rules, and authentication.",
+    indicators: ["TypeScript", "Dashboard UI", "Auth flow"],
+  },
+};
 const NOT_READY_PROJECT_TITLES = [
   "a child's perspective",
   "a childs perspective",
@@ -80,6 +100,13 @@ const sortProjects = (projects) =>
 const homeFeaturedProjects = HOME_FEATURED_PROJECT_IDS.map((id) =>
   Items.find((item) => item.id === id),
 ).filter(Boolean);
+
+const getHomeProjectPresentation = (item) =>
+  HOME_PROJECT_PRESENTATION[item.id] || {
+    type: getProjectKindLabel(item),
+    summary: item.description,
+    indicators: getProjectFocusPoints(item, 3),
+  };
 
 const ProjectArchiveCard = ({ item }) => {
   const highlights = getProjectFocusPoints(item, 2);
@@ -291,6 +318,9 @@ const Project = () => {
   if (isHomePage) {
     const [featuredProject, ...secondaryProjects] = homeFeaturedProjects;
     const featuredHighlights = getProjectFocusPoints(featuredProject, 3);
+    const featuredPresentation = featuredProject
+      ? getHomeProjectPresentation(featuredProject)
+      : null;
 
     return (
       <section
@@ -303,9 +333,8 @@ const Project = () => {
             Featured <span>Projects</span>
           </h2>
           <p className="section-copy">
-            A small selection of projects that best represent my frontend work:
-            real client outcomes, polished interfaces, and product-minded
-            implementation.
+            A focused set of work recruiters can inspect: what I built, the
+            engineering involved, and the live/code links when available.
           </p>
         </div>
 
@@ -329,9 +358,21 @@ const Project = () => {
                 {getProjectCaseLabel(featuredProject)}
               </p>
               <h3>{featuredProject.title}</h3>
-              <p className="featured-case-study__summary">
-                {featuredProject.description}
+              <p className="featured-case-study__type">
+                {featuredPresentation.type}
               </p>
+              <p className="featured-case-study__summary">
+                {featuredPresentation.summary}
+              </p>
+
+              <div
+                className="project-engineering-indicators"
+                aria-label={`${featuredProject.title} engineering indicators`}
+              >
+                {featuredPresentation.indicators.map((indicator) => (
+                  <span key={indicator}>{indicator}</span>
+                ))}
+              </div>
 
               {featuredHighlights.length > 0 && (
                 <ul className="featured-case-study__highlights">
@@ -353,7 +394,7 @@ const Project = () => {
                   to={`/project/${featuredProject.id}`}
                   className="w-fit"
                 >
-                  <span>Read case study</span>
+                  <span>Case study</span>
                   <span>
                     <FiArrowRight />
                   </span>
@@ -367,7 +408,7 @@ const Project = () => {
                     rel="noopener noreferrer"
                     className="w-fit"
                   >
-                    <span>View live</span>
+                    <span>Live site</span>
                     <span>
                       <FaLink />
                     </span>
@@ -382,7 +423,7 @@ const Project = () => {
                     rel="noopener noreferrer"
                     className="w-fit"
                   >
-                    <span>Source</span>
+                    <span>Code</span>
                     <span>
                       <FaCode />
                     </span>
@@ -394,67 +435,99 @@ const Project = () => {
         )}
 
         <div className="supporting-project-grid">
-          {secondaryProjects.map((item) => (
-            <article key={item.id} className="supporting-project-card">
-              <div
-                className="supporting-project-card__media"
-                style={getProjectMediaVars(item.id, "supporting")}
-              >
-                <span className="project-badge">
-                  {getProjectKindLabel(item)}
-                </span>
-                <img
-                  src={optimizeCloudinaryImage(
-                    item.mainImage,
-                    "f_auto,q_auto,w_900,c_limit",
-                  )}
-                  alt={`${item.title} preview`}
-                  loading="lazy"
-                />
-              </div>
+          {secondaryProjects.map((item) => {
+            const presentation = getHomeProjectPresentation(item);
 
-              <div className="supporting-project-card__body">
-                <p className="supporting-project-card__kicker">
-                  {getProjectCaseLabel(item)}
-                </p>
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-                <div className="supporting-project-card__tags">
-                  {item.technologies?.slice(0, 4).map((tech) => (
-                    <span key={tech}>{tech}</span>
-                  ))}
+            return (
+              <article key={item.id} className="supporting-project-card">
+                <div
+                  className="supporting-project-card__media"
+                  style={getProjectMediaVars(item.id, "supporting")}
+                >
+                  <span className="project-badge">
+                    {getProjectKindLabel(item)}
+                  </span>
+                  <img
+                    src={optimizeCloudinaryImage(
+                      item.mainImage,
+                      "f_auto,q_auto,w_900,c_limit",
+                    )}
+                    alt={`${item.title} preview`}
+                    loading="lazy"
+                  />
                 </div>
 
-                <div className="supporting-project-card__actions">
-                  <SecondaryBtn
-                    as={Link}
-                    to={`/project/${item.id}`}
-                    className="w-fit"
-                  >
-                    <span>View project</span>
-                    <span>
-                      <FiArrowRight />
-                    </span>
-                  </SecondaryBtn>
+                <div className="supporting-project-card__body">
+                  <p className="supporting-project-card__kicker">
+                    {getProjectCaseLabel(item)}
+                  </p>
+                  <h3>{item.title}</h3>
+                  <p className="supporting-project-card__type">
+                    {presentation.type}
+                  </p>
+                  <p>{presentation.summary}</p>
 
-                  {item.liveLink && (
+                  <div
+                    className="project-engineering-indicators"
+                    aria-label={`${item.title} engineering indicators`}
+                  >
+                    {presentation.indicators.map((indicator) => (
+                      <span key={indicator}>{indicator}</span>
+                    ))}
+                  </div>
+
+                  <div className="supporting-project-card__tags">
+                    {item.technologies?.slice(0, 4).map((tech) => (
+                      <span key={tech}>{tech}</span>
+                    ))}
+                  </div>
+
+                  <div className="supporting-project-card__actions">
                     <SecondaryBtn
-                      as="a"
-                      href={item.liveLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      as={Link}
+                      to={`/project/${item.id}`}
                       className="w-fit"
                     >
-                      <span>Live</span>
+                      <span>Case study</span>
                       <span>
-                        <FaLink />
+                        <FiArrowRight />
                       </span>
                     </SecondaryBtn>
-                  )}
+
+                    {item.liveLink && (
+                      <SecondaryBtn
+                        as="a"
+                        href={item.liveLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-fit"
+                      >
+                        <span>Live site</span>
+                        <span>
+                          <FaLink />
+                        </span>
+                      </SecondaryBtn>
+                    )}
+
+                    {item.codeLink && (
+                      <SecondaryBtn
+                        as="a"
+                        href={item.codeLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-fit"
+                      >
+                        <span>Code</span>
+                        <span>
+                          <FaCode />
+                        </span>
+                      </SecondaryBtn>
+                    )}
+                  </div>
                 </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            );
+          })}
         </div>
 
         <div className="project-section__footer">

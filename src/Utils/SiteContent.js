@@ -16,10 +16,12 @@ export const SITE_PROFILE = {
   githubUrl: "https://github.com/zackaryzbrown",
   linkedinUrl: "https://www.linkedin.com/in/zackaryzbrown",
   xUrl: "https://x.com/bmxbro01",
+  heroImage:
+    "https://res.cloudinary.com/djnazqqgr/image/upload/v1788235163/IMG_8782_c7a4v2.jpg",
   aboutImage:
-    "https://res.cloudinary.com/djnazqqgr/image/upload/v1766927361/IMG_7605_hkqdbu.jpg",
-  resumeImage:
-    "https://res.cloudinary.com/djnazqqgr/image/upload/v1766927366/28067_SA2_npgzze.jpg",
+    "https://res.cloudinary.com/djnazqqgr/image/upload/v1788235239/IMG_8957_jt3q9l.jpg",
+  profileImage:
+    "https://res.cloudinary.com/djnazqqgr/image/upload/v1788235199/IMG_9026_t0vzcf.jpg",
 };
 
 export const HERO_CONTENT = {
@@ -116,6 +118,11 @@ export const RESUME_HEADER_LINKS = [
     type: "email",
     href: SITE_PROFILE.emailHref,
     label: SITE_PROFILE.email,
+  },
+  {
+    type: "linkedin",
+    href: SITE_PROFILE.linkedinUrl,
+    label: "LinkedIn",
   },
   {
     type: "website",

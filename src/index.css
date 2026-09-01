@@ -56,7 +56,14 @@ body {
   overflow-x: hidden;
 }
 
-body::before {
+.site-app {
+  --ambient-x: 68vw;
+  --ambient-y: 24vh;
+  isolation: isolate;
+  position: relative;
+}
+
+.site-app::before {
   content: "";
   position: fixed;
   inset: 0;
@@ -67,7 +74,23 @@ body::before {
   mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.42), transparent 82%);
   pointer-events: none;
   opacity: 0.35;
-  z-index: -2;
+  z-index: 0;
+}
+
+.site-app::after {
+  background:
+    radial-gradient(760px circle at var(--ambient-x) var(--ambient-y), rgba(255, 106, 26, 0.105), rgba(120, 50, 20, 0.035) 36%, transparent 72%);
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: fixed;
+  z-index: 0;
+}
+
+.site-app>main,
+.site-app>footer {
+  position: relative;
+  z-index: 1;
 }
 
 body::after {
@@ -180,5 +203,17 @@ select {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .site-app::after {
+    display: none;
+  }
+}
+
+@media (hover: none),
+(pointer: coarse),
+(max-width: 768px) {
+  .site-app::after {
+    display: none;
   }
 }

@@ -36,10 +36,14 @@ const HeroUtilityBar = () => {
       <div className="hero-utility__profile">
         <img
           src={optimizeCloudinaryImage(
-            "https://res.cloudinary.com/djnazqqgr/image/upload/q_auto/f_auto/v1775241541/IMG_7401_lrflk7.jpg",
-            "f_auto,q_auto,w_320,c_fill,g_auto",
+            SITE_PROFILE.profileImage,
+            "f_auto,q_auto,w_320,c_fill,g_face",
           )}
-          alt={SITE_PROFILE.name}
+          width="320"
+          height="320"
+          alt="Zackary Brown"
+          loading="lazy"
+          decoding="async"
         />
         <div>
           <h2>{SITE_PROFILE.name}</h2>

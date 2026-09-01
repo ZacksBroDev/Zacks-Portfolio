@@ -37,6 +37,8 @@
 }
 
 .about-hero__media {
+    align-self: center;
+    aspect-ratio: 5 / 4;
     overflow: hidden;
 }
 
@@ -44,7 +46,7 @@
     display: block;
     height: 100%;
     object-fit: cover;
-    object-position: center;
+    object-position: center 48%;
     width: 100%;
 }
 
@@ -185,6 +187,10 @@
     .about-dual-list {
         grid-template-columns: 1fr;
     }
+
+    .about-hero__media {
+        aspect-ratio: 16 / 9;
+    }
 }
 
 @media (max-width: 768px) {
@@ -200,6 +206,10 @@
 
     .about-hero__content {
         padding: 1.15rem;
+    }
+
+    .about-hero__media {
+        aspect-ratio: 5 / 4;
     }
 
     .about-hero__actions {

@@ -1,6 +1,4 @@
 .home-page {
-    --ambient-x: 68vw;
-    --ambient-y: 24vh;
     position: relative;
 }
 
@@ -31,16 +29,6 @@
         radial-gradient(circle at 18% 12%, rgba(255, 106, 26, 0.18), transparent 28%),
         radial-gradient(circle at 82% 18%, rgba(255, 176, 122, 0.08), transparent 24%);
     pointer-events: none;
-    z-index: 0;
-}
-
-.home-page::after {
-    background:
-        radial-gradient(760px circle at var(--ambient-x) var(--ambient-y), rgba(255, 106, 26, 0.105), rgba(120, 50, 20, 0.035) 36%, transparent 72%);
-    content: "";
-    inset: 0;
-    pointer-events: none;
-    position: fixed;
     z-index: 0;
 }
 
@@ -207,6 +195,7 @@
     border-radius: 24px;
     height: clamp(90px, 6vw, 112px);
     object-fit: cover;
+    object-position: center 34%;
     width: clamp(90px, 6vw, 112px);
 }
 
@@ -387,12 +376,12 @@
 }
 
 .hero-project-card[data-position="active"] {
-    inset: 1.2rem 2.25rem auto auto;
+    inset: 2rem 2.5rem auto 2.5rem;
     min-height: 420px;
     opacity: 1;
-    width: min(600px, 96%);
+    width: auto;
     z-index: 3;
-    transform: translate3d(var(--active-x), var(--active-y), 112px) rotateX(var(--active-rotate-x)) rotateY(var(--active-rotate-y)) rotateZ(3.5deg) scale(1);
+    transform: translate3d(var(--active-x), var(--active-y), 48px) rotateX(var(--active-rotate-x)) rotateY(var(--active-rotate-y)) rotateZ(2.5deg) scale(1);
 }
 
 .hero-project-card[data-position="middle"] {
@@ -544,7 +533,7 @@
 
     .hero-visual:hover .hero-project-card[data-position="active"] {
         box-shadow: 0 44px 110px rgba(0, 0, 0, 0.44);
-        transform: translate3d(var(--active-x), calc(var(--active-y) - 6px), 140px) rotateX(var(--active-rotate-x)) rotateY(var(--active-rotate-y)) rotateZ(2.5deg) scale(1.005);
+        transform: translate3d(var(--active-x), calc(var(--active-y) - 4px), 64px) rotateX(var(--active-rotate-x)) rotateY(var(--active-rotate-y)) rotateZ(2deg) scale(1.005);
     }
 
     .hero-visual:hover .hero-project-card[data-position="middle"] {
@@ -576,7 +565,7 @@
     .hero-grid {
         align-items: start;
         gap: clamp(1.75rem, 2.3vw, 2.25rem);
-        grid-template-columns: minmax(560px, 0.96fr) minmax(430px, 1fr);
+        grid-template-columns: minmax(0, 1.2fr) minmax(380px, 1fr);
     }
 
     .hero-copy {
@@ -809,8 +798,9 @@
     }
 
     .hero-project-card[data-position="active"] {
-        inset: 1rem 0 auto auto;
-        width: min(620px, 86%);
+        inset: 2.25rem 2rem auto auto;
+        min-height: 0;
+        width: min(510px, 76%);
     }
 
     .hero-project-card[data-position="middle"] {
@@ -852,20 +842,20 @@
     }
 
     .hero-visual {
-        min-height: 460px;
+        min-height: 540px;
         overflow: hidden;
     }
 
     .hero-visual__stage {
-        height: 420px;
+        height: 500px;
         inset: 0;
     }
 
     .hero-project-card[data-position="active"] {
-        inset: 0 0 auto auto;
-        min-height: 330px;
-        width: 92%;
-        transform: translate3d(0, 0, 0) rotateZ(2deg);
+        inset: 1rem 1rem auto auto;
+        min-height: 0;
+        width: min(500px, 86%);
+        transform: translate3d(0, 0, 0) rotateZ(1deg);
     }
 
     .hero-project-card[data-position="middle"] {
@@ -930,9 +920,14 @@
         min-height: 430px;
     }
 
+    .hero-visual__stage {
+        height: 400px;
+    }
+
     .hero-project-card[data-position="active"] {
-        min-height: 300px;
-        width: 94%;
+        inset: 0.75rem 0.75rem auto auto;
+        min-height: 0;
+        width: min(360px, 94%);
     }
 
     .hero-project-card[data-position="middle"] {
@@ -956,9 +951,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .home-page::after {
-        display: none;
-    }
 
     .hero-section::before,
     .hero-visual__grid,
@@ -967,7 +959,7 @@
     }
 
     .hero-project-card[data-position="active"] {
-        transform: translate3d(0, 0, 0) rotateZ(3deg);
+        transform: translate3d(0, 0, 0) rotateZ(1deg);
     }
 
     .hero-project-card[data-position="middle"] {
@@ -976,18 +968,5 @@
 
     .hero-project-card[data-position="back"] {
         transform: translate3d(0, 0, 0) rotateZ(-10deg) scale(0.82);
-    }
-}
-
-@media (hover: none),
-(pointer: coarse) {
-    .home-page::after {
-        display: none;
-    }
-}
-
-@media only screen and (max-width: 768px) {
-    .home-page::after {
-        display: none;
     }
 }

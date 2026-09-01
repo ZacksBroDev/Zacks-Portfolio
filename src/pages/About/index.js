@@ -8,6 +8,7 @@ import {
   RESUME_LINK,
   SITE_PROFILE,
 } from "../../Utils/SiteContent";
+import { optimizeCloudinaryImage } from "../../Utils/imageUtils";
 import "./About.css";
 import "../shared/Shared.css";
 
@@ -62,9 +63,18 @@ const About = () => {
         <div className="about-hero">
           <div className="about-hero__media">
             <img
-              src={SITE_PROFILE.aboutImage}
-              alt={SITE_PROFILE.name}
+              src={optimizeCloudinaryImage(
+                SITE_PROFILE.aboutImage,
+                "f_auto,q_auto,w_1200,c_limit",
+              )}
+              srcSet={`${optimizeCloudinaryImage(SITE_PROFILE.aboutImage, "f_auto,q_auto,w_640,c_limit")} 640w, ${optimizeCloudinaryImage(SITE_PROFILE.aboutImage, "f_auto,q_auto,w_960,c_limit")} 960w, ${optimizeCloudinaryImage(SITE_PROFILE.aboutImage, "f_auto,q_auto,w_1400,c_limit")} 1400w, ${optimizeCloudinaryImage(SITE_PROFILE.aboutImage, "f_auto,q_auto,w_1800,c_limit")} 1800w`}
+              sizes="(max-width: 1120px) calc(100vw - 2rem), 40vw"
+              width="2048"
+              height="1646"
+              alt="Zackary Brown with the Colorado mountains in the background"
               className="about-hero__image"
+              loading="lazy"
+              decoding="async"
             />
           </div>
 

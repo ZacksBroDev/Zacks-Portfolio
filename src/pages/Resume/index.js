@@ -1,44 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import {
-  FaAward,
-  FaCertificate,
   FaDownload,
   FaEnvelope,
   FaGithub,
   FaGlobe,
+  FaLinkedin,
 } from "react-icons/fa";
 import { PrimaryBtn, SecondaryBtn } from "../../components";
 import { RESUME_LINK, SITE_PROFILE } from "../../Utils/SiteContent";
 import { resumeData } from "../../Utils/ResumeData";
+import { optimizeCloudinaryImage } from "../../Utils/imageUtils";
 import "./Resume.css";
 import "../shared/Shared.css";
 
 const contactIcons = {
   email: FaEnvelope,
+  linkedin: FaLinkedin,
   website: FaGlobe,
   github: FaGithub,
 };
-
-const certificationIcons = {
-  certificate: FaCertificate,
-  award: FaAward,
-};
-
-const resumeSignals = [
-  {
-    label: "Target",
-    value: "Frontend Engineering Roles",
-  },
-  {
-    label: "Location",
-    value: SITE_PROFILE.location,
-  },
-  {
-    label: "Primary focus",
-    value: "Responsive UI, product frontend systems, and user experience",
-  },
-];
 
 const recruiterNotes = [
   "Frontend-first portfolio with recent client work and product UI examples.",
@@ -119,6 +100,9 @@ const ResumeTimelineItem = ({
   location,
   date,
   type,
+  href,
+  ariaLabel,
+  ctaLabel,
   bullets = [],
   compact = false,
 }) => (
@@ -138,12 +122,23 @@ const ResumeTimelineItem = ({
       <span className="resume-date-pill">{date}</span>
     </div>
 
-    {(type || location) && (
+    {type && (
       <div className="resume-meta-pill-row" aria-label="Role metadata">
-        {type ? <span className="resume-meta-pill">{type}</span> : null}
-        {location ? <span className="resume-meta-pill">{location}</span> : null}
+        <span className="resume-meta-pill">{type}</span>
       </div>
     )}
+
+    {href ? (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="resume-inline-link"
+        aria-label={ariaLabel}
+      >
+        {ctaLabel || "View project ->"}
+      </a>
+    ) : null}
 
     {bullets.length > 0 ? (
       <ul className="resume-bullet-list">
@@ -225,7 +220,6 @@ const Resume = () => {
     featuredExperience,
     workExperience,
     selfDevelopment,
-    certifications,
     skills,
   } = resumeData;
 
@@ -238,9 +232,17 @@ const Resume = () => {
           <div className="resume-hero__identity">
             <div className="resume-hero__image-wrap">
               <img
-                src={profile.image}
+                src={optimizeCloudinaryImage(
+                  profile.image,
+                  "f_auto,q_auto,w_640,h_800,c_fill,g_face",
+                )}
+                srcSet={`${optimizeCloudinaryImage(profile.image, "f_auto,q_auto,w_320,h_400,c_fill,g_face")} 320w, ${optimizeCloudinaryImage(profile.image, "f_auto,q_auto,w_480,h_600,c_fill,g_face")} 480w, ${optimizeCloudinaryImage(profile.image, "f_auto,q_auto,w_640,h_800,c_fill,g_face")} 640w`}
+                sizes="(max-width: 768px) 180px, 230px"
+                width="640"
+                height="800"
                 alt={profile.name}
                 className="resume-hero__image"
+                decoding="async"
               />
             </div>
 
@@ -248,6 +250,9 @@ const Resume = () => {
               <p className="section-kicker">Professional profile</p>
               <h1>{profile.name}</h1>
               <p className="resume-hero__title">{profile.title}</p>
+            </div>
+
+            <div className="resume-hero__details">
               <p className="resume-hero__summary">{summary}</p>
 
               <div className="resume-contact-list">
@@ -305,15 +310,6 @@ const Resume = () => {
           </aside>
         </div>
 
-        <div className="resume-signal-grid">
-          {resumeSignals.map((signal) => (
-            <article key={signal.label} className="resume-signal-card">
-              <p>{signal.label}</p>
-              <h2>{signal.value}</h2>
-            </article>
-          ))}
-        </div>
-
         <div className="resume-layout">
           <div className="resume-main">
             <section className="resume-panel">
@@ -349,13 +345,12 @@ const Resume = () => {
 
             <section className="resume-panel">
               <div className="resume-panel__header">
-                <p className="resume-panel__kicker">
-                  Other technical background
-                </p>
-                <h2>Transferable work experience</h2>
+                <p className="resume-panel__kicker">Additional experience</p>
+                <h2>Technical operations and team training</h2>
                 <p>
-                  Previous operations-focused roles that shaped troubleshooting,
-                  communication, reliability, and execution under pressure.
+                  Recent professional experience demonstrating structured
+                  troubleshooting, documentation, training, and reliable
+                  execution under pressure.
                 </p>
               </div>
 
@@ -378,28 +373,6 @@ const Resume = () => {
 
           <aside className="resume-sidebar">
             <section className="resume-panel">
-              <p className="resume-panel__kicker">Quick view</p>
-              <div className="resume-quick-list">
-                <div>
-                  <span>Target role</span>
-                  <strong>Frontend Engineer</strong>
-                </div>
-                <div>
-                  <span>Location</span>
-                  <strong>{SITE_PROFILE.location}</strong>
-                </div>
-                <div>
-                  <span>Portfolio</span>
-                  <strong>{SITE_PROFILE.websiteLabel}</strong>
-                </div>
-                <div>
-                  <span>Current lane</span>
-                  <strong>Client delivery and frontend product work</strong>
-                </div>
-              </div>
-            </section>
-
-            <section className="resume-panel">
               <p className="resume-panel__kicker">Skills</p>
               <div className="resume-skill-groups">
                 {groupedSkills.map((group) => (
@@ -409,26 +382,6 @@ const Resume = () => {
                     items={group.items}
                   />
                 ))}
-              </div>
-            </section>
-
-            <section className="resume-panel">
-              <p className="resume-panel__kicker">Recognition</p>
-              <div className="resume-cert-list">
-                {certifications.map((item) => {
-                  const Icon = certificationIcons[item.type];
-
-                  return (
-                    <article key={item.title} className="resume-cert-card">
-                      <Icon />
-                      <div>
-                        <h3>{item.title}</h3>
-                        <p>{item.issuer}</p>
-                        <span>{item.detail}</span>
-                      </div>
-                    </article>
-                  );
-                })}
               </div>
             </section>
 
@@ -454,8 +407,8 @@ const Resume = () => {
 
             <section className="resume-panel">
               <div className="resume-panel__header">
-                <p className="resume-panel__kicker">Self-development</p>
-                <h2>Ongoing training</h2>
+                <p className="resume-panel__kicker">Technical development</p>
+                <h2>Training and hands-on foundation</h2>
               </div>
 
               <div className="resume-timeline">
@@ -465,36 +418,12 @@ const Resume = () => {
                     title={entry.title}
                     location={entry.location}
                     date={entry.date}
+                    href={entry.href}
+                    ariaLabel={entry.ariaLabel}
+                    ctaLabel={entry.ctaLabel}
                     bullets={entry.bullets}
                   />
                 ))}
-              </div>
-            </section>
-
-            <section className="resume-panel">
-              <div className="resume-panel__header">
-                <p className="resume-panel__kicker">Contact</p>
-                <h2>Reach out</h2>
-              </div>
-
-              <div className="resume-contact-stack">
-                {profile.links.map((link) => {
-                  const Icon = contactIcons[link.type];
-                  const isExternal = link.href.startsWith("http");
-
-                  return (
-                    <a
-                      key={`sidebar-${link.href}`}
-                      href={link.href}
-                      className="resume-contact-pill"
-                      target={isExternal ? "_blank" : undefined}
-                      rel={isExternal ? "noopener noreferrer" : undefined}
-                    >
-                      <Icon />
-                      <span>{link.label}</span>
-                    </a>
-                  );
-                })}
               </div>
             </section>
           </aside>

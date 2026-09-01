@@ -7,7 +7,6 @@
 }
 
 .resume-hero,
-.resume-signal-card,
 .resume-panel,
 .resume-brief-card {
   background:
@@ -18,11 +17,9 @@
 }
 
 .resume-hero,
-.resume-signal-card,
 .resume-panel,
 .resume-brief-card,
-.resume-project-card,
-.resume-cert-card {
+.resume-project-card {
   border-radius: 28px;
 }
 
@@ -41,27 +38,41 @@
 }
 
 .resume-hero__identity {
-  align-items: center;
+  align-items: start;
   background: rgba(255, 255, 255, 0.02);
   display: grid;
   gap: 1.4rem;
+  grid-template-areas:
+    "portrait heading"
+    "details details";
   grid-template-columns: auto minmax(0, 1fr);
 }
 
 .resume-hero__image-wrap {
+  aspect-ratio: 4 / 5;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 24px;
+  grid-area: portrait;
   overflow: hidden;
-  width: clamp(150px, 18vw, 210px);
+  width: clamp(180px, 18vw, 230px);
 }
 
 .resume-hero__image {
   display: block;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center;
   width: 100%;
+}
+
+.resume-hero__copy {
+  align-self: center;
+  grid-area: heading;
+}
+
+.resume-hero__details {
+  grid-area: details;
 }
 
 .resume-hero__copy h1 {
@@ -122,9 +133,7 @@
 
 .resume-panel__kicker,
 .resume-project-card__eyebrow,
-.resume-signal-card p,
-.resume-cert-card span,
-.resume-quick-list span {
+.resume-skill-group p {
   color: var(--accent-soft);
   font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
   font-size: 0.72rem;
@@ -134,7 +143,6 @@
 }
 
 .resume-brief-card h2,
-.resume-signal-card h2,
 .resume-panel__header h2 {
   font-size: clamp(1.5rem, 2vw, 2.15rem);
   margin: 0.2rem 0 0;
@@ -144,24 +152,6 @@
 .resume-main__split {
   display: grid;
   gap: 0.9rem;
-}
-
-.resume-signal-grid {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin-bottom: 1rem;
-}
-
-.resume-signal-card {
-  display: grid;
-  gap: 0.6rem;
-  padding: 1.15rem;
-}
-
-.resume-signal-card h2 {
-  font-size: 1.05rem;
-  line-height: 1.6;
 }
 
 .resume-layout {
@@ -194,29 +184,6 @@
 .resume-panel__header p:last-child {
   color: var(--text-muted);
   margin: 0.45rem 0 0;
-}
-
-.resume-quick-list {
-  display: grid;
-  gap: 1rem;
-}
-
-.resume-quick-list div {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-  display: grid;
-  gap: 0.3rem;
-  padding-bottom: 0.9rem;
-}
-
-.resume-quick-list div:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
-}
-
-.resume-quick-list strong {
-  color: var(--text);
-  font-size: 1rem;
-  font-weight: 600;
 }
 
 .resume-tag-group {
@@ -258,42 +225,16 @@
   padding: 0.58rem 0.82rem;
 }
 
-.resume-cert-list,
 .resume-project-list,
 .resume-timeline {
   display: grid;
   gap: 0.9rem;
 }
 
-.resume-cert-card,
 .resume-project-card,
 .resume-timeline-item {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.resume-cert-card {
-  align-items: start;
-  display: grid;
-  gap: 0.85rem;
-  grid-template-columns: auto minmax(0, 1fr);
-  padding: 1rem;
-}
-
-.resume-cert-card svg {
-  color: var(--accent-soft);
-  font-size: 1.1rem;
-  margin-top: 0.2rem;
-}
-
-.resume-cert-card h3 {
-  font-size: 1rem;
-  margin-bottom: 0.25rem;
-}
-
-.resume-cert-card p {
-  color: var(--text);
-  margin: 0 0 0.25rem;
 }
 
 .resume-project-group__header {
@@ -476,15 +417,6 @@
   width: 10px;
 }
 
-.resume-contact-stack {
-  display: grid;
-  gap: 0.7rem;
-}
-
-.resume-contact-stack .resume-contact-pill {
-  justify-content: flex-start;
-}
-
 @container (max-width: 430px) {
 
   .resume-project-card__top,
@@ -501,8 +433,7 @@
 @media (max-width: 1180px) {
 
   .resume-hero,
-  .resume-layout,
-  .resume-signal-grid {
+  .resume-layout {
     grid-template-columns: 1fr;
   }
 
@@ -523,12 +454,23 @@
 
   .resume-hero__identity,
   .resume-brief-card {
+    grid-template-areas: none;
     grid-template-columns: 1fr;
     padding: 1.15rem;
   }
 
+  .resume-hero__image-wrap,
+  .resume-hero__copy,
+  .resume-hero__details {
+    grid-area: auto;
+  }
+
   .resume-hero__copy h1 {
     max-width: none;
+  }
+
+  .resume-hero__image-wrap {
+    width: min(180px, 100%);
   }
 
   .resume-project-card__top,

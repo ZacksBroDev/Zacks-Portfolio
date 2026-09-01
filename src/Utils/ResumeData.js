@@ -8,29 +8,22 @@ export const resumeData = {
   profile: {
     name: SITE_PROFILE.name,
     title: SITE_PROFILE.title,
-    image: SITE_PROFILE.resumeImage,
+    image: SITE_PROFILE.profileImage,
     links: RESUME_HEADER_LINKS,
   },
   summary: RESUME_SUMMARY,
   education: [
     {
-      title: "Front Range Community College",
-      subtitle: "Associate of Science in Computer Science",
-      location: "Westminster, CO",
-      date: "Starting Aug 2026 (Expected May 2027)",
+      title: "University of Phoenix",
+      subtitle: "Bachelor of Science in Computer Science",
+      location: "Online",
+      date: "Expected 2029",
     },
     {
       title: "Western Colorado University",
-      subtitle: "Some College in Computer Science",
+      subtitle: "Computer Science coursework",
       location: "Gunnison, CO",
       date: "August 2022 - March 2024",
-    },
-    {
-      title: "Sandra Day O'Connor High School",
-      subtitle: "High School in Computer Science",
-      location: "Phoenix, AZ",
-      date: "August 2018 - May 2022",
-      bullets: ["AP Computer Science & Robotic Courses"],
     },
   ],
   featuredExperience: [
@@ -82,20 +75,6 @@ export const resumeData = {
           ],
         },
         {
-          title: "The Futons",
-          href: "https://thefutons.band/",
-          ariaLabel: "Visit The Futons website",
-          ctaLabel: "View case study ->",
-          date: "June 2025 - August 2025",
-          type: "Client promotional site",
-          location: "Freelance",
-          stack: ["HTML", "CSS", "JavaScript", "Cloudinary"],
-          bullets: [
-            "Shipped a performance-focused promotional site for a local band with responsive layouts and image-heavy content.",
-            "Implemented lazy loading and progressive media delivery to improve page-load behavior on slower connections.",
-          ],
-        },
-        {
           title: "My Personal Accountant",
           href: "https://github.com/zackaryzbrown/PersonalFinance",
           ariaLabel: "View source code for My Personal Accountant",
@@ -123,71 +102,6 @@ export const resumeData = {
         "Handled high-pressure diagnostics and team training with a focus on troubleshooting discipline, documentation, and reliable handoffs.",
       ],
     },
-    {
-      title: "Meat & Seafood Clerk / Courtesy Clerk",
-      company: "Kroger",
-      location: "Gunnison, CO",
-      date: "May 2023 - Mar 2024",
-      type: "Full-time",
-      bullets: [
-        "Maintained quality, safety, and customer-facing service standards while working quickly in high-traffic retail operations.",
-      ],
-    },
-    {
-      title: "Heavy Diesel Mechanic",
-      company: "Par Five LLC",
-      location: "Artesia, NM",
-      date: "Jun 2022 - Jul 2022",
-      type: "Part-time",
-      compact: true,
-      bullets: [
-        "Performed repair and welding tasks on diesel equipment with attention to safety, precision, and reduced downtime.",
-      ],
-    },
-    {
-      title: "Maintenance Technician",
-      company: "Firestone Complete Autocare",
-      location: "Phoenix, AZ",
-      date: "Aug 2021 - May 2022",
-      type: "Full-time",
-      compact: true,
-      bullets: [
-        "Supported preventive maintenance workflows and repeatable procedures to keep equipment dependable and service turnaround consistent.",
-      ],
-    },
-    {
-      title: "Lubrication Technician",
-      company: "Fenney's Automotive",
-      location: "Phoenix, AZ",
-      date: "May 2021 - Aug 2021",
-      type: "Full-time",
-      compact: true,
-      bullets: [
-        "Completed routine service work with strong quality control, time management, and customer-facing communication.",
-      ],
-    },
-    {
-      title: "Facilities Maintenance Technician",
-      company: "Best Western",
-      location: "Artesia, NM",
-      date: "May 2019 - August 2019",
-      type: "Seasonal",
-      compact: true,
-      bullets: [
-        "Resolved facility issues across departments with fast triage, practical fixes, and dependable follow-through.",
-      ],
-    },
-    {
-      title: "Office Assistant",
-      company: "Chamber of Commerce",
-      location: "Artesia, NM",
-      date: "May 2018 - August 2018",
-      type: "Seasonal",
-      compact: true,
-      bullets: [
-        "Coordinated administrative tasks and information packets with strong organization, communication, and stakeholder support.",
-      ],
-    },
   ],
   selfDevelopment: [
     {
@@ -200,26 +114,34 @@ export const resumeData = {
       ],
     },
     {
-      title: "Personal Frontend Product Labs",
-      location: "Independent",
-      date: "2025 - Present",
+      title: "RFID Access-Control Prototype",
+      location: "Independent Arduino project",
+      date: "June 2026",
+      href: "https://github.com/zackaryzbrown/RFID_DOORLOCK",
+      ariaLabel: "View the RFID Access-Control Prototype source code on GitHub",
+      ctaLabel: "View source code ->",
       bullets: [
-        "Built browser-based tools and product experiments to practice UI architecture, state management, and interaction design.",
+        "Programmed an Arduino-based access system in C++ using an MFRC522 RFID reader, 16x2 I2C LCD, and servo-actuated lock.",
+        "Implemented authorized-card validation, lock-state toggling, status feedback, and invalid-card handling, then integrated the electronics with custom 3D-printed mechanical parts.",
       ],
     },
-  ],
-  certifications: [
     {
-      type: "certificate",
-      title: "EPA 609 Certification",
-      issuer: "ESCO Institute",
-      detail: "Issued: April 25, 2025",
+      title: "RoboRAVE SumoBot Team Captain",
+      location: "Three-person competition team",
+      date: "2017",
+      bullets: [
+        "Led a three-student team to second place in the SumoBot division at a regional RoboRAVE competition.",
+        "Coordinated development while contributing sensor logic, motor control, autonomous strategy, chassis design, testing, and debugging.",
+      ],
     },
     {
-      type: "award",
-      title: "Area Top Performer (Multiple Quarters)",
-      issuer: "Firestone Complete Autocare",
-      detail: "Dec 2022, Dec 2024, Apr 2025, Aug 2025, Apr 2026",
+      title: "Network Infrastructure Exposure",
+      location: "Data center and home networking",
+      date: "Hands-on experience",
+      bullets: [
+        "Assisted with tracing and documenting network cable routes in a data-center environment using cable testers and crimping tools.",
+        "Installed, terminated, and tested Ethernet cabling for a home network, including cable routing and endpoint connectivity.",
+      ],
     },
   ],
   skills: [
